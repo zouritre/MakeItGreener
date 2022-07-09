@@ -13,6 +13,11 @@
 		E95E34A42879DE3B0098404F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95E34A32879DE3B0098404F /* Preview Assets.xcassets */; };
 		E95E34A62879DE3B0098404F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E34A52879DE3B0098404F /* Persistence.swift */; };
 		E95E34A92879DE3B0098404F /* MakeItGreener.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E95E34A72879DE3B0098404F /* MakeItGreener.xcdatamodeld */; };
+		E9B4A8BD287A08FB000AFE72 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8BC287A08FB000AFE72 /* MainView.swift */; };
+		E9B4A8C2287A0E8E000AFE72 /* KlimaatApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C1287A0E8D000AFE72 /* KlimaatApi.swift */; };
+		E9B4A8C5287A1A63000AFE72 /* TravelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C4287A1A63000AFE72 /* TravelData.swift */; };
+		E9B4A8C7287A1AE7000AFE72 /* TransportMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C6287A1AE7000AFE72 /* TransportMode.swift */; };
+		E9B4A8C9287A1B69000AFE72 /* KlimaatApiContsant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C8287A1B69000AFE72 /* KlimaatApiContsant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,11 @@
 		E95E34A32879DE3B0098404F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E95E34A52879DE3B0098404F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E95E34A82879DE3B0098404F /* MakeItGreener.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MakeItGreener.xcdatamodel; sourceTree = "<group>"; };
+		E9B4A8BC287A08FB000AFE72 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E9B4A8C1287A0E8D000AFE72 /* KlimaatApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlimaatApi.swift; sourceTree = "<group>"; };
+		E9B4A8C4287A1A63000AFE72 /* TravelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelData.swift; sourceTree = "<group>"; };
+		E9B4A8C6287A1AE7000AFE72 /* TransportMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportMode.swift; sourceTree = "<group>"; };
+		E9B4A8C8287A1B69000AFE72 /* KlimaatApiContsant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlimaatApiContsant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +65,14 @@
 		E95E349B2879DE3A0098404F /* MakeItGreener */ = {
 			isa = PBXGroup;
 			children = (
+				E9B4A8CA287A36CE000AFE72 /* View */,
+				E9B4A8BF287A0E17000AFE72 /* ViewModel */,
+				E9B4A8BE287A0E10000AFE72 /* Model */,
 				E95E34AF2879DEE10098404F /* CoreData */,
 				E95E349C2879DE3A0098404F /* MakeItGreenerApp.swift */,
-				E95E349E2879DE3A0098404F /* ContentView.swift */,
 				E95E34A02879DE3B0098404F /* Assets.xcassets */,
 				E95E34A22879DE3B0098404F /* Preview Content */,
+				E9B4A8BC287A08FB000AFE72 /* MainView.swift */,
 			);
 			path = MakeItGreener;
 			sourceTree = "<group>";
@@ -79,6 +92,48 @@
 				E95E34A72879DE3B0098404F /* MakeItGreener.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		E9B4A8BE287A0E10000AFE72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9B4A8C3287A1A28000AFE72 /* API */,
+				E9B4A8C0287A0E69000AFE72 /* Service */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9B4A8BF287A0E17000AFE72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9B4A8C0287A0E69000AFE72 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E9B4A8C3287A1A28000AFE72 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E9B4A8C1287A0E8D000AFE72 /* KlimaatApi.swift */,
+				E9B4A8C4287A1A63000AFE72 /* TravelData.swift */,
+				E9B4A8C6287A1AE7000AFE72 /* TransportMode.swift */,
+				E9B4A8C8287A1B69000AFE72 /* KlimaatApiContsant.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E9B4A8CA287A36CE000AFE72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E95E349E2879DE3A0098404F /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,9 +206,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B4A8C7287A1AE7000AFE72 /* TransportMode.swift in Sources */,
 				E95E34A62879DE3B0098404F /* Persistence.swift in Sources */,
+				E9B4A8C5287A1A63000AFE72 /* TravelData.swift in Sources */,
 				E95E34A92879DE3B0098404F /* MakeItGreener.xcdatamodeld in Sources */,
+				E9B4A8C2287A0E8E000AFE72 /* KlimaatApi.swift in Sources */,
 				E95E349F2879DE3A0098404F /* ContentView.swift in Sources */,
+				E9B4A8BD287A08FB000AFE72 /* MainView.swift in Sources */,
+				E9B4A8C9287A1B69000AFE72 /* KlimaatApiContsant.swift in Sources */,
 				E95E349D2879DE3A0098404F /* MakeItGreenerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
