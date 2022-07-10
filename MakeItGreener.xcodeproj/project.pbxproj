@@ -21,6 +21,7 @@
 		E961ECB6287B147D00D92C64 /* NetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB5287B147D00D92C64 /* NetworkServiceTest.swift */; };
 		E961ECB9287B14C500D92C64 /* FakeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB7287B14C500D92C64 /* FakeResponse.swift */; };
 		E961ECBA287B14C500D92C64 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */; };
+		E961ECBD287B19D500D92C64 /* CarbonFootprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECBC287B19D500D92C64 /* CarbonFootprint.swift */; };
 		E9B4A8BD287A08FB000AFE72 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8BC287A08FB000AFE72 /* MainView.swift */; };
 		E9B4A8C2287A0E8E000AFE72 /* CarbonFootprintApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C1287A0E8D000AFE72 /* CarbonFootprintApi.swift */; };
 		E9B4A8C5287A1A63000AFE72 /* TravelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C4287A1A63000AFE72 /* TravelData.swift */; };
@@ -56,6 +57,7 @@
 		E961ECB5287B147D00D92C64 /* NetworkServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTest.swift; sourceTree = "<group>"; };
 		E961ECB7287B14C500D92C64 /* FakeResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeResponse.swift; sourceTree = "<group>"; };
 		E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		E961ECBC287B19D500D92C64 /* CarbonFootprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprint.swift; sourceTree = "<group>"; };
 		E9B4A8BC287A08FB000AFE72 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E9B4A8C1287A0E8D000AFE72 /* CarbonFootprintApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintApi.swift; sourceTree = "<group>"; };
 		E9B4A8C4287A1A63000AFE72 /* TravelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelData.swift; sourceTree = "<group>"; };
@@ -181,13 +183,6 @@
 			path = MakeItGreenerTests;
 			sourceTree = "<group>";
 		};
-		E961ECBB287B189D00D92C64 /* CarbonFootprint */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CarbonFootprint;
-			sourceTree = "<group>";
-		};
 		E9B4A8BE287A0E10000AFE72 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,7 +195,7 @@
 		E9B4A8BF287A0E17000AFE72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E961ECBB287B189D00D92C64 /* CarbonFootprint */,
+				E961ECBC287B19D500D92C64 /* CarbonFootprint.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -377,6 +372,7 @@
 				E961EC9F287B065600D92C64 /* TypeOfTransport.swift in Sources */,
 				E95E34A62879DE3B0098404F /* Persistence.swift in Sources */,
 				E9B4A8C5287A1A63000AFE72 /* TravelData.swift in Sources */,
+				E961ECBD287B19D500D92C64 /* CarbonFootprint.swift in Sources */,
 				E95E34A92879DE3B0098404F /* MakeItGreener.xcdatamodeld in Sources */,
 				E9B4A8C2287A0E8E000AFE72 /* CarbonFootprintApi.swift in Sources */,
 				E95E349F2879DE3A0098404F /* ContentView.swift in Sources */,
