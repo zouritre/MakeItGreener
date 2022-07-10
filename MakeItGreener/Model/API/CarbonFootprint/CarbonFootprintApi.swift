@@ -1,5 +1,5 @@
 //
-//  KlimaatApi.swift
+//  CarbonFootprintApi.swift
 //  MakeItGreener
 //
 //  Created by Bertrand Dalleau on 09/07/2022.
