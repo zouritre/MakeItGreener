@@ -17,11 +17,25 @@
 		E961EC9D287AF9C900D92C64 /* CarbonFootprintEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961EC9C287AF9C900D92C64 /* CarbonFootprintEndpoint.swift */; };
 		E961EC9F287B065600D92C64 /* TypeOfTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961EC9E287B065600D92C64 /* TypeOfTransport.swift */; };
 		E961ECA3287B083C00D92C64 /* TypeOfVehicule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECA2287B083C00D92C64 /* TypeOfVehicule.swift */; };
+		E961ECA5287B125F00D92C64 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECA4287B125F00D92C64 /* NetworkService.swift */; };
+		E961ECB6287B147D00D92C64 /* NetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB5287B147D00D92C64 /* NetworkServiceTest.swift */; };
+		E961ECB9287B14C500D92C64 /* FakeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB7287B14C500D92C64 /* FakeResponse.swift */; };
+		E961ECBA287B14C500D92C64 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */; };
 		E9B4A8BD287A08FB000AFE72 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8BC287A08FB000AFE72 /* MainView.swift */; };
 		E9B4A8C2287A0E8E000AFE72 /* CarbonFootprintApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C1287A0E8D000AFE72 /* CarbonFootprintApi.swift */; };
 		E9B4A8C5287A1A63000AFE72 /* TravelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C4287A1A63000AFE72 /* TravelData.swift */; };
 		E9B4A8C9287A1B69000AFE72 /* CarbonFootprintConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C8287A1B69000AFE72 /* CarbonFootprintConstant.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E961ECAE287B140A00D92C64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E95E34912879DE3A0098404F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E95E34982879DE3A0098404F;
+			remoteInfo = MakeItGreener;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5308B1A2D637627B314ECE9B /* Pods-MakeItGreener.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.debug.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.debug.xcconfig"; sourceTree = "<group>"; };
@@ -37,6 +51,11 @@
 		E961EC9C287AF9C900D92C64 /* CarbonFootprintEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintEndpoint.swift; sourceTree = "<group>"; };
 		E961EC9E287B065600D92C64 /* TypeOfTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfTransport.swift; sourceTree = "<group>"; };
 		E961ECA2287B083C00D92C64 /* TypeOfVehicule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfVehicule.swift; sourceTree = "<group>"; };
+		E961ECA4287B125F00D92C64 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E961ECAA287B140A00D92C64 /* MakeItGreenerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakeItGreenerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E961ECB5287B147D00D92C64 /* NetworkServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTest.swift; sourceTree = "<group>"; };
+		E961ECB7287B14C500D92C64 /* FakeResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeResponse.swift; sourceTree = "<group>"; };
+		E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		E9B4A8BC287A08FB000AFE72 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E9B4A8C1287A0E8D000AFE72 /* CarbonFootprintApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintApi.swift; sourceTree = "<group>"; };
 		E9B4A8C4287A1A63000AFE72 /* TravelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelData.swift; sourceTree = "<group>"; };
@@ -49,6 +68,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				29C9A04DBD6093203F8EE211 /* Pods_MakeItGreener.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E961ECA7287B140A00D92C64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +95,6 @@
 				5308B1A2D637627B314ECE9B /* Pods-MakeItGreener.debug.xcconfig */,
 				6CBA899CEFEBC5F080D87CAE /* Pods-MakeItGreener.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -77,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				E95E349B2879DE3A0098404F /* MakeItGreener */,
+				E961ECAB287B140A00D92C64 /* MakeItGreenerTests */,
 				E95E349A2879DE3A0098404F /* Products */,
 				CAD76BAE1E0E13249B81A20E /* Pods */,
 				65055DA0D6808557216C0984 /* Frameworks */,
@@ -87,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				E95E34992879DE3A0098404F /* MakeItGreener.app */,
+				E961ECAA287B140A00D92C64 /* MakeItGreenerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +171,23 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		E961ECAB287B140A00D92C64 /* MakeItGreenerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E961ECB7287B14C500D92C64 /* FakeResponse.swift */,
+				E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */,
+				E961ECB5287B147D00D92C64 /* NetworkServiceTest.swift */,
+			);
+			path = MakeItGreenerTests;
+			sourceTree = "<group>";
+		};
+		E961ECBB287B189D00D92C64 /* CarbonFootprint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CarbonFootprint;
+			sourceTree = "<group>";
+		};
 		E9B4A8BE287A0E10000AFE72 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +200,7 @@
 		E9B4A8BF287A0E17000AFE72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E961ECBB287B189D00D92C64 /* CarbonFootprint */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -163,6 +208,7 @@
 		E9B4A8C0287A0E69000AFE72 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E961ECA4287B125F00D92C64 /* NetworkService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -205,6 +251,24 @@
 			productReference = E95E34992879DE3A0098404F /* MakeItGreener.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E961ECA9287B140A00D92C64 /* MakeItGreenerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E961ECB0287B140A00D92C64 /* Build configuration list for PBXNativeTarget "MakeItGreenerTests" */;
+			buildPhases = (
+				E961ECA6287B140A00D92C64 /* Sources */,
+				E961ECA7287B140A00D92C64 /* Frameworks */,
+				E961ECA8287B140A00D92C64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E961ECAF287B140A00D92C64 /* PBXTargetDependency */,
+			);
+			name = MakeItGreenerTests;
+			productName = MakeItGreenerTests;
+			productReference = E961ECAA287B140A00D92C64 /* MakeItGreenerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -217,6 +281,11 @@
 				TargetAttributes = {
 					E95E34982879DE3A0098404F = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					E961ECA9287B140A00D92C64 = {
+						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
+						TestTargetID = E95E34982879DE3A0098404F;
 					};
 				};
 			};
@@ -234,6 +303,7 @@
 			projectRoot = "";
 			targets = (
 				E95E34982879DE3A0098404F /* MakeItGreener */,
+				E961ECA9287B140A00D92C64 /* MakeItGreenerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,6 +315,13 @@
 			files = (
 				E95E34A42879DE3B0098404F /* Preview Assets.xcassets in Resources */,
 				E95E34A12879DE3B0098404F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E961ECA8287B140A00D92C64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,11 +384,30 @@
 				E9B4A8BD287A08FB000AFE72 /* MainView.swift in Sources */,
 				E961EC9D287AF9C900D92C64 /* CarbonFootprintEndpoint.swift in Sources */,
 				E9B4A8C9287A1B69000AFE72 /* CarbonFootprintConstant.swift in Sources */,
+				E961ECA5287B125F00D92C64 /* NetworkService.swift in Sources */,
 				E95E349D2879DE3A0098404F /* MakeItGreenerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E961ECA6287B140A00D92C64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E961ECBA287B14C500D92C64 /* MockURLProtocol.swift in Sources */,
+				E961ECB6287B147D00D92C64 /* NetworkServiceTest.swift in Sources */,
+				E961ECB9287B14C500D92C64 /* FakeResponse.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E961ECAF287B140A00D92C64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E95E34982879DE3A0098404F /* MakeItGreener */;
+			targetProxy = E961ECAE287B140A00D92C64 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E95E34AA2879DE3B0098404F /* Debug */ = {
@@ -490,6 +586,55 @@
 			};
 			name = Release;
 		};
+		E961ECB1287B140A00D92C64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 32VPA6HJ38;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bertranddalleau.MakeItGreenerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MakeItGreener.app/MakeItGreener";
+			};
+			name = Debug;
+		};
+		E961ECB2287B140A00D92C64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 32VPA6HJ38;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bertranddalleau.MakeItGreenerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MakeItGreener.app/MakeItGreener";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -507,6 +652,15 @@
 			buildConfigurations = (
 				E95E34AD2879DE3B0098404F /* Debug */,
 				E95E34AE2879DE3B0098404F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E961ECB0287B140A00D92C64 /* Build configuration list for PBXNativeTarget "MakeItGreenerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E961ECB1287B140A00D92C64 /* Debug */,
+				E961ECB2287B140A00D92C64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
