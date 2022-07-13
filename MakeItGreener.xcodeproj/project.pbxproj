@@ -14,9 +14,11 @@
 		E95E34A42879DE3B0098404F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95E34A32879DE3B0098404F /* Preview Assets.xcassets */; };
 		E95E34A62879DE3B0098404F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E34A52879DE3B0098404F /* Persistence.swift */; };
 		E95E34A92879DE3B0098404F /* MakeItGreener.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E95E34A72879DE3B0098404F /* MakeItGreener.xcdatamodeld */; };
+		E95FFC01287EDA6E00B934B3 /* TransportationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFC00287EDA6E00B934B3 /* TransportationType.swift */; };
+		E95FFC03287EFAE100B934B3 /* DistanceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFC02287EFAE100B934B3 /* DistanceForm.swift */; };
+		E95FFC08287F10B400B934B3 /* MapLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFC07287F10B400B934B3 /* MapLocation.swift */; };
+		E95FFC0B287F35D800B934B3 /* LocationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFC0A287F35D800B934B3 /* LocationLabel.swift */; };
 		E961EC9D287AF9C900D92C64 /* CarbonFootprintEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961EC9C287AF9C900D92C64 /* CarbonFootprintEndpoint.swift */; };
-		E961EC9F287B065600D92C64 /* TypeOfTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961EC9E287B065600D92C64 /* TypeOfTransport.swift */; };
-		E961ECA3287B083C00D92C64 /* TypeOfVehicule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECA2287B083C00D92C64 /* TypeOfVehicule.swift */; };
 		E961ECA5287B125F00D92C64 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECA4287B125F00D92C64 /* NetworkService.swift */; };
 		E961ECB6287B147D00D92C64 /* NetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB5287B147D00D92C64 /* NetworkServiceTest.swift */; };
 		E961ECB9287B14C500D92C64 /* FakeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB7287B14C500D92C64 /* FakeResponse.swift */; };
@@ -26,6 +28,11 @@
 		E9B4A8C2287A0E8E000AFE72 /* CarbonFootprintApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C1287A0E8D000AFE72 /* CarbonFootprintApi.swift */; };
 		E9B4A8C5287A1A63000AFE72 /* TravelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C4287A1A63000AFE72 /* TravelData.swift */; };
 		E9B4A8C9287A1B69000AFE72 /* CarbonFootprintConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8C8287A1B69000AFE72 /* CarbonFootprintConstant.swift */; };
+		E9CEFCBE287D90390024198C /* MyFootprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCBD287D90390024198C /* MyFootprint.swift */; };
+		E9CEFCC0287D90AA0024198C /* TravelForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCBF287D90AA0024198C /* TravelForm.swift */; };
+		E9CEFCC2287D9A8A0024198C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCC1287D9A8A0024198C /* MapView.swift */; };
+		E9CEFCC5287D9BF90024198C /* TransportationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCC4287D9BF90024198C /* TransportationForm.swift */; };
+		E9CEFCD1287DD6BF0024198C /* TransportationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCD0287DD6BF0024198C /* TransportationMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,9 +56,11 @@
 		E95E34A32879DE3B0098404F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E95E34A52879DE3B0098404F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E95E34A82879DE3B0098404F /* MakeItGreener.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MakeItGreener.xcdatamodel; sourceTree = "<group>"; };
+		E95FFC00287EDA6E00B934B3 /* TransportationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationType.swift; sourceTree = "<group>"; };
+		E95FFC02287EFAE100B934B3 /* DistanceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceForm.swift; sourceTree = "<group>"; };
+		E95FFC07287F10B400B934B3 /* MapLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocation.swift; sourceTree = "<group>"; };
+		E95FFC0A287F35D800B934B3 /* LocationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationLabel.swift; sourceTree = "<group>"; };
 		E961EC9C287AF9C900D92C64 /* CarbonFootprintEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintEndpoint.swift; sourceTree = "<group>"; };
-		E961EC9E287B065600D92C64 /* TypeOfTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfTransport.swift; sourceTree = "<group>"; };
-		E961ECA2287B083C00D92C64 /* TypeOfVehicule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfVehicule.swift; sourceTree = "<group>"; };
 		E961ECA4287B125F00D92C64 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E961ECAA287B140A00D92C64 /* MakeItGreenerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakeItGreenerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E961ECB5287B147D00D92C64 /* NetworkServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTest.swift; sourceTree = "<group>"; };
@@ -62,6 +71,11 @@
 		E9B4A8C1287A0E8D000AFE72 /* CarbonFootprintApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintApi.swift; sourceTree = "<group>"; };
 		E9B4A8C4287A1A63000AFE72 /* TravelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelData.swift; sourceTree = "<group>"; };
 		E9B4A8C8287A1B69000AFE72 /* CarbonFootprintConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintConstant.swift; sourceTree = "<group>"; };
+		E9CEFCBD287D90390024198C /* MyFootprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFootprint.swift; sourceTree = "<group>"; };
+		E9CEFCBF287D90AA0024198C /* TravelForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelForm.swift; sourceTree = "<group>"; };
+		E9CEFCC1287D9A8A0024198C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E9CEFCC4287D9BF90024198C /* TransportationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationForm.swift; sourceTree = "<group>"; };
+		E9CEFCD0287DD6BF0024198C /* TransportationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +144,6 @@
 				E95E349C2879DE3A0098404F /* MakeItGreenerApp.swift */,
 				E95E34A02879DE3B0098404F /* Assets.xcassets */,
 				E95E34A22879DE3B0098404F /* Preview Content */,
-				E9B4A8BC287A08FB000AFE72 /* MainView.swift */,
 			);
 			path = MakeItGreener;
 			sourceTree = "<group>";
@@ -152,6 +165,41 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		E95FFC04287EFAF300B934B3 /* Main Form */ = {
+			isa = PBXGroup;
+			children = (
+				E9CEFCBF287D90AA0024198C /* TravelForm.swift */,
+			);
+			path = "Main Form";
+			sourceTree = "<group>";
+		};
+		E95FFC05287EFB0200B934B3 /* SubForms */ = {
+			isa = PBXGroup;
+			children = (
+				E9CEFCC1287D9A8A0024198C /* MapView.swift */,
+				E9CEFCC4287D9BF90024198C /* TransportationForm.swift */,
+				E95FFC02287EFAE100B934B3 /* DistanceForm.swift */,
+			);
+			path = SubForms;
+			sourceTree = "<group>";
+		};
+		E95FFC06287F10A200B934B3 /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				E95FFC07287F10B400B934B3 /* MapLocation.swift */,
+				E95FFC0A287F35D800B934B3 /* LocationLabel.swift */,
+			);
+			path = MapKit;
+			sourceTree = "<group>";
+		};
+		E95FFC09287F245000B934B3 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				E95FFC06287F10A200B934B3 /* MapKit */,
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
 		E961ECA0287B078800D92C64 /* CarbonFootprint */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,10 +213,9 @@
 		E961ECA1287B07A200D92C64 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				E9CEFCCA287DBED80024198C /* Transportation */,
 				E9B4A8C8287A1B69000AFE72 /* CarbonFootprintConstant.swift */,
 				E961EC9C287AF9C900D92C64 /* CarbonFootprintEndpoint.swift */,
-				E961EC9E287B065600D92C64 /* TypeOfTransport.swift */,
-				E961ECA2287B083C00D92C64 /* TypeOfVehicule.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -186,6 +233,7 @@
 		E9B4A8BE287A0E10000AFE72 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E95FFC09287F245000B934B3 /* Struct */,
 				E9B4A8C3287A1A28000AFE72 /* API */,
 				E9B4A8C0287A0E69000AFE72 /* Service */,
 			);
@@ -219,9 +267,30 @@
 		E9B4A8CA287A36CE000AFE72 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E9CEFCC3287D9B4E0024198C /* Travel Form */,
 				E95E349E2879DE3A0098404F /* ContentView.swift */,
+				E9B4A8BC287A08FB000AFE72 /* MainView.swift */,
+				E9CEFCBD287D90390024198C /* MyFootprint.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E9CEFCC3287D9B4E0024198C /* Travel Form */ = {
+			isa = PBXGroup;
+			children = (
+				E95FFC05287EFB0200B934B3 /* SubForms */,
+				E95FFC04287EFAF300B934B3 /* Main Form */,
+			);
+			path = "Travel Form";
+			sourceTree = "<group>";
+		};
+		E9CEFCCA287DBED80024198C /* Transportation */ = {
+			isa = PBXGroup;
+			children = (
+				E9CEFCD0287DD6BF0024198C /* TransportationMode.swift */,
+				E95FFC00287EDA6E00B934B3 /* TransportationType.swift */,
+			);
+			path = Transportation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,19 +438,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E961EC9F287B065600D92C64 /* TypeOfTransport.swift in Sources */,
+				E95FFC03287EFAE100B934B3 /* DistanceForm.swift in Sources */,
 				E95E34A62879DE3B0098404F /* Persistence.swift in Sources */,
+				E95FFC01287EDA6E00B934B3 /* TransportationType.swift in Sources */,
 				E9B4A8C5287A1A63000AFE72 /* TravelData.swift in Sources */,
 				E961ECBD287B19D500D92C64 /* CarbonFootprint.swift in Sources */,
 				E95E34A92879DE3B0098404F /* MakeItGreener.xcdatamodeld in Sources */,
 				E9B4A8C2287A0E8E000AFE72 /* CarbonFootprintApi.swift in Sources */,
 				E95E349F2879DE3A0098404F /* ContentView.swift in Sources */,
-				E961ECA3287B083C00D92C64 /* TypeOfVehicule.swift in Sources */,
+				E9CEFCC0287D90AA0024198C /* TravelForm.swift in Sources */,
+				E9CEFCD1287DD6BF0024198C /* TransportationMode.swift in Sources */,
 				E9B4A8BD287A08FB000AFE72 /* MainView.swift in Sources */,
+				E9CEFCC2287D9A8A0024198C /* MapView.swift in Sources */,
+				E9CEFCC5287D9BF90024198C /* TransportationForm.swift in Sources */,
 				E961EC9D287AF9C900D92C64 /* CarbonFootprintEndpoint.swift in Sources */,
 				E9B4A8C9287A1B69000AFE72 /* CarbonFootprintConstant.swift in Sources */,
+				E95FFC0B287F35D800B934B3 /* LocationLabel.swift in Sources */,
+				E9CEFCBE287D90390024198C /* MyFootprint.swift in Sources */,
 				E961ECA5287B125F00D92C64 /* NetworkService.swift in Sources */,
 				E95E349D2879DE3A0098404F /* MakeItGreenerApp.swift in Sources */,
+				E95FFC08287F10B400B934B3 /* MapLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +622,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bertranddalleau.MakeItGreener;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_SUPPRESS_WARNINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -577,6 +654,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bertranddalleau.MakeItGreener;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_SUPPRESS_WARNINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

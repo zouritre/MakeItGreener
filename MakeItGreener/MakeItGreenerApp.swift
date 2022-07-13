@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct MakeItGreenerApp: App {
-    let persistenceController = PersistenceController.shared
+//    let persistenceController = PersistenceController.shared
+    @StateObject var carbonFootprint = CarbonFootprint()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            MainView()
+                .environmentObject(carbonFootprint)
+//            ContentView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

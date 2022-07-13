@@ -9,33 +9,36 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-protocol CarbonFootprintDelegate {
-    func carbonFootprint(value: Float?, error: Error?)
-}
-
-class CarbonFootprint {
+class CarbonFootprint: ObservableObject {
+    @Published var footprint = Float()
+    @Published var errorFound: Bool = false
     
-    var carbonFootprintDelegate: CarbonFootprintDelegate?
+    var errorDescription: String = ""
     
-    func getFootprint(for travelData: TravelData, on endpoint: CarbonFootprintEndpoint) {
+    func getFootprint(for travelData: TravelData) {
         
         let api = CarbonFootprintApi()
         
-        let url = api.co2FootprintUrl(for: travelData, on: endpoint)
+        let url = api.co2FootprintUrl(for: travelData)
         
         NetworkService.shared.makeRequest(url: url, method: .get) { data, error in
             guard let data = data, error == nil else {
-                self.carbonFootprintDelegate?.carbonFootprint(value: nil, error: error)
+                if let error = error {
+                    self.errorDescription = error.localizedDescription
+                    self.errorFound = true
+                }
+                
                 return
             }
 
             guard let json = try? JSON(data: data) else {
-                self.carbonFootprintDelegate?.carbonFootprint(value: nil, error: SwiftyJSONError.invalidJSON)
+                self.errorDescription = SwiftyJSONError.invalidJSON.localizedDescription
+                self.errorFound = true
+                
                 return
             }
         
-            self.carbonFootprintDelegate?.carbonFootprint(value: json["carbonEquivalent"].floatValue, error: nil)
-            
+            self.footprint = json["carbonEquivalent"].floatValue
         }
     }
 }

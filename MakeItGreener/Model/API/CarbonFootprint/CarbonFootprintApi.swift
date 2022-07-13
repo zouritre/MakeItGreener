@@ -21,19 +21,16 @@ class CarbonFootprintApi {
     /// Construct an URL with the user travel datas based on the chosen endpoint
     /// - Parameter travelData: Details about the user travel
     /// - Returns: A ready to send URL with the user travel datas
-    func co2FootprintUrl(for travelData: TravelData, on endpoint: CarbonFootprintEndpoint) -> URL? {
+    func co2FootprintUrl(for travelData: TravelData) -> URL? {
         var component = URLComponents()
-        component.path = endpoint.rawValue
+        component.path = travelData.transportationMode.endpoint().rawValue
         
         //URL parameters
         var queryItems: [URLQueryItem] = []
         
-        for (key, val) in travelData.datas {
-            
-            let newItem = URLQueryItem(name: key, value: val)
-            
-            queryItems.append(newItem)
-        }
+        queryItems.append(URLQueryItem(name: "distance", value: String(travelData.distance)))
+        queryItems.append(URLQueryItem(name: "type", value: travelData.transportationType.apiString()))
+
         
         component.queryItems = queryItems
 //        print(component.url(relativeTo: baseURL)?.absoluteURL)
