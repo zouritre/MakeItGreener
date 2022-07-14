@@ -114,6 +114,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E93C136928804CB000C31059 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				E95FFC0A287F35D800B934B3 /* LocationLabel.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		E95E34902879DE3A0098404F = {
 			isa = PBXGroup;
 			children = (
@@ -176,9 +184,9 @@
 		E95FFC05287EFB0200B934B3 /* SubForms */ = {
 			isa = PBXGroup;
 			children = (
+				E95FFC02287EFAE100B934B3 /* DistanceForm.swift */,
 				E9CEFCC1287D9A8A0024198C /* MapView.swift */,
 				E9CEFCC4287D9BF90024198C /* TransportationForm.swift */,
-				E95FFC02287EFAE100B934B3 /* DistanceForm.swift */,
 			);
 			path = SubForms;
 			sourceTree = "<group>";
@@ -186,8 +194,8 @@
 		E95FFC06287F10A200B934B3 /* MapKit */ = {
 			isa = PBXGroup;
 			children = (
-				E95FFC07287F10B400B934B3 /* MapLocation.swift */,
-				E95FFC0A287F35D800B934B3 /* LocationLabel.swift */,
+				E93C136928804CB000C31059 /* Enum */,
+				E95FFC09287F245000B934B3 /* Struct */,
 			);
 			path = MapKit;
 			sourceTree = "<group>";
@@ -195,7 +203,7 @@
 		E95FFC09287F245000B934B3 /* Struct */ = {
 			isa = PBXGroup;
 			children = (
-				E95FFC06287F10A200B934B3 /* MapKit */,
+				E95FFC07287F10B400B934B3 /* MapLocation.swift */,
 			);
 			path = Struct;
 			sourceTree = "<group>";
@@ -241,7 +249,7 @@
 		E9B4A8BE287A0E10000AFE72 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E95FFC09287F245000B934B3 /* Struct */,
+				E95FFC06287F10A200B934B3 /* MapKit */,
 				E9B4A8C3287A1A28000AFE72 /* API */,
 				E9B4A8C0287A0E69000AFE72 /* Service */,
 			);

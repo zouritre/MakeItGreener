@@ -40,8 +40,6 @@ struct TransportationForm: View {
                 Text($0.userString())
             }
         }
-        .navigationTitle("Travel details")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
