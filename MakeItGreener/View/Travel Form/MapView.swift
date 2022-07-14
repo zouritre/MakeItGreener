@@ -31,18 +31,18 @@ struct MapView: View {
         { location in
             MapAnnotation(coordinate: location.location, content: {
                 if location.name == .Start {
+                    Text(location.name.rawValue)
+                        .font(.title.weight(.bold))
                     Image(systemName: "figure.walk")
                         .foregroundColor(.red)
                         .imageScale(.large)
-                    Text(location.name.rawValue)
-                        .font(.system(size: 28, weight: .bold, design: .default))
                 }
                 else {
+                    Text(location.name.rawValue)
+                        .font(.title.weight(.bold))
                     Image(systemName: "flag.circle.fill")
                         .foregroundColor(.red)
                         .imageScale(.large)
-                    Text(location.name.rawValue)
-                        .font(.system(size: 28, weight: .bold, design: .default))
                 }
             })
         }

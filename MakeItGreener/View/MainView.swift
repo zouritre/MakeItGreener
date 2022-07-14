@@ -12,11 +12,11 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            TravelForm()
+            TravelFormTab()
                 .tabItem {
                     Label("Calculate", systemImage: "square.and.pencil")
                 }
-            MyFootprint()
+            MyFootprintTab()
                 .tabItem {
                     Label("My footprint", systemImage: "leaf")
                 }

@@ -9,7 +9,7 @@ import Foundation
 
 ///Store data about the user journey
 struct TravelData {
-    var distance: Float
+    var distance: Double
     var transportationType: TransportationType
     var transportationMode: TransportationMode
 }

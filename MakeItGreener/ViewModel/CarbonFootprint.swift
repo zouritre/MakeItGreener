@@ -11,17 +11,32 @@ import Alamofire
 
 class CarbonFootprint: ObservableObject {
     @Published var footprint = Float()
-    @Published var footprintAvailable = false
     @Published var errorFound: Bool = false
+    @Published var chosenTransportationMode: TransportationMode = .Vehicule
+    @Published var chosenTransportationType: TransportationType = .MediumDieselCar
     
     var errorDescription: String = ""
+    var travelDistance: Double = 100
+    var transportationModes = TransportationMode.allCases
+    var transportationTypes: [TransportationType] {
+        let filteredList = TransportationType.allCases.filter {
+            guard let transportationId = $0.rawValue.first else {
+                return false
+            }
+            
+            return String(transportationId) == self.chosenTransportationMode.rawValue
+        }
+        
+        return filteredList
+    }
     
-    func getFootprint(for travelData: TravelData) {
-        
+    func getFootprint() {
+        print("here")
+        let travelData = TravelData(distance: self.travelDistance,
+                                    transportationType: self.chosenTransportationType,
+                                    transportationMode: self.chosenTransportationMode)
         let api = CarbonFootprintApi()
-        
         let url = api.co2FootprintUrl(for: travelData)
-        
         let headers = HTTPHeaders(CarbonFootprintConstant.headers)
         
         NetworkService.shared.makeRequest(url: url, method: .get, headers: headers) { data, error in
@@ -42,7 +57,6 @@ class CarbonFootprint: ObservableObject {
             }
         
             self.footprint = json["carbonEquivalent"].floatValue
-            self.footprintAvailable = true
             print(self.footprint)
         }
     }
