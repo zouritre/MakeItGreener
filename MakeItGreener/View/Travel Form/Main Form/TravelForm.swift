@@ -15,7 +15,7 @@ struct TravelForm: View {
     @State var chosenTransportationType: TransportationType = .MediumDieselCar
     
     var distance: Float {
-        return 1
+        return 1000
     }
     
     var body: some View {
@@ -48,25 +48,25 @@ struct TravelForm: View {
                         }, label: {
                             Label("How green am I", systemImage: "leaf.circle.fill")
                         })
-                        .alert(self.carbonFootprint.errorDescription, isPresented: $carbonFootprint.errorFound, actions: {
-                            //Disable activity indicator
-                            //Re-enable button
-                            return Text("OK")
-                        })
                         .symbolRenderingMode(.multicolor)
-                        .buttonStyle(.automatic)
                     }
                 }
                 
                 
             }
+            NavigationLink(isActive: $carbonFootprint.footprintAvailable, destination: { EmptyView() }, label: { Text("ResultView")})
         }
         .navigationViewStyle(.stack)
+        .alert(self.carbonFootprint.errorDescription, isPresented: $carbonFootprint.errorFound, actions: {
+            //Disable activity indicator
+            //Re-enable button
+            return Text("I'll fix that")
+        })
     }
 }
 
 struct TravelForm_Previews: PreviewProvider {
     static var previews: some View {
-        TravelForm()
+        TravelForm(chosenTransportationMode: .Vehicule, chosenTransportationType: .MediumDieselCar).environmentObject(CarbonFootprint())
     }
 }

@@ -10,16 +10,19 @@ import Foundation
 enum TransportationMode: String, CaseIterable {
     case Plane = "f"
     case Vehicule = "v"
+    case Motorbike = "m"
     case Public = "p"
     
     func description() -> String {
         switch self {
         case .Plane:
-            return "Travel class"
+            return "Class"
         case .Vehicule:
-            return "Vehicule type"
+            return "Type"
+        case .Motorbike:
+            return "Type"
         case .Public:
-            return "Transportation type"
+            return "Type"
         }
     }
     
@@ -28,7 +31,9 @@ enum TransportationMode: String, CaseIterable {
         case .Plane:
             return "Plane"
         case .Vehicule:
-            return "Vehicule"
+            return "Vehicle"
+        case .Motorbike:
+            return "Motorbike"
         case .Public:
             return "Public transport"
         }
@@ -40,28 +45,10 @@ enum TransportationMode: String, CaseIterable {
             return .CarbonFootprintFromFlight
         case .Vehicule:
             return .CarbonFootprintFromCarTravel
+        case .Motorbike:
+            return .CarbonFootprintFromMotorBike
         case .Public:
             return .CarbonFootprintFromPublicTransit
         }
     }
-//
-//    func transportationTypes() -> [String] {
-//        switch self {
-//        case .Plane:
-//            return enumToStringArray(from: VehiculeType.allCases)
-//        case .Vehicule:
-//            return enumToStringArray(from: VehiculeType.allCases)
-//        case .Public:
-//            return enumToStringArray(from: VehiculeType.allCases)
-//        }
-//    }
-//
-//    func enumToStringArray<T: RawRepresentable>(from array: [T]) -> [T.RawValue] {
-//        var stringArray = [T.RawValue]()
-//        array.forEach { element in
-//            stringArray.append(element.rawValue)
-//        }
-//        return stringArray
-//    }
-    
 }

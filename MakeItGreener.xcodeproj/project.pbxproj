@@ -200,11 +200,20 @@
 			path = Struct;
 			sourceTree = "<group>";
 		};
+		E95FFC0C287F601E00B934B3 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				E9B4A8C4287A1A63000AFE72 /* TravelData.swift */,
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
 		E961ECA0287B078800D92C64 /* CarbonFootprint */ = {
 			isa = PBXGroup;
 			children = (
 				E9B4A8C1287A0E8D000AFE72 /* CarbonFootprintApi.swift */,
-				E9B4A8C4287A1A63000AFE72 /* TravelData.swift */,
+				E9B4A8C8287A1B69000AFE72 /* CarbonFootprintConstant.swift */,
+				E961EC9C287AF9C900D92C64 /* CarbonFootprintEndpoint.swift */,
 				E961ECA1287B07A200D92C64 /* Enums */,
 			);
 			path = CarbonFootprint;
@@ -213,9 +222,8 @@
 		E961ECA1287B07A200D92C64 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				E95FFC0C287F601E00B934B3 /* Struct */,
 				E9CEFCCA287DBED80024198C /* Transportation */,
-				E9B4A8C8287A1B69000AFE72 /* CarbonFootprintConstant.swift */,
-				E961EC9C287AF9C900D92C64 /* CarbonFootprintEndpoint.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";

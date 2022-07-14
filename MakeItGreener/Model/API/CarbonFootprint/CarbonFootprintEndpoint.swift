@@ -11,4 +11,5 @@ enum CarbonFootprintEndpoint: String {
     case CarbonFootprintFromPublicTransit
     case CarbonFootprintFromFlight
     case CarbonFootprintFromCarTravel
+    case CarbonFootprintFromMotorBike
 }

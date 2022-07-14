@@ -29,11 +29,16 @@ class CarbonFootprintApi {
         var queryItems: [URLQueryItem] = []
         
         queryItems.append(URLQueryItem(name: "distance", value: String(travelData.distance)))
-        queryItems.append(URLQueryItem(name: "type", value: travelData.transportationType.apiString()))
-
         
+        if travelData.transportationMode == .Vehicule {
+            queryItems.append(URLQueryItem(name: "vehicle", value: travelData.transportationType.apiString()))
+        }
+        else {
+            queryItems.append(URLQueryItem(name: "type", value: travelData.transportationType.apiString()))
+        }
+
         component.queryItems = queryItems
-//        print(component.url(relativeTo: baseURL)?.absoluteURL)
+        
         return component.url(relativeTo: baseURL)?.absoluteURL
         
     }

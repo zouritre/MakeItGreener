@@ -23,7 +23,7 @@ final class NetworkService {
         self.sessionManager = Session()
     }
     
-    func makeRequest(url: URL?, method: HTTPMethod, completionHandler: @escaping (Data?, AFError?) -> Void) {
+    func makeRequest(url: URL?, method: HTTPMethod, headers: HTTPHeaders?, completionHandler: @escaping (Data?, AFError?) -> Void) {
         
         //Cancel pending requests
         sessionManager.cancelAllRequests()
@@ -36,7 +36,7 @@ final class NetworkService {
         }
         
         // Emit a request to specified URL
-        sessionManager.request(url, method: method).validate().response { response in
+        sessionManager.request(url, method: method, headers: headers).validate().response { response in
             
             switch response.result {
                 
