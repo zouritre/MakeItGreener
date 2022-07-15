@@ -9,36 +9,27 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @Binding var locations: [MapLocation]
+    @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
-    //Apple Park location as default
-    @State var region = MKCoordinateRegion(
-        center:  CLLocationCoordinate2D(
-          latitude: 37.334_900,
-          longitude: -122.009_020
-        ),
-        span: MKCoordinateSpan(
-          latitudeDelta: 0.5,
-          longitudeDelta: 0.5))
     @State var tracking: MapUserTrackingMode = .none
     
     var body: some View {
         Map(
-           coordinateRegion: $region,
-           showsUserLocation: true,
-           userTrackingMode: $tracking,
-           annotationItems: locations)
-        { location in
-            MapAnnotation(coordinate: location.location, content: {
-                if location.name == .Start {
-                    Text(location.name.rawValue)
+            coordinateRegion: $travelSearchOO.region,
+            showsUserLocation: true,
+            userTrackingMode: $tracking,
+            annotationItems: travelSearchOO.mapAnnotations)
+        { annotation in
+            MapAnnotation(coordinate: annotation.location, content: {
+                if annotation.name == .Start {
+                    Text(annotation.name.rawValue)
                         .font(.title.weight(.bold))
                     Image(systemName: "figure.walk")
                         .foregroundColor(.red)
                         .imageScale(.large)
                 }
                 else {
-                    Text(location.name.rawValue)
+                    Text(annotation.name.rawValue)
                         .font(.title.weight(.bold))
                     Image(systemName: "flag.circle.fill")
                         .foregroundColor(.red)
@@ -51,8 +42,7 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(locations: .constant([
-            MapLocation(lat: 37.334_900, long: -122.009_020, name: .Start),
-            MapLocation(lat: 37.334_910, long: -121.91, name: .Arrival)]))
+        MapView()
+            .environmentObject(travelSearchObservableObject())
     }
 }

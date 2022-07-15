@@ -11,35 +11,18 @@ struct TravelFormTab: View {
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
-    @State private var locations = [
-        MapLocation(lat: 37.334_900, long: -122.009_020, name: .Start),
-        MapLocation(lat: 37.334_910, long: -121.9, name: .Arrival)]
-    @State private var searchLocation = ""
-    @State private var selectedNavItem: LocationLabel = .Start
-    
     var navigationTitle: String {
-        selectedNavItem == .Start ? "Where do you start ?" : "Where do you go ?"
-    }
-    
-    init() {
-//        let bounds = UINavigationBar().bounds
-//            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-//        visualEffectView.frame = bounds
-//            visualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        visualEffectView.layer.zPosition = -1
-//            UINavigationBar().insertSubview(visualEffectView, at: 0)
-//        UINavigationBar().alpha = 1
-
+        travelSearchOO.travelSide == .Start ? "Where do you start ?" : "Where do you go ?"
     }
     
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                MapView(locations: $locations)
-//                    .edgesIgnoringSafeArea([.top])
+                MapView()
+                
                 Form {
                     Section(content: {
-                        DistanceForm(locations: $locations)
+                        DistanceForm()
                     }, header: {
                         Text("Distance")
                     }, footer: {
@@ -75,27 +58,30 @@ struct TravelFormTab: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
-                            self.selectedNavItem = .Start
+                            self.travelSearchOO.travelSide = .Start
                         }, label: {
                             Label("Start", systemImage: "figure.walk")
                         })
-                        .foregroundColor(selectedNavItem == .Start ? .red : .blue)
+                        .foregroundColor(travelSearchOO.travelSide == .Start ? .red : .blue)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
-                            self.selectedNavItem = .Arrival
+                            self.travelSearchOO.travelSide = .Arrival
                         }, label: {
                             Label("Destination", systemImage: "flag.fill")
                         })
-                        .foregroundColor(selectedNavItem == .Arrival ? .red : .blue)
+                        .foregroundColor(travelSearchOO.travelSide == .Arrival ? .red : .blue)
                     }
                 }
             }
         }
         //Always display search bar
-        .searchable(text: $searchLocation, placement: .navigationBarDrawer(displayMode: .always), prompt: "Enter a location")
+        .searchable(text: $travelSearchOO.searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Enter a location") {
+            ForEach(travelSearchOO.completerResults, id: \.self) { completion in
+                CompletionView(completionObject: completion)
+            }
+        }
         .navigationViewStyle(.stack)
-        
     }
 }
 
