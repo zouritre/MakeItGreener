@@ -23,8 +23,12 @@ struct CompletionView: View {
         VStack(alignment: .leading) {
             Text(self.completionObject.title)
                 .font(.title.weight(.bold))
+                .foregroundColor(.black)
             Text(self.completionObject.subtitle)
+                .font(.body.weight(.light))
+                .foregroundColor(.black)
         }
+        .foregroundColor(.gray)
         .onTapGesture {
             travelSearchOO.searchTerm = self.completionObject.title
             travelSearchOO.selectedCompletion = completionObject

@@ -35,21 +35,21 @@ struct TravelFormTab: View {
                         Text("Transportation")
                     })
                     Section {
-                        NavigationLink( destination: {EmptyView()}) {
+//                        NavigationLink( destination: {EmptyView()}) {
                             Button(action: {
-//                                carbonFootprintOO.getFootprint()
+                                carbonFootprintOO.getFootprint()
                                 //Disable button
                                 //Enable activity indicator
                             }, label: {
                                 Label("How green am I", systemImage: "leaf.circle.fill")
                             })
                             .symbolRenderingMode(.multicolor)
-                        }
+//                        }
                         
-                        .alert(self.carbonFootprintOO.errorDescription, isPresented: $carbonFootprintOO.errorFound, actions: {
+                        .alert(carbonFootprintOO.errorDescription, isPresented: $carbonFootprintOO.requestError, actions: {
                             //Disable activity indicator
                             //Re-enable button
-                            return Text("I'll fix that")
+                            Text("I'll fix that")
                         })
                     }
                 }
@@ -77,8 +77,13 @@ struct TravelFormTab: View {
         }
         //Always display search bar
         .searchable(text: $travelSearchOO.searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Enter a location") {
-            ForEach(travelSearchOO.completerResults, id: \.self) { completion in
-                CompletionView(completionObject: completion)
+            if travelSearchOO.completerIsEmpty {
+                Text("No results found")
+            }
+            else {
+                ForEach(travelSearchOO.completerResults, id: \.self) { completion in
+                    CompletionView(completionObject: completion)
+                }
             }
         }
         .navigationViewStyle(.stack)
