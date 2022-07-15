@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct TransportationModeView: View {
-    @EnvironmentObject var carbonFootprint: CarbonFootprint
+    @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     
     var body: some View {
-        Picker("How do you go?", selection: $carbonFootprint.chosenTransportationMode.animation()) {
-            ForEach(carbonFootprint.transportationModes, id: \.self) {
+        Picker("How do you go?", selection: $carbonFootprintOO.chosenTransportationMode.animation()) {
+            ForEach(carbonFootprintOO.transportationModes, id: \.self) {
                 Text($0.userString())
             }
         }
@@ -23,6 +23,6 @@ struct TransportationModeView: View {
 struct TransportationModeView_Previews: PreviewProvider {
     static var previews: some View {
         TransportationModeView()
-            .environmentObject(CarbonFootprint())
+            .environmentObject(CarbonFootprintObservableObject())
     }
 }

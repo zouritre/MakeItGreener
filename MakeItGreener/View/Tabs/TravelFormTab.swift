@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TravelFormTab: View {
-    @EnvironmentObject var carbonFootprintObsObj: CarbonFootprint
-    @EnvironmentObject var travelFormObsObj: TravelFormObservableObject
+    @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
+    @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
     @State private var locations = [
         MapLocation(lat: 37.334_900, long: -122.009_020, name: .Start),
@@ -43,7 +43,7 @@ struct TravelFormTab: View {
                     }, header: {
                         Text("Distance")
                     }, footer: {
-                        Text(String("\(carbonFootprintObsObj.travelDistance) km"))
+                        Text(String("\(carbonFootprintOO.travelDistance) km"))
                     })
                     Section(content: {
                         TransportationModeView()
@@ -54,7 +54,7 @@ struct TravelFormTab: View {
                     Section {
                         NavigationLink( destination: {EmptyView()}) {
                             Button(action: {
-//                                carbonFootprintObsObj.getFootprint()
+//                                carbonFootprintOO.getFootprint()
                                 //Disable button
                                 //Enable activity indicator
                             }, label: {
@@ -63,7 +63,7 @@ struct TravelFormTab: View {
                             .symbolRenderingMode(.multicolor)
                         }
                         
-                        .alert(self.carbonFootprintObsObj.errorDescription, isPresented: $carbonFootprintObsObj.errorFound, actions: {
+                        .alert(self.carbonFootprintOO.errorDescription, isPresented: $carbonFootprintOO.errorFound, actions: {
                             //Disable activity indicator
                             //Re-enable button
                             return Text("I'll fix that")
@@ -102,7 +102,7 @@ struct TravelFormTab: View {
 struct TravelFormTab_Previews: PreviewProvider {
     static var previews: some View {
         TravelFormTab()
-            .environmentObject(CarbonFootprint())
-            .environmentObject(TravelFormObservableObject())
+            .environmentObject(CarbonFootprintObservableObject())
+            .environmentObject(travelSearchObservableObject())
     }
 }

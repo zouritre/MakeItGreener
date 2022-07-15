@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TravelFormObservableObject: ObservableObject {
+class travelSearchObservableObject: ObservableObject {
     @Published var travelDistance: Double = 0
     
     

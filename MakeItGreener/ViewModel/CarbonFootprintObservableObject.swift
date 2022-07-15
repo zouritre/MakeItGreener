@@ -9,8 +9,8 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class CarbonFootprint: ObservableObject {
-    @Published var footprint = Float()
+class CarbonFootprintObservableObject: ObservableObject {
+    @Published var footprintResult = Float()
     @Published var errorFound: Bool = false
     @Published var chosenTransportationMode: TransportationMode = .Vehicule
     @Published var chosenTransportationType: TransportationType = .MediumDieselCar
@@ -56,8 +56,8 @@ class CarbonFootprint: ObservableObject {
                 return
             }
         
-            self.footprint = json["carbonEquivalent"].floatValue
-            print(self.footprint)
+            self.footprintResult = json["carbonEquivalent"].floatValue
+            print(self.footprintResult)
         }
     }
 }
