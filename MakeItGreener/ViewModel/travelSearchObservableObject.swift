@@ -51,13 +51,13 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     @Published var departureLocation = MKLocalSearchCompletion()
     @Published var arrivalLocation = MKLocalSearchCompletion()
 
-    /// Departure and arrival locations chosen by the user
-    private var chosenLocations = [LocationLabel:MKCoordinateRegion]()
     /// Provide text completion for the search bar
     private var completer = MKLocalSearchCompleter()
     
     /// Result chosen from the search completion
     var selectedCompletion = [LocationLabel:MKLocalSearchCompletion]()
+    /// Departure and arrival locations chosen by the user
+    var chosenLocations = [LocationLabel:MKCoordinateRegion]()
     
     /// Store the chosen search completion for the actual travel side
     /// - Parameter completion: The completion chosen by the user in the search bar
@@ -115,6 +115,11 @@ class travelSearchObservableObject: NSObject, ObservableObject {
                                              span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
             // Store the location of the current departure/arrival point
             self.chosenLocations[self.travelSide] = self.region
+            
+            // Tell the subscribers (navigation items) to edit the other travel location field if it's not yet set
+            if self.chosenLocations.count < 2 {
+                self.travelSide = (self.travelSide == .Start) ? .Arrival : .Start
+            }
         }
     }
     
