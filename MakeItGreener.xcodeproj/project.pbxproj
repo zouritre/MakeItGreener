@@ -10,6 +10,7 @@
 		29C9A04DBD6093203F8EE211 /* Pods_MakeItGreener.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA9C65CDE8E47EFEE6A2442 /* Pods_MakeItGreener.framework */; };
 		E92810BB2881D76E0089A77D /* CompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92810BA2881D76E0089A77D /* CompletionView.swift */; };
 		E93B9EB52883063E00FFF6A0 /* AnnotationDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B9EB42883063E00FFF6A0 /* AnnotationDesign.swift */; };
+		E93B9EB728830DB200FFF6A0 /* TravelLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B9EB628830DB200FFF6A0 /* TravelLocationView.swift */; };
 		E95E349D2879DE3A0098404F /* MakeItGreenerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E349C2879DE3A0098404F /* MakeItGreenerApp.swift */; };
 		E95E349F2879DE3A0098404F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E349E2879DE3A0098404F /* ContentView.swift */; };
 		E95E34A12879DE3B0098404F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95E34A02879DE3B0098404F /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		AEA9C65CDE8E47EFEE6A2442 /* Pods_MakeItGreener.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeItGreener.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92810BA2881D76E0089A77D /* CompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionView.swift; sourceTree = "<group>"; };
 		E93B9EB42883063E00FFF6A0 /* AnnotationDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDesign.swift; sourceTree = "<group>"; };
+		E93B9EB628830DB200FFF6A0 /* TravelLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelLocationView.swift; sourceTree = "<group>"; };
 		E95E34992879DE3A0098404F /* MakeItGreener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeItGreener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95E349C2879DE3A0098404F /* MakeItGreenerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeItGreenerApp.swift; sourceTree = "<group>"; };
 		E95E349E2879DE3A0098404F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				E95FFC02287EFAE100B934B3 /* DistanceForm.swift */,
+				E93B9EB628830DB200FFF6A0 /* TravelLocationView.swift */,
 			);
 			path = DistanceFields;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				E95E34A92879DE3B0098404F /* MakeItGreener.xcdatamodeld in Sources */,
 				E9B4A8C2287A0E8E000AFE72 /* CarbonFootprintApi.swift in Sources */,
 				E95E349F2879DE3A0098404F /* ContentView.swift in Sources */,
+				E93B9EB728830DB200FFF6A0 /* TravelLocationView.swift in Sources */,
 				E9CEFCC0287D90AA0024198C /* TravelFormTab.swift in Sources */,
 				E9CEFCD1287DD6BF0024198C /* TransportationMode.swift in Sources */,
 				E9B4A8BD287A08FB000AFE72 /* MainView.swift in Sources */,

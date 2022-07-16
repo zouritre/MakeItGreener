@@ -48,7 +48,9 @@ class travelSearchObservableObject: NSObject, ObservableObject {
             self.completer.queryFragment = newValue
         }
     }
-    
+    @Published var departureLocation = MKLocalSearchCompletion()
+    @Published var arrivalLocation = MKLocalSearchCompletion()
+
     /// Departure and arrival locations chosen by the user
     private var chosenLocations = [LocationLabel:MKCoordinateRegion]()
     /// Provide text completion for the search bar
@@ -77,6 +79,14 @@ class travelSearchObservableObject: NSObject, ObservableObject {
         else {
             // Get the first completion by default if user did not select any completion
             chosenCompletion = self.completerResults[0]
+        }
+        
+        // Send the searched location to their subscribers according to the travel side
+        switch self.travelSide {
+        case .Start:
+            self.departureLocation = chosenCompletion
+        case .Arrival:
+            self.arrivalLocation = chosenCompletion
         }
         
         // Create a search request from the completion object
