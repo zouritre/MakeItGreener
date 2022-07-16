@@ -44,6 +44,7 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     /// The search bar text
     @Published var searchTerm = "" {
         willSet {
+            // Send the partial search text to the completer
             self.completer.queryFragment = newValue
         }
     }
@@ -56,6 +57,8 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     /// Result chosen from the search completion
     var selectedCompletion = [LocationLabel:MKLocalSearchCompletion]()
     
+    /// Store the chosen search completion for the actual travel side
+    /// - Parameter completion: The completion chosen by the user in the search bar
     func setSelectedCompletion(for completion: MKLocalSearchCompletion) {
         self.selectedCompletion[self.travelSide] = completion
     }
@@ -99,9 +102,7 @@ class travelSearchObservableObject: NSObject, ObservableObject {
             
             // Center the map around the selected completion object location
             self.region = MKCoordinateRegion(center: coordinates,
-                                             span: MKCoordinateSpan(
-                                                latitudeDelta: 0.5,
-                                                longitudeDelta: 0.5))
+                                             span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
             // Store the location of the current departure/arrival point
             self.chosenLocations[self.travelSide] = self.region
         }
