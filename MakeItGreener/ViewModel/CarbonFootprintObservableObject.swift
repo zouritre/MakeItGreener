@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class CarbonFootprintObservableObject: ObservableObject {
+class CarbonFootprintObservableObject: NSObject, ObservableObject {
     /// Co2 footprint value received from API according to the provided travel informations
     @Published var footprintResult = Float()
     /// Set to true if an error ocurred when processing the request to API

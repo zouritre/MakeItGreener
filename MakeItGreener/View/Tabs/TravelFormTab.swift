@@ -37,7 +37,7 @@ struct TravelFormTab: View {
                     Section {
 //                        NavigationLink( destination: {EmptyView()}) {
                             Button(action: {
-                                carbonFootprintOO.getFootprint()
+//                                carbonFootprintOO.getFootprint()
                                 //Disable button
                                 //Enable activity indicator
                             }, label: {
@@ -77,7 +77,7 @@ struct TravelFormTab: View {
         }
         //Always display search bar
         .searchable(text: $travelSearchOO.searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Enter a location") {
-            if travelSearchOO.completerIsEmpty {
+            if travelSearchOO.completerHasError {
                 Text("No results found")
             }
             else {
@@ -86,6 +86,9 @@ struct TravelFormTab: View {
                 }
             }
         }
+        .onSubmit(of: .search, {
+            travelSearchOO.search()
+        })
         .navigationViewStyle(.stack)
     }
 }

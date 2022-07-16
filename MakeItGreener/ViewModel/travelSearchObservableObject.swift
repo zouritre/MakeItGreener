@@ -9,12 +9,18 @@ import Foundation
 import MapKit
 
 class travelSearchObservableObject: NSObject, ObservableObject {
+    override init() {
+        super.init()
+        
+        completer.delegate = self
+    }
+    
     /// Travel distance from departure point to arrival
     @Published var travelDistance: Double = 0
     /// Search completion results
     @Published var completerResults = [MKLocalSearchCompletion]()
     /// Search completion is empty
-    @Published var completerIsEmpty = true
+    @Published var completerHasError = true
     ///Travel point location being edited by the user
     @Published var travelSide: LocationLabel = .Start {
         willSet {
@@ -26,9 +32,7 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     }
     /// Locations of the map to place containing an annotation
     @Published var mapAnnotations = [MapLocation]()
-    /// Result chosen from the search completion
-    @Published var selectedCompletion = MKLocalSearchCompletion()
-    /// Location of the map around wich it is centered
+    /// Location of the map around wich it is centered, default at Apple Park
     @Published var region = MKCoordinateRegion(
         center:  CLLocationCoordinate2D(
           latitude: 37.334_900,
@@ -49,16 +53,31 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     /// Provide text completion for the search bar
     private var completer = MKLocalSearchCompleter()
     
-    override init() {
-        super.init()
-        
-        completer.delegate = self
+    /// Result chosen from the search completion
+    var selectedCompletion = [LocationLabel:MKLocalSearchCompletion]()
+    
+    func setSelectedCompletion(for completion: MKLocalSearchCompletion) {
+        self.selectedCompletion[self.travelSide] = completion
     }
     
     /// Get the coordinates of the location chosen  from the search completion
     func search() {
+        var chosenCompletion: MKLocalSearchCompletion
+        
+        if let selectedCompletion = self.selectedCompletion[self.travelSide] {
+            // User selected a completion from the search bar
+            chosenCompletion = selectedCompletion
+            
+            // Reset the array to prevent this condition from repeating infinitly
+            self.selectedCompletion = [:]
+        }
+        else {
+            // Get the first completion by default if user did not select any completion
+            chosenCompletion = self.completerResults[0]
+        }
+        
         // Create a search request from the completion object
-        let searchRequest = MKLocalSearch.Request(completion: self.completerResults[0])
+        let searchRequest = MKLocalSearch.Request(completion: chosenCompletion)
         let search = MKLocalSearch(request: searchRequest)
         
         // Set the prefered search region to the map view's region.
@@ -112,13 +131,13 @@ class travelSearchObservableObject: NSObject, ObservableObject {
 extension travelSearchObservableObject: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         // As the user types, new completion suggestions are continuously returned to this method.
-        self.completerIsEmpty = false
+        self.completerHasError = false
         // Store the new results
         completerResults = completer.results
     }
     
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
         // Handle any errors returned from MKLocalSearchCompleter.
-        self.completerIsEmpty = true
+        self.completerHasError = true
     }
 }

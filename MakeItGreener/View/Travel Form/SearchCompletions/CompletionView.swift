@@ -31,8 +31,7 @@ struct CompletionView: View {
         .foregroundColor(.gray)
         .onTapGesture {
             travelSearchOO.searchTerm = self.completionObject.title
-            travelSearchOO.selectedCompletion = completionObject
-            travelSearchOO.search()
+            travelSearchOO.setSelectedCompletion(for: completionObject)
         }
     }
 }
