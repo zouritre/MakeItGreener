@@ -11,10 +11,6 @@ struct TravelFormTab: View {
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
-    var navigationTitle: String {
-        travelSearchOO.travelSide == .Start ? "Where do you start ?" : "Where do you go ?"
-    }
-    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -22,11 +18,12 @@ struct TravelFormTab: View {
                 
                 Form {
                     Section(content: {
-                        DistanceForm()
+                        TravelLocationView(travelSide: .Start)
+                        TravelLocationView(travelSide: .Arrival)
                     }, header: {
                         Text("Distance")
                     }, footer: {
-                        Text(String("\(carbonFootprintOO.travelDistance) km"))
+                        Text("\(carbonFootprintOO.travelDistance) km")
                     })
                     Section(content: {
                         TransportationModeView()
@@ -35,46 +32,24 @@ struct TravelFormTab: View {
                         Text("Transportation")
                     })
                     Section {
-//                        NavigationLink( destination: {EmptyView()}) {
-                            Button(action: {
-//                                carbonFootprintOO.getFootprint()
-                                //Disable button
-                                //Enable activity indicator
-                            }, label: {
-                                Label("How green am I", systemImage: "leaf.circle.fill")
-                            })
-                            .symbolRenderingMode(.multicolor)
-//                        }
-                        
-                        .alert(carbonFootprintOO.errorDescription, isPresented: $carbonFootprintOO.requestError, actions: {
-                            //Disable activity indicator
-                            //Re-enable button
-                            Text("I'll fix that")
-                        })
+                        NavigationLink( destination: { co2ResultView() }) {
+                            TravelFormSubmit()
+                        }
                     }
                 }
-                .navigationTitle(self.navigationTitle)
+                .navigationTitle(travelSearchOO.travelSide == .Start ? "Where do you start ?" : "Where do you go ?")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-                            self.travelSearchOO.travelSide = .Start
-                        }, label: {
-                            Label("Start", systemImage: "figure.walk")
-                        })
-                        .foregroundColor(travelSearchOO.travelSide == .Start ? .red : .blue)
+                        TravelLocationItem(travelSide: .Start)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            self.travelSearchOO.travelSide = .Arrival
-                        }, label: {
-                            Label("Destination", systemImage: "flag.fill")
-                        })
-                        .foregroundColor(travelSearchOO.travelSide == .Arrival ? .red : .blue)
+                        TravelLocationItem(travelSide: .Arrival)
                     }
                 }
             }
         }
+        .navigationViewStyle(.stack)
         //Always display search bar
         .searchable(text: $travelSearchOO.searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Enter a location") {
             if travelSearchOO.completerHasError {
@@ -86,10 +61,10 @@ struct TravelFormTab: View {
                 }
             }
         }
+        // Search button is pressed in search bar
         .onSubmit(of: .search, {
             travelSearchOO.search()
         })
-        .navigationViewStyle(.stack)
     }
 }
 

@@ -11,13 +11,15 @@ import MapKit
 struct TravelLocationView: View {
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
-    var locationData: MKLocalSearchCompletion
+    var locationData: MKLocalSearchCompletion {
+        travelSide == .Start ? travelSearchOO.departureLocation : travelSearchOO.arrivalLocation
+    }
     
-    let imageName: String
+    let travelSide: LocationLabel
     
     var body: some View {
         HStack {
-            Image(systemName: self.imageName)
+            Image(systemName: self.travelSide == .Start ? "figure.walk" : "flag.fill")
                 .symbolRenderingMode(.palette)
                 .foregroundColor(.red)
             VStack(alignment: .leading) {
@@ -31,8 +33,7 @@ struct TravelLocationView: View {
 
 struct TravelLocationView_Previews: PreviewProvider {
     static var previews: some View {
-        TravelLocationView(locationData: MKLocalSearchCompletion(),
-        imageName: "flag.fill")
+        TravelLocationView(travelSide: .Start)
             .environmentObject(travelSearchObservableObject())
     }
 }
