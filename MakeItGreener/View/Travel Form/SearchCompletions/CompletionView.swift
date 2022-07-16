@@ -20,15 +20,18 @@ struct CompletionView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(self.completionObject.title)
-                .font(.title.weight(.bold))
-                .foregroundColor(.black)
-            Text(self.completionObject.subtitle)
-                .font(.body.weight(.light))
-                .foregroundColor(.black)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(self.completionObject.title)
+                    .font(.title.weight(.bold))
+                    .foregroundColor(.black)
+                Text(self.completionObject.subtitle)
+                    .font(.body.weight(.light))
+                    .foregroundColor(.black)
+            }
+            Spacer()
+            Image(systemName: "chevron.right")
         }
-        .foregroundColor(.gray)
         .onTapGesture {
             travelSearchOO.searchTerm = self.completionObject.title
             travelSearchOO.setSelectedCompletion(for: completionObject)
