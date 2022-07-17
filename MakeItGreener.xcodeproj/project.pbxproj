@@ -14,6 +14,7 @@
 		E93B16DB288364ED00DBFE21 /* TravelLocationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B16DA288364ED00DBFE21 /* TravelLocationItem.swift */; };
 		E93B9EB52883063E00FFF6A0 /* AnnotationDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B9EB42883063E00FFF6A0 /* AnnotationDesign.swift */; };
 		E93B9EB728830DB200FFF6A0 /* TravelLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B9EB628830DB200FFF6A0 /* TravelLocationView.swift */; };
+		E94BAC232884486000A21CCD /* travelSearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BAC222884486000A21CCD /* travelSearchTest.swift */; };
 		E95E349D2879DE3A0098404F /* MakeItGreenerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E349C2879DE3A0098404F /* MakeItGreenerApp.swift */; };
 		E95E349F2879DE3A0098404F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E349E2879DE3A0098404F /* ContentView.swift */; };
 		E95E34A12879DE3B0098404F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95E34A02879DE3B0098404F /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		E93B16DA288364ED00DBFE21 /* TravelLocationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelLocationItem.swift; sourceTree = "<group>"; };
 		E93B9EB42883063E00FFF6A0 /* AnnotationDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDesign.swift; sourceTree = "<group>"; };
 		E93B9EB628830DB200FFF6A0 /* TravelLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelLocationView.swift; sourceTree = "<group>"; };
+		E94BAC222884486000A21CCD /* travelSearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travelSearchTest.swift; sourceTree = "<group>"; };
 		E95E34992879DE3A0098404F /* MakeItGreener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeItGreener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95E349C2879DE3A0098404F /* MakeItGreenerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeItGreenerApp.swift; sourceTree = "<group>"; };
 		E95E349E2879DE3A0098404F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -187,6 +189,24 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		E94BAC242884843000A21CCD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E961ECB7287B14C500D92C64 /* FakeResponse.swift */,
+				E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */,
+				E961ECB5287B147D00D92C64 /* NetworkServiceTest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E94BAC252884844500A21CCD /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				E94BAC222884486000A21CCD /* travelSearchTest.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		E95E34902879DE3A0098404F = {
 			isa = PBXGroup;
 			children = (
@@ -268,7 +288,7 @@
 			children = (
 				E9B4A8C1287A0E8D000AFE72 /* CarbonFootprintApi.swift */,
 				E9B4A8C8287A1B69000AFE72 /* CarbonFootprintConstant.swift */,
-				E961EC9C287AF9C900D92C64 /* CarbonFootprintEndpoint.swift */,
+				E95FFC0C287F601E00B934B3 /* Struct */,
 				E961ECA1287B07A200D92C64 /* Enums */,
 			);
 			path = CarbonFootprint;
@@ -277,7 +297,7 @@
 		E961ECA1287B07A200D92C64 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				E95FFC0C287F601E00B934B3 /* Struct */,
+				E961EC9C287AF9C900D92C64 /* CarbonFootprintEndpoint.swift */,
 				E9CEFCCA287DBED80024198C /* Transportation */,
 			);
 			path = Enums;
@@ -286,9 +306,8 @@
 		E961ECAB287B140A00D92C64 /* MakeItGreenerTests */ = {
 			isa = PBXGroup;
 			children = (
-				E961ECB7287B14C500D92C64 /* FakeResponse.swift */,
-				E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */,
-				E961ECB5287B147D00D92C64 /* NetworkServiceTest.swift */,
+				E94BAC252884844500A21CCD /* View Model */,
+				E94BAC242884843000A21CCD /* Network */,
 			);
 			path = MakeItGreenerTests;
 			sourceTree = "<group>";
@@ -589,6 +608,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E961ECBA287B14C500D92C64 /* MockURLProtocol.swift in Sources */,
+				E94BAC232884486000A21CCD /* travelSearchTest.swift in Sources */,
 				E961ECB6287B147D00D92C64 /* NetworkServiceTest.swift in Sources */,
 				E961ECB9287B14C500D92C64 /* FakeResponse.swift in Sources */,
 			);

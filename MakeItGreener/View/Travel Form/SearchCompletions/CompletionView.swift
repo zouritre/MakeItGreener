@@ -34,7 +34,7 @@ struct CompletionView: View {
         }
         .onTapGesture {
             travelSearchOO.searchTerm = self.completionObject.title
-            travelSearchOO.setSelectedCompletion(for: completionObject)
+            travelSearchOO.selectedCompletion[travelSearchOO.travelSide] = completionObject
         }
     }
 }

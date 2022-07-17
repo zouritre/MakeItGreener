@@ -32,6 +32,7 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
             guard let transportationId = $0.rawValue.first else {
                 return false
             }
+            
             //Return the element if it's prefix matches the chosen transportation mode
             return String(transportationId) == self.chosenTransportationMode.rawValue
         }

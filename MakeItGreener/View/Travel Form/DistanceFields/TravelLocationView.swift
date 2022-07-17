@@ -11,7 +11,7 @@ import MapKit
 struct TravelLocationView: View {
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
-    var locationData: MKLocalSearchCompletion {
+    var locationData: MKLocalSearchCompletion? {
         travelSide == .Start ? travelSearchOO.departureLocation : travelSearchOO.arrivalLocation
     }
     
@@ -23,8 +23,8 @@ struct TravelLocationView: View {
                 .symbolRenderingMode(.palette)
                 .foregroundColor(.red)
             VStack(alignment: .leading) {
-                Text(self.locationData.title)
-                Text(self.locationData.subtitle)
+                Text(self.locationData?.title ?? "")
+                Text(self.locationData?.subtitle ?? "")
             }
             Spacer()
         }

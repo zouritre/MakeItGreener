@@ -48,25 +48,56 @@ class travelSearchObservableObject: NSObject, ObservableObject {
             self.completer.queryFragment = newValue
         }
     }
-    @Published var departureLocation = MKLocalSearchCompletion()
-    @Published var arrivalLocation = MKLocalSearchCompletion()
+    @Published var departureLocation: MKLocalSearchCompletion?
+    @Published var arrivalLocation: MKLocalSearchCompletion?
 
     /// Provide text completion for the search bar
-    private var completer = MKLocalSearchCompleter()
+    var completer = MKLocalSearchCompleter()
     
     /// Result chosen from the search completion
     var selectedCompletion = [LocationLabel:MKLocalSearchCompletion]()
     /// Departure and arrival locations chosen by the user
     var chosenLocations = [LocationLabel:MKCoordinateRegion]()
     
-    /// Store the chosen search completion for the actual travel side
-    /// - Parameter completion: The completion chosen by the user in the search bar
-    func setSelectedCompletion(for completion: MKLocalSearchCompletion) {
-        self.selectedCompletion[self.travelSide] = completion
-    }
-    
     /// Get the coordinates of the location chosen  from the search completion
     func search() {
+        self.setLocationFromCompletion()
+        
+        // Create a search request from the completion object
+        let searchRequest = MKLocalSearch.Request(completion: (self.travelSide == .Start ? self.departureLocation : self.arrivalLocation) ?? MKLocalSearchCompletion())
+        let search = MKLocalSearch(request: searchRequest)
+        
+        // Set the prefered search region to the map view's region.
+        searchRequest.region = self.region
+        
+        // Send a request against the provided selected completion object
+        search.start { [weak self] (response, error) in
+            guard let self = self else { return }
+            guard let response = response else { return }
+            // The coordinates of the selected completion object
+            guard let coordinates = response.mapItems[0].placemark.location?.coordinate else { return }
+
+            //Place an annotation at the location of the selected completion object
+            self.addAnnotation(at: coordinates)
+            
+            // Center the map around the selected completion object location
+            self.region = MKCoordinateRegion(center: coordinates,
+                                             span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+            // Store the location of the current departure/arrival point
+            self.chosenLocations[self.travelSide] = self.region
+            
+            self.switchToolbarItemFocus()
+        }
+    }
+    
+    /// Tell the navigation view to focus the next toolbar item if its associated datas are not yet set
+    func switchToolbarItemFocus() {
+        if self.chosenLocations.count < 2 {
+            self.travelSide = (self.travelSide == .Start) ? .Arrival : .Start
+        }
+    }
+    
+    func setLocationFromCompletion() {
         var chosenCompletion: MKLocalSearchCompletion
         
         if let selectedCompletion = self.selectedCompletion[self.travelSide] {
@@ -88,44 +119,11 @@ class travelSearchObservableObject: NSObject, ObservableObject {
         case .Arrival:
             self.arrivalLocation = chosenCompletion
         }
-        
-        // Create a search request from the completion object
-        let searchRequest = MKLocalSearch.Request(completion: chosenCompletion)
-        let search = MKLocalSearch(request: searchRequest)
-        
-        // Set the prefered search region to the map view's region.
-        searchRequest.region = self.region
-        
-        // Send a request against the provided selected completion object
-        search.start { [self] (response, error) in
-            guard let response = response else {
-                return
-            }
-        
-            // The coordinates of the selected completion object
-            guard let coordinates = response.mapItems[0].placemark.location?.coordinate else {
-                return
-            }
-
-            //Place an annotation at the location of the selected completion object
-            self.addAnnotation(at: coordinates)
-            
-            // Center the map around the selected completion object location
-            self.region = MKCoordinateRegion(center: coordinates,
-                                             span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
-            // Store the location of the current departure/arrival point
-            self.chosenLocations[self.travelSide] = self.region
-            
-            // Tell the subscribers (navigation items) to edit the other travel location field if it's not yet set
-            if self.chosenLocations.count < 2 {
-                self.travelSide = (self.travelSide == .Start) ? .Arrival : .Start
-            }
-        }
     }
     
     /// Place an annotation at the specified coordinates of the map
     /// - Parameter coordinates: Coordinates  wich will receive an annotation
-    private func addAnnotation(at coordinates: CLLocationCoordinate2D) {
+    func addAnnotation(at coordinates: CLLocationCoordinate2D) {
         // Store the travel location for departure/arrival in an object to be reused
         let newAnnotation = MapLocation(lat: coordinates.latitude, long: coordinates.longitude, name: self.travelSide)
 
