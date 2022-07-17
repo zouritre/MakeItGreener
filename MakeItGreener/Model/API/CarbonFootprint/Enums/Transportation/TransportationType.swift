@@ -46,7 +46,7 @@ enum TransportationType: String, CaseIterable {
     case SmallMotorBike = "m_SmallMotorBike"
     case MediumMotorBike = "m_MediumMotorBike"
     case LargeMotorBike = "m_LargeMotorBike"
-
+    
     func userString() -> String {
         switch self {
         case .Taxi:

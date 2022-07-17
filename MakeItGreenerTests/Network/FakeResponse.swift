@@ -22,12 +22,12 @@ class FakeResponse {
     
     private static let bundle = Bundle(for: FakeResponse.self)
     
-    static var correctCurrencySymbolData: Data? {
+    static var correctCo2FootprintData: Data? {
     
-        let url = bundle.url(forResource: "CurrencySymbol", withExtension: "json")!
+        let url = bundle.url(forResource: "Co2FootprintData", withExtension: "json")!
         
         return try! Data(contentsOf: url)
     }
     
-    static let randomData = "some error".data(using: .utf8)
+    static let randomData = "some data".data(using: .utf8)
 }

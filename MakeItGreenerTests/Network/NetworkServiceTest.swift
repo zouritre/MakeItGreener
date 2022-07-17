@@ -13,6 +13,7 @@ class NetworkServiceTest: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
+        // Inject a mock request handler in network requests
         NetworkService.shared.configuration.protocolClasses = [MockURLProtocol.self]
         
     }
@@ -42,7 +43,7 @@ class NetworkServiceTest: XCTestCase {
             XCTAssertNil(error)
             expectation.fulfill()
         }
-        //wait 50ms for closure to return
+        //wait 100ms for closure to return
         wait(for: [expectation], timeout: 0.1)
         
     }
@@ -69,7 +70,7 @@ class NetworkServiceTest: XCTestCase {
             XCTAssertNotNil(error)
             expectation.fulfill()
         }
-        //wait 50ms for closure to return
+        //wait 100ms for closure to return
         wait(for: [expectation], timeout: 0.1)
         
     }
@@ -96,7 +97,33 @@ class NetworkServiceTest: XCTestCase {
             XCTAssertNotNil(error)
             expectation.fulfill()
         }
-        //wait 50ms for closure to return
+        //wait 100ms for closure to return
+        wait(for: [expectation], timeout: 0.1)
+        
+    }
+    
+    func testMakeRequestShouldReturnFailIfBadUrl() {
+        
+        //Given
+        let response: HTTPURLResponse? = FakeResponse.responseOK
+        let data: Data? = FakeResponse.randomData
+        let error: Error? = nil
+
+        MockURLProtocol.requestHandler = { request in
+            return (response, data, error)
+        }
+        
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+
+        NetworkService.shared.makeRequest(url: URL(string: ""), method: .get, headers: []){ data, error in
+            
+        // Then
+            XCTAssertNil(data)
+            XCTAssertNotNil(error)
+            expectation.fulfill()
+        }
+        //wait 100ms for closure to return
         wait(for: [expectation], timeout: 0.1)
         
     }

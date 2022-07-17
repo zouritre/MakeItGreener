@@ -19,7 +19,7 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     /// Transportation type chosen by the user for his travel
     @Published var chosenTransportationType: TransportationType = .MediumDieselCar
     /// Description of the error encountered from the API request
-    @Published var errorDescription: String = ""
+    @Published var errorDescription: String?
     
     /// Travel distance from departure point to arrival
     var travelDistance: Double = 100
@@ -41,7 +41,8 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     }
     
     /// Send the travel form data to the API
-    func getFootprint() {
+    func getFootprint(completionHandler: ((_ endedWithError: Bool, _ errorDescription: String?, _ result: Float?)
+                      -> Void)? = nil) {
         // Create an object with the travel form datas
         let travelData = TravelData(distance: self.travelDistance,
                                     transportationType: self.chosenTransportationType,
@@ -60,6 +61,7 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
                     // Get the error description
                     self.errorDescription = error.localizedDescription
                     self.requestError = true
+                    completionHandler?(true, error.errorDescription, nil)
                 }
                 
                 return
@@ -70,12 +72,17 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
                 // Get the error description
                 self.errorDescription = SwiftyJSONError.invalidJSON.localizedDescription
                 self.requestError = true
+                completionHandler?(true, SwiftyJSONError.invalidJSON.localizedDescription, nil)
                 
                 return
             }
         
+            self.requestError = false
+            
             // Get the carbon footprint of the user according to his travel datas
             self.footprintResult = json["carbonEquivalent"].floatValue
+            
+            completionHandler?(false, nil, json["carbonEquivalent"].floatValue)
             print(self.footprintResult)
         }
     }
