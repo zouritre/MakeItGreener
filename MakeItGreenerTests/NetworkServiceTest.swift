@@ -35,7 +35,7 @@ class NetworkServiceTest: XCTestCase {
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        NetworkService.shared.makeRequest(url: URL(string: "https://stackoverflow.com"), method: .get){ data, error in
+        NetworkService.shared.makeRequest(url: URL(string: "https://stackoverflow.com"), method: .get, headers: []){ data, error in
             
         // Then
             XCTAssertNotNil(data)
@@ -43,7 +43,7 @@ class NetworkServiceTest: XCTestCase {
             expectation.fulfill()
         }
         //wait 50ms for closure to return
-        wait(for: [expectation], timeout: 0.05)
+        wait(for: [expectation], timeout: 0.1)
         
     }
     
@@ -62,7 +62,7 @@ class NetworkServiceTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
         //Random parameters, does not matter
-        NetworkService.shared.makeRequest(url: URL(string: "https://stackoverflow.com"), method: .get){ data, error in
+        NetworkService.shared.makeRequest(url: URL(string: "https://stackoverflow.com"), method: .get, headers: []){ data, error in
 
         // Then
             XCTAssertNil(data)
@@ -70,7 +70,7 @@ class NetworkServiceTest: XCTestCase {
             expectation.fulfill()
         }
         //wait 50ms for closure to return
-        wait(for: [expectation], timeout: 0.05)
+        wait(for: [expectation], timeout: 0.1)
         
     }
 
@@ -89,7 +89,7 @@ class NetworkServiceTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
         //Random parameters, does not matter
-        NetworkService.shared.makeRequest(url: URL(string: "https://stackoverflow.com"), method: .get){ data, error in
+        NetworkService.shared.makeRequest(url: URL(string: "https://stackoverflow.com"), method: .get, headers: []){ data, error in
 
         // Then
             XCTAssertNil(data)
@@ -97,7 +97,7 @@ class NetworkServiceTest: XCTestCase {
             expectation.fulfill()
         }
         //wait 50ms for closure to return
-        wait(for: [expectation], timeout: 0.05)
+        wait(for: [expectation], timeout: 0.1)
         
     }
 }

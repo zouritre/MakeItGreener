@@ -12,8 +12,9 @@ target 'MakeItGreener' do
   pod 'Alamofire'
   pod 'SwiftyJSON', '~> 4.0'
 
-  # target 'MakeItGreenerTests' do
-  #       inherit! :search_paths
-  #   end
+end
 
+target 'MakeItGreenerTests' do
+  pod 'Alamofire'
+  pod 'SwiftyJSON', '~> 4.0'
 end

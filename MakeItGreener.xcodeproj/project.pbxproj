@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29C9A04DBD6093203F8EE211 /* Pods_MakeItGreener.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA9C65CDE8E47EFEE6A2442 /* Pods_MakeItGreener.framework */; };
+		99628892509A61FD547F9BF1 /* Pods_MakeItGreener.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB58022E954E91C06C721C6 /* Pods_MakeItGreener.framework */; };
 		E92810BB2881D76E0089A77D /* CompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92810BA2881D76E0089A77D /* CompletionView.swift */; };
 		E93B16D428835D2900DBFE21 /* co2ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B16D328835D2900DBFE21 /* co2ResultView.swift */; };
 		E93B16D828835FC400DBFE21 /* TravelFormSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B16D728835FC400DBFE21 /* TravelFormSubmit.swift */; };
@@ -40,6 +40,7 @@
 		E9CEFCC2287D9A8A0024198C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCC1287D9A8A0024198C /* MapView.swift */; };
 		E9CEFCC5287D9BF90024198C /* TransportationTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCC4287D9BF90024198C /* TransportationTypeView.swift */; };
 		E9CEFCD1287DD6BF0024198C /* TransportationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCD0287DD6BF0024198C /* TransportationMode.swift */; };
+		F9AA19780A720A3510FF8299 /* libPods-MakeItGreenerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFE91B711BF1308A1488D18 /* libPods-MakeItGreenerTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +54,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5308B1A2D637627B314ECE9B /* Pods-MakeItGreener.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.debug.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.debug.xcconfig"; sourceTree = "<group>"; };
-		6CBA899CEFEBC5F080D87CAE /* Pods-MakeItGreener.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.release.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.release.xcconfig"; sourceTree = "<group>"; };
-		AEA9C65CDE8E47EFEE6A2442 /* Pods_MakeItGreener.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeItGreener.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3025ECEF5B066AE7C9B03AEC /* Pods-MakeItGreenerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreenerTests.debug.xcconfig"; path = "Target Support Files/Pods-MakeItGreenerTests/Pods-MakeItGreenerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3CB58022E954E91C06C721C6 /* Pods_MakeItGreener.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeItGreener.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CFE91B711BF1308A1488D18 /* libPods-MakeItGreenerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MakeItGreenerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51427831A72954688DF75713 /* Pods-MakeItGreener.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.release.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.release.xcconfig"; sourceTree = "<group>"; };
+		5D15472A2CACCB97657F49BD /* Pods-MakeItGreenerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreenerTests.release.xcconfig"; path = "Target Support Files/Pods-MakeItGreenerTests/Pods-MakeItGreenerTests.release.xcconfig"; sourceTree = "<group>"; };
+		815379C0C1088D33DFC9A3A5 /* Pods-MakeItGreener.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.debug.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.debug.xcconfig"; sourceTree = "<group>"; };
 		E92810BA2881D76E0089A77D /* CompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionView.swift; sourceTree = "<group>"; };
 		E93B16D328835D2900DBFE21 /* co2ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = co2ResultView.swift; sourceTree = "<group>"; };
 		E93B16D728835FC400DBFE21 /* TravelFormSubmit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFormSubmit.swift; sourceTree = "<group>"; };
@@ -97,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29C9A04DBD6093203F8EE211 /* Pods_MakeItGreener.framework in Frameworks */,
+				99628892509A61FD547F9BF1 /* Pods_MakeItGreener.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,16 +109,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9AA19780A720A3510FF8299 /* libPods-MakeItGreenerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		65055DA0D6808557216C0984 /* Frameworks */ = {
+		72D5A3B3A6F5CB0B2DCE12DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AEA9C65CDE8E47EFEE6A2442 /* Pods_MakeItGreener.framework */,
+				3CB58022E954E91C06C721C6 /* Pods_MakeItGreener.framework */,
+				4CFE91B711BF1308A1488D18 /* libPods-MakeItGreenerTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,8 +128,10 @@
 		CAD76BAE1E0E13249B81A20E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5308B1A2D637627B314ECE9B /* Pods-MakeItGreener.debug.xcconfig */,
-				6CBA899CEFEBC5F080D87CAE /* Pods-MakeItGreener.release.xcconfig */,
+				815379C0C1088D33DFC9A3A5 /* Pods-MakeItGreener.debug.xcconfig */,
+				51427831A72954688DF75713 /* Pods-MakeItGreener.release.xcconfig */,
+				3025ECEF5B066AE7C9B03AEC /* Pods-MakeItGreenerTests.debug.xcconfig */,
+				5D15472A2CACCB97657F49BD /* Pods-MakeItGreenerTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -186,7 +194,7 @@
 				E961ECAB287B140A00D92C64 /* MakeItGreenerTests */,
 				E95E349A2879DE3A0098404F /* Products */,
 				CAD76BAE1E0E13249B81A20E /* Pods */,
-				65055DA0D6808557216C0984 /* Frameworks */,
+				72D5A3B3A6F5CB0B2DCE12DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -385,11 +393,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E95E34AC2879DE3B0098404F /* Build configuration list for PBXNativeTarget "MakeItGreener" */;
 			buildPhases = (
-				12F16DCF3CB96D2EF8E16413 /* [CP] Check Pods Manifest.lock */,
+				303F40F204D0B9DD21E9F529 /* [CP] Check Pods Manifest.lock */,
 				E95E34952879DE3A0098404F /* Sources */,
 				E95E34962879DE3A0098404F /* Frameworks */,
 				E95E34972879DE3A0098404F /* Resources */,
-				AB94E84997335BB27F4B1607 /* [CP] Embed Pods Frameworks */,
+				FB3D4F4BB3D9260B7CB8A588 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -404,6 +412,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E961ECB0287B140A00D92C64 /* Build configuration list for PBXNativeTarget "MakeItGreenerTests" */;
 			buildPhases = (
+				EC9C39F6FE7B22E19D5CA8A7 /* [CP] Check Pods Manifest.lock */,
 				E961ECA6287B140A00D92C64 /* Sources */,
 				E961ECA7287B140A00D92C64 /* Frameworks */,
 				E961ECA8287B140A00D92C64 /* Resources */,
@@ -477,7 +486,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12F16DCF3CB96D2EF8E16413 /* [CP] Check Pods Manifest.lock */ = {
+		303F40F204D0B9DD21E9F529 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -499,7 +508,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AB94E84997335BB27F4B1607 /* [CP] Embed Pods Frameworks */ = {
+		EC9C39F6FE7B22E19D5CA8A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MakeItGreenerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB3D4F4BB3D9260B7CB8A588 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -690,7 +721,7 @@
 		};
 		E95E34AD2879DE3B0098404F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5308B1A2D637627B314ECE9B /* Pods-MakeItGreener.debug.xcconfig */;
+			baseConfigurationReference = 815379C0C1088D33DFC9A3A5 /* Pods-MakeItGreener.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -722,7 +753,7 @@
 		};
 		E95E34AE2879DE3B0098404F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CBA899CEFEBC5F080D87CAE /* Pods-MakeItGreener.release.xcconfig */;
+			baseConfigurationReference = 51427831A72954688DF75713 /* Pods-MakeItGreener.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -754,6 +785,7 @@
 		};
 		E961ECB1287B140A00D92C64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3025ECEF5B066AE7C9B03AEC /* Pods-MakeItGreenerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -779,6 +811,7 @@
 		};
 		E961ECB2287B140A00D92C64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D15472A2CACCB97657F49BD /* Pods-MakeItGreenerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
