@@ -12,6 +12,7 @@ struct AnnotationDesign: View {
         Image(systemName: "mappin.and.ellipse")
             .foregroundColor(.red)
             .font(.system(size: 60))
+            .offset(x: 0, y: -20)
     }
 }
 
