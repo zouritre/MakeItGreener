@@ -7,15 +7,14 @@
 
 import SwiftUI
 
-struct TravelFormTab: View {
+struct TravelForm: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
-                MapView()
-                
                 Form {
                     Section(content: {
                         TravelLocationView(travelSide: .Start)
@@ -32,8 +31,8 @@ struct TravelFormTab: View {
                         Text("Transportation")
                     })
                     Section {
-                        NavigationLink( destination: { co2ResultView() }) {
-                            TravelFormSubmit()
+                        Button("Save") {
+                            presentationMode.wrappedValue.dismiss()
                         }
                     }
                 }
@@ -47,7 +46,6 @@ struct TravelFormTab: View {
                         TravelLocationItem(travelSide: .Arrival)
                     }
                 }
-            }
         }
         .navigationViewStyle(.stack)
         //Always display search bar
@@ -68,9 +66,9 @@ struct TravelFormTab: View {
     }
 }
 
-struct TravelFormTab_Previews: PreviewProvider {
+struct TravelForm_Previews: PreviewProvider {
     static var previews: some View {
-        TravelFormTab()
+        TravelForm()
             .environmentObject(CarbonFootprintObservableObject())
             .environmentObject(travelSearchObservableObject())
     }
