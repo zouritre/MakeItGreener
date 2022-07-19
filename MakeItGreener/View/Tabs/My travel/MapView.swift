@@ -25,7 +25,7 @@ struct MapView: View {
                 AnnotationDesign()
             })
         }
-        .edgesIgnoringSafeArea([.bottom])
+        .edgesIgnoringSafeArea([.bottom, .top])
         .sheet(isPresented: $showSheet) {
             TravelForm()
         }
@@ -42,6 +42,15 @@ struct MapView: View {
         .overlay(alignment: .bottom) {
                 SubmitTravelFormOverlay()
                     .offset(x: 0, y: -60)
+        }
+        .overlay(alignment: .bottom) {
+            Rectangle()
+                .foregroundColor(.gray)
+                .opacity(0.5)
+                .frame(height: 80, alignment: .center)
+                .edgesIgnoringSafeArea(.bottom)
+                .offset(x: 0, y: 80)
+                .blur(radius: 3)
         }
     }
 }

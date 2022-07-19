@@ -16,12 +16,21 @@ struct MainView: View {
                 .tabItem {
                     Label("My travel", systemImage: "square.and.pencil")
                 }
-//                .background(blur(radius: 5))
             MyFootprintTab()
                 .tabItem {
                     Label("My footprint", systemImage: "leaf")
                 }
         }
+        .onAppear {
+            let appearance = UITabBarAppearance()
+            appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+            appearance.backgroundColor = UIColor(Color.clear)
+            
+            // Use this appearance when scrolling behind the TabView:
+            UITabBar.appearance().standardAppearance = appearance
+            // Use this appearance when scrolled all the way up:
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+                }
     }
 }
 
