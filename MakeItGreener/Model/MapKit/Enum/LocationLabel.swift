@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum LocationLabel: String {
+enum LocationLabel: String, CaseIterable {
     case Start
     case Arrival
 }

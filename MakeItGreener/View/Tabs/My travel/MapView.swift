@@ -29,19 +29,19 @@ struct MapView: View {
         .sheet(isPresented: $showSheet) {
             TravelForm()
         }
-        .overlay(alignment: .bottomLeading) {
-            Circle()
-                .frame(width: 60, height: 60, alignment: .center)
-                .foregroundColor(.secondary)
-                .overlay(alignment: .center) {
-                    Image(systemName: "gear")
-                        .font(.system(size: 40))
-                        .foregroundColor(.white)
-                }
-                .offset(x: 20, y: -60)
-                .onTapGesture {
-                    showSheet.toggle()
-                }
+        .overlay(alignment: .topTrailing) {
+            VStack(alignment: .center) {
+                DepartArrivalOverlay()
+                SettingsOverlay()
+                    .onTapGesture {
+                        showSheet.toggle()
+                    }
+            }
+            .offset(x: -10, y: 30)
+        }
+        .overlay(alignment: .bottom) {
+                SubmitTravelFormOverlay()
+                    .offset(x: 0, y: -60)
         }
     }
 }
@@ -49,6 +49,7 @@ struct MapView: View {
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
+            .preferredColorScheme(.dark)
             .environmentObject(travelSearchObservableObject())
     }
 }

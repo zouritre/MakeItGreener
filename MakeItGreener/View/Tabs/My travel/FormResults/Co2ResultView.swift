@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct co2ResultView: View {
+struct Co2ResultView: View {
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     
     var body: some View {
@@ -24,7 +24,7 @@ struct co2ResultView: View {
 
 struct co2Result_Previews: PreviewProvider {
     static var previews: some View {
-        co2ResultView()
+        Co2ResultView()
             .environmentObject(CarbonFootprintObservableObject())
     }
 }
