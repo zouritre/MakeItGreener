@@ -86,6 +86,8 @@ class travelSearchObservableObject: NSObject, ObservableObject {
             self.chosenLocations[self.travelSide] = self.region
             
             self.switchToolbarItemFocus()
+            
+            self.calculateDistance()
         }
     }
     
@@ -138,6 +140,17 @@ class travelSearchObservableObject: NSObject, ObservableObject {
 
         //Append the new annotation location object for  departure/arrival
         self.mapAnnotations.append(newAnnotation)
+    }
+    
+    /// Calculate the distance between the departure and arrival locations
+    func calculateDistance() {
+        guard mapAnnotations.count == 2 else { return }
+        
+        let location1 = MKMapPoint.init(mapAnnotations[0].location)
+        let location2 = MKMapPoint.init(mapAnnotations[1].location)
+        let distance = location1.distance(to: location2)
+        
+        travelDistance = distance
     }
 }
 

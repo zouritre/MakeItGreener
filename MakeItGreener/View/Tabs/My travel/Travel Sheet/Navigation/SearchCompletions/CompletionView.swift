@@ -13,13 +13,8 @@ struct CompletionView: View {
     
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
+    /// Map locationt completion object
     let completionObject: MKLocalSearchCompletion
-    
-    private var index: Int {
-        travelSearchOO.completerResults.firstIndex {
-            $0 == completionObject
-        } ?? 0
-    }
     
     var body: some View {
         VStack(alignment: .leading) {
