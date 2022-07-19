@@ -88,7 +88,35 @@ class travelSearchTest: XCTestCase {
         XCTAssertEqual(self.travelSearch.completer.queryFragment, "test")
     }
     
+    func testTravelDistanceShouldBeCorrect() {
+        // Given
+        let location1 = MapLocation(lat: 37.334, long: -122.009, name: .Start)
+        let location2 = MapLocation(lat: 37.340, long: -122.001, name: .Arrival)
+        
+        travelSearch.mapAnnotations.append(location1)
+        travelSearch.mapAnnotations.append(location2)
+        
+        // When
+        travelSearch.calculateDistance()
+        
+        // Then
+        XCTAssertEqual(travelSearch.travelDistance, 971.4401132281921)
+
+    }
     
+    func testTravelDistanceShouldReturnOnly() {
+        // Given
+        let location1 = MapLocation(lat: 37.334, long: -122.009, name: .Start)
+        
+        travelSearch.mapAnnotations.append(location1)
+        
+        // When
+        travelSearch.calculateDistance()
+        
+        // Then
+        XCTAssertEqual(travelSearch.travelDistance, 0)
+
+    }
     // Can't test MapKit MKLocalSearch API responses (neither text completion request or location search)
 //    func testCompleterShouldHaveResults() {
 //        // Given
