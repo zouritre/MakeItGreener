@@ -21,6 +21,7 @@ struct MainView: View {
                     Label("My footprint", systemImage: "leaf")
                 }
         }
+        .statusBar(hidden: true)
         .onAppear {
             let appearance = UITabBarAppearance()
             appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)

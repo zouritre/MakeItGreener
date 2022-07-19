@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 
 struct CompletionView: View {
+    @Environment(\.dismissSearch) private var dismissSearch
+
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
     let completionObject: MKLocalSearchCompletion
@@ -24,17 +26,22 @@ struct CompletionView: View {
             VStack(alignment: .leading) {
                 Text(self.completionObject.title)
                     .font(.title.weight(.bold))
-                    .foregroundColor(.black)
                 Text(self.completionObject.subtitle)
                     .font(.body.weight(.light))
-                    .foregroundColor(.black)
             }
+            .foregroundColor(.black)
             Spacer()
             Image(systemName: "chevron.right")
         }
         .onTapGesture {
+            // Set the search bar title
             travelSearchOO.searchTerm = self.completionObject.title
+            // Store the selected completion
             travelSearchOO.selectedCompletion[travelSearchOO.travelSide] = completionObject
+            // Dismiss the search bar focus
+            dismissSearch()
+            // Search the location of the selected text completion
+            travelSearchOO.search()
         }
     }
 }

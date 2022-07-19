@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TravelForm: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) private var presentationMode
     
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
