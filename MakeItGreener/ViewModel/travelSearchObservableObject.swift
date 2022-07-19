@@ -16,7 +16,15 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     }
     
     /// Travel distance from departure point to arrival
-    @Published var travelDistance: Double = 0
+    @Published var travelDistance: Double = 0 {
+        didSet {
+            // Send the travel distance via notification to CarbonFootprintObservableObject
+            let name = Notification.Name(rawValue: "travelDistance")
+            let notification = Notification(name: name, userInfo: ["value":travelDistance])
+            
+            NotificationCenter.default.post(notification)
+        }
+    }
     /// Search completion results
     @Published var completerResults = [MKLocalSearchCompletion]()
     /// Search completion is empty

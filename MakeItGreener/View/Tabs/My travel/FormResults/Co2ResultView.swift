@@ -1,5 +1,5 @@
 //
-//  co2ResultView.swift
+//  Co2ResultView.swift
 //  MakeItGreener
 //
 //  Created by Bertrand Dalleau on 16/07/2022.
@@ -11,14 +11,11 @@ struct Co2ResultView: View {
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Your footprint for this travel is: \(carbonFootprintOO.footprintResult)")
         .onAppear {
-//            carbonFootprintOO.getFootprint()
+            carbonFootprintOO.getFootprint()
         }
-        .alert(carbonFootprintOO.errorDescription ?? "", isPresented: $carbonFootprintOO.requestError, actions: {
-            //Disable activity indicator
-            Text("Ok")
-        })
+        .alert(carbonFootprintOO.errorDescription ?? "Unknown error", isPresented: $carbonFootprintOO.requestError, actions: {})
     }
 }
 

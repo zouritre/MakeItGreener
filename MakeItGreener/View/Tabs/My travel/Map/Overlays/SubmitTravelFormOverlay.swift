@@ -8,19 +8,32 @@
 import SwiftUI
 
 struct SubmitTravelFormOverlay: View {
-    @State var navigate = false
+    @EnvironmentObject var travelSearchOO: travelSearchObservableObject
+    
+    @State var presentAlert = false
+    @State var presentResult = false
+
     var body: some View {
-        Button(action: {
-            navigate = true
-        }, label: {
-            Label("Get my footprint", systemImage: "leaf.arrow.triangle.circlepath")
-                .font(.title.weight(.semibold))
-                .foregroundColor(.white)
-        })
-        .background(.gray)
-        .buttonStyle(.bordered)
-        .cornerRadius(15)
-        .shadow(radius: 10)
+        VStack {
+            NavigationLink(destination: Co2ResultView(), isActive: $presentResult) {}
+            Button(action: {
+                if travelSearchOO.mapAnnotations.count < 2 {
+                    presentAlert.toggle()
+                }
+                else {
+                    presentResult.toggle()
+                }
+            }, label: {
+                Label("Get my footprint", systemImage: "leaf.arrow.triangle.circlepath")
+                    .font(.title.weight(.semibold))
+                    .foregroundColor(.white)
+            })
+            .background(.gray)
+            .buttonStyle(.bordered)
+            .cornerRadius(15)
+            .shadow(radius: 10)
+            .alert("You must select a departure and arrival location", isPresented: $presentAlert, actions: {})
+        }
     }
 }
 
