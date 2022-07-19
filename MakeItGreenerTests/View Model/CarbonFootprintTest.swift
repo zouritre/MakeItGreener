@@ -23,6 +23,17 @@ class CarbonFootprintTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func testTransportationTypesCountShouldBeCorrect() {
+        // Given
+        carbonFootprint.chosenTransportationMode = .Vehicule
+        
+        // When
+        let transportationTypes = carbonFootprint.transportationTypes
+        
+        // Then
+        XCTAssertEqual(transportationTypes.count, 19)
+    }
+    
     func testGetFootprintShouldReturnError() {
         // Given
         let response: HTTPURLResponse? = FakeResponse.responseOK

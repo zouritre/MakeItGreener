@@ -12,7 +12,7 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            MapView()
+            MyTravelTabHome()
                 .tabItem {
                     Label("My travel", systemImage: "square.and.pencil")
                 }
@@ -21,8 +21,9 @@ struct MainView: View {
                     Label("My footprint", systemImage: "leaf")
                 }
         }
-        .statusBar(hidden: true)
         .onAppear {
+            // MARK: - Tab bar Appearance
+            
             let appearance = UITabBarAppearance()
             appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
             appearance.backgroundColor = UIColor(Color.clear)
@@ -31,7 +32,7 @@ struct MainView: View {
             UITabBar.appearance().standardAppearance = appearance
             // Use this appearance when scrolled all the way up:
             UITabBar.appearance().scrollEdgeAppearance = appearance
-                }
+        }
     }
 }
 

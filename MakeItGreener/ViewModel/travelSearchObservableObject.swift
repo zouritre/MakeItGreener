@@ -53,18 +53,17 @@ class travelSearchObservableObject: NSObject, ObservableObject {
 
     /// Provide text completion for the search bar
     var completer = MKLocalSearchCompleter()
-    
-    /// Result chosen from the search completion
-    var selectedCompletion = [LocationLabel:MKLocalSearchCompletion]()
     /// Departure and arrival locations chosen by the user
     var chosenLocations = [LocationLabel:MKCoordinateRegion]()
     
     /// Get the coordinates of the location chosen  from the search completion
-    func search() {
-        self.setLocationFromCompletion()
+    func search(usingCompletion: Bool) {
+//        self.setLocationFromCompletion()
+        
+        let completion = setLocationFromCompletion(usingCompletion: usingCompletion)
         
         // Create a search request from the completion object
-        let searchRequest = MKLocalSearch.Request(completion: (self.travelSide == .Start ? self.departureLocation : self.arrivalLocation) ?? MKLocalSearchCompletion())
+        let searchRequest = MKLocalSearch.Request(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
         
         // Set the prefered search region to the map view's region.
@@ -97,28 +96,28 @@ class travelSearchObservableObject: NSObject, ObservableObject {
         }
     }
     
-    func setLocationFromCompletion() {
-        var chosenCompletion: MKLocalSearchCompletion
+    /// Set the completion to use for the map location search
+    /// - Parameter usingCompletion: Define if the user  chosen completion will be use or the default one
+    /// - Returns: The completion to use for the search
+    func setLocationFromCompletion(usingCompletion: Bool) -> MKLocalSearchCompletion {
+        var completion: MKLocalSearchCompletion
         
-        if let selectedCompletion = self.selectedCompletion[self.travelSide] {
-            // User selected a completion from the search bar
-            chosenCompletion = selectedCompletion
-            
-            // Reset the array to prevent this condition from repeating infinitly
-            self.selectedCompletion = [:]
+        if usingCompletion {
+            completion = (self.travelSide == .Start ? self.departureLocation : self.arrivalLocation) ?? MKLocalSearchCompletion()
         }
         else {
-            // Get the first completion by default if user did not select any completion
-            chosenCompletion = self.completerResults[0]
+            completion = completerResults.count > 0 ? completerResults[0] : MKLocalSearchCompletion()
         }
         
         // Send the searched location to their subscribers according to the travel side
         switch self.travelSide {
         case .Start:
-            self.departureLocation = chosenCompletion
+            self.departureLocation = completion
         case .Arrival:
-            self.arrivalLocation = chosenCompletion
+            self.arrivalLocation = completion
         }
+        
+        return completion
     }
     
     /// Place an annotation at the specified coordinates of the map

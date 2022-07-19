@@ -33,11 +33,16 @@ struct CompletionView: View {
             // Set the search bar title
             travelSearchOO.searchTerm = self.completionObject.title
             // Store the selected completion
-            travelSearchOO.selectedCompletion[travelSearchOO.travelSide] = completionObject
+            if travelSearchOO.travelSide == .Start {
+                travelSearchOO.departureLocation = completionObject
+            }
+            else {
+                travelSearchOO.arrivalLocation = completionObject
+            }
             // Dismiss the search bar focus
             dismissSearch()
             // Search the location of the selected text completion
-            travelSearchOO.search()
+            travelSearchOO.search(usingCompletion: true)
         }
     }
 }

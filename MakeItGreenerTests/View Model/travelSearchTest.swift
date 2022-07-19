@@ -23,58 +23,6 @@ class travelSearchTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testDepartureLocationShouldReturnSelectedCompletion() {
-        // Given
-        self.travelSearch.travelSide = .Start
-        self.travelSearch.selectedCompletion[.Start] = MKLocalSearchCompletion()
-        
-        // When
-        travelSearch.setLocationFromCompletion()
-        
-        // Then
-        XCTAssertNotNil(travelSearch.departureLocation)
-        XCTAssertNil(travelSearch.arrivalLocation)
-    }
-    
-    func testArrivalLocationShouldReturnSelectedCompletion() {
-        // Given
-        self.travelSearch.travelSide = .Arrival
-        self.travelSearch.selectedCompletion[.Arrival] = MKLocalSearchCompletion()
-        
-        // When
-        travelSearch.setLocationFromCompletion()
-        
-        // Then
-        XCTAssertNotNil(travelSearch.arrivalLocation)
-        XCTAssertNil(travelSearch.departureLocation)
-    }
-
-    func testDepartureLocationShouldReturnDefaultCompletion() {
-        // Given
-        self.travelSearch.travelSide = .Start
-        self.travelSearch.completerResults = [MKLocalSearchCompletion()]
-        
-        // When
-        travelSearch.setLocationFromCompletion()
-        
-        // Then
-        XCTAssertNotNil(travelSearch.departureLocation)
-        XCTAssertNil(travelSearch.arrivalLocation)
-    }
-    
-    func testArrivalLocationShouldReturnDefaultCompletion() {
-        // Given
-        self.travelSearch.travelSide = .Arrival
-        self.travelSearch.completerResults = [MKLocalSearchCompletion()]
-
-        // When
-        travelSearch.setLocationFromCompletion()
-        
-        // Then
-        XCTAssertNotNil(travelSearch.arrivalLocation)
-        XCTAssertNil(travelSearch.departureLocation)
-    }
-
     func testTravelSideShouldAutomaticallySwitchToArrival() {
         // Given
         self.travelSearch.travelSide = .Start
