@@ -10,7 +10,7 @@ import MapKit
 
 struct CompletionView: View {
     @Environment(\.dismissSearch) private var dismissSearch
-
+    
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
     let completionObject: MKLocalSearchCompletion
@@ -22,17 +22,13 @@ struct CompletionView: View {
     }
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(self.completionObject.title)
-                    .font(.title.weight(.bold))
-                Text(self.completionObject.subtitle)
-                    .font(.body.weight(.light))
-            }
-            .foregroundColor(.black)
-            Spacer()
-            Image(systemName: "chevron.right")
+        VStack(alignment: .leading) {
+            Button(self.completionObject.title) {}
+                .font(.title.weight(.bold))
+            Button(self.completionObject.subtitle) {}
+                .font(.body.weight(.light))
         }
+        .foregroundColor(.black)
         .onTapGesture {
             // Set the search bar title
             travelSearchOO.searchTerm = self.completionObject.title
