@@ -1,4 +1,4 @@
-git_url("https://github.com/zouritre/Profiles-Certificates.git")
+git_url("git@github.com:zouritre/Profiles-Certificates.git")
 
 storage_mode("git")
 
