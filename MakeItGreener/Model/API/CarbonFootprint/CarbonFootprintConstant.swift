@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import Alamofire
 
 /// API sensible datas
-enum CarbonFootprintConstant: String {
+class CarbonFootprintConstant {
     
     ///API key
-    case key = "your_api_key"
-    
+    private static let key = "your_api_key"
+    private static let host = "carbonfootprint1.p.rapidapi.com"
+    static let headers: [HTTPHeader] = [HTTPHeader(name: "X-RapidAPI-Key", value: key), HTTPHeader(name: "X-RapidAPI-Host", value: host)]
 }
