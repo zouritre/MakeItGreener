@@ -24,4 +24,9 @@ platform :ios do
   lane :test do
     scan
   end
+
+  lane :beta do
+    match(type: "adhoc")
+    gym(export_method: "ad-hoc")
+  end
 end

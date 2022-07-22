@@ -84,12 +84,12 @@ workflows:
               only: development
           requires:
             - build-and-test
-      - beta:
-          filters:
-            branches:
-              only: beta
-          requires:
-            - build-and-test
+      - beta
+#          filters:
+#            branches:
+#              only: beta
+#          requires:
+#            - build-and-test
       - release:
           filters:
             branches:
