@@ -11,6 +11,9 @@ target 'MakeItGreener' do
   use_frameworks!
 
   # Pods for Reciplease
+  pod 'FirebaseCoreInternal', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+  pod 'Firebase/Analytics', :modular_headers => true
   pod 'Alamofire'
   pod 'SwiftyJSON', '~> 4.0'
 
