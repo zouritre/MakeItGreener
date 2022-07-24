@@ -12,8 +12,7 @@
 
 clean(true)
 
-# Enable skip_build to skip debug builds for faster test performance
-skip_build(true)
+# skip_build(true)
 
 output_types("html")
 
