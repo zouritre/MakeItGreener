@@ -1,0 +1,6 @@
+module Pods_MakeItGreenerTests {
+  umbrella header "Pods-MakeItGreenerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
