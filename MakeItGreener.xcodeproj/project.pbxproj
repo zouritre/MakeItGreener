@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		152D88492AB2D8B1825C9F4C /* libPods-MakeItGreenerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9CA536820E5A7F5DD29CC9 /* libPods-MakeItGreenerTests.a */; };
-		2F1126CDBF708E5562A0BBC3 /* Pods_MakeItGreener.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715FBB90854C588ED6793DF9 /* Pods_MakeItGreener.framework */; };
+		99628892509A61FD547F9BF1 /* Pods_MakeItGreener.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB58022E954E91C06C721C6 /* Pods_MakeItGreener.framework */; };
 		E92810BB2881D76E0089A77D /* CompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92810BA2881D76E0089A77D /* CompletionView.swift */; };
 		E92F32FC2886DA6F00F6E844 /* MyTravelTabHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92F32FB2886DA6F00F6E844 /* MyTravelTabHome.swift */; };
 		E93B16D428835D2900DBFE21 /* Co2ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B16D328835D2900DBFE21 /* Co2ResultView.swift */; };
@@ -36,8 +35,6 @@
 		E961ECB9287B14C500D92C64 /* FakeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB7287B14C500D92C64 /* FakeResponse.swift */; };
 		E961ECBA287B14C500D92C64 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */; };
 		E961ECBD287B19D500D92C64 /* CarbonFootprintObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECBC287B19D500D92C64 /* CarbonFootprintObservableObject.swift */; };
-		E97565B8288C5F99006442FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97565B7288C5F99006442FD /* AppDelegate.swift */; };
-		E97565BA288C7E7C006442FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E97565B9288C7E7C006442FD /* GoogleService-Info.plist */; };
 		E9AE2E99288084D200607895 /* travelSearchObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AE2E98288084D200607895 /* travelSearchObservableObject.swift */; };
 		E9AE2E9B2880B69000607895 /* TransportationModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AE2E9A2880B68F00607895 /* TransportationModeView.swift */; };
 		E9B4A8BD287A08FB000AFE72 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4A8BC287A08FB000AFE72 /* MainView.swift */; };
@@ -49,6 +46,7 @@
 		E9CEFCC2287D9A8A0024198C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCC1287D9A8A0024198C /* MapView.swift */; };
 		E9CEFCC5287D9BF90024198C /* TransportationTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCC4287D9BF90024198C /* TransportationTypeView.swift */; };
 		E9CEFCD1287DD6BF0024198C /* TransportationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCD0287DD6BF0024198C /* TransportationMode.swift */; };
+		F9AA19780A720A3510FF8299 /* libPods-MakeItGreenerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFE91B711BF1308A1488D18 /* libPods-MakeItGreenerTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,12 +60,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1487C2F41BCA6D4D929A805E /* Pods-MakeItGreener.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.debug.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.debug.xcconfig"; sourceTree = "<group>"; };
-		22C9B16AE741C43AA947472C /* Pods-MakeItGreenerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreenerTests.release.xcconfig"; path = "Target Support Files/Pods-MakeItGreenerTests/Pods-MakeItGreenerTests.release.xcconfig"; sourceTree = "<group>"; };
-		28D0574804C7DA57FAC0EEB0 /* Pods-MakeItGreenerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreenerTests.debug.xcconfig"; path = "Target Support Files/Pods-MakeItGreenerTests/Pods-MakeItGreenerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3C301A9392C40AB43E802BD8 /* Pods-MakeItGreener.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.release.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.release.xcconfig"; sourceTree = "<group>"; };
-		715FBB90854C588ED6793DF9 /* Pods_MakeItGreener.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeItGreener.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC9CA536820E5A7F5DD29CC9 /* libPods-MakeItGreenerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MakeItGreenerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3025ECEF5B066AE7C9B03AEC /* Pods-MakeItGreenerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreenerTests.debug.xcconfig"; path = "Target Support Files/Pods-MakeItGreenerTests/Pods-MakeItGreenerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3CB58022E954E91C06C721C6 /* Pods_MakeItGreener.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeItGreener.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CFE91B711BF1308A1488D18 /* libPods-MakeItGreenerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MakeItGreenerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51427831A72954688DF75713 /* Pods-MakeItGreener.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.release.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.release.xcconfig"; sourceTree = "<group>"; };
+		5D15472A2CACCB97657F49BD /* Pods-MakeItGreenerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreenerTests.release.xcconfig"; path = "Target Support Files/Pods-MakeItGreenerTests/Pods-MakeItGreenerTests.release.xcconfig"; sourceTree = "<group>"; };
+		815379C0C1088D33DFC9A3A5 /* Pods-MakeItGreener.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.debug.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.debug.xcconfig"; sourceTree = "<group>"; };
 		E92810BA2881D76E0089A77D /* CompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionView.swift; sourceTree = "<group>"; };
 		E92F32FB2886DA6F00F6E844 /* MyTravelTabHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTravelTabHome.swift; sourceTree = "<group>"; };
 		E93B16D328835D2900DBFE21 /* Co2ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Co2ResultView.swift; sourceTree = "<group>"; };
@@ -97,8 +95,6 @@
 		E961ECB7287B14C500D92C64 /* FakeResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeResponse.swift; sourceTree = "<group>"; };
 		E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		E961ECBC287B19D500D92C64 /* CarbonFootprintObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintObservableObject.swift; sourceTree = "<group>"; };
-		E97565B7288C5F99006442FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E97565B9288C7E7C006442FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E9AE2E98288084D200607895 /* travelSearchObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travelSearchObservableObject.swift; sourceTree = "<group>"; };
 		E9AE2E9A2880B68F00607895 /* TransportationModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationModeView.swift; sourceTree = "<group>"; };
 		E9B4A8BC287A08FB000AFE72 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -117,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F1126CDBF708E5562A0BBC3 /* Pods_MakeItGreener.framework in Frameworks */,
+				99628892509A61FD547F9BF1 /* Pods_MakeItGreener.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,18 +121,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				152D88492AB2D8B1825C9F4C /* libPods-MakeItGreenerTests.a in Frameworks */,
+				F9AA19780A720A3510FF8299 /* libPods-MakeItGreenerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		90E0E6F93B6E5C82BFEE8F40 /* Frameworks */ = {
+		72D5A3B3A6F5CB0B2DCE12DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				715FBB90854C588ED6793DF9 /* Pods_MakeItGreener.framework */,
-				AC9CA536820E5A7F5DD29CC9 /* libPods-MakeItGreenerTests.a */,
+				3CB58022E954E91C06C721C6 /* Pods_MakeItGreener.framework */,
+				4CFE91B711BF1308A1488D18 /* libPods-MakeItGreenerTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,10 +140,10 @@
 		CAD76BAE1E0E13249B81A20E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1487C2F41BCA6D4D929A805E /* Pods-MakeItGreener.debug.xcconfig */,
-				3C301A9392C40AB43E802BD8 /* Pods-MakeItGreener.release.xcconfig */,
-				28D0574804C7DA57FAC0EEB0 /* Pods-MakeItGreenerTests.debug.xcconfig */,
-				22C9B16AE741C43AA947472C /* Pods-MakeItGreenerTests.release.xcconfig */,
+				815379C0C1088D33DFC9A3A5 /* Pods-MakeItGreener.debug.xcconfig */,
+				51427831A72954688DF75713 /* Pods-MakeItGreener.release.xcconfig */,
+				3025ECEF5B066AE7C9B03AEC /* Pods-MakeItGreenerTests.debug.xcconfig */,
+				5D15472A2CACCB97657F49BD /* Pods-MakeItGreenerTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -184,7 +180,6 @@
 				E95E349E2879DE3A0098404F /* ContentView.swift */,
 				E9B4A8BC287A08FB000AFE72 /* MainView.swift */,
 				E95E349C2879DE3A0098404F /* MakeItGreenerApp.swift */,
-				E97565B7288C5F99006442FD /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -247,7 +242,7 @@
 				E961ECAB287B140A00D92C64 /* MakeItGreenerTests */,
 				E95E349A2879DE3A0098404F /* Products */,
 				CAD76BAE1E0E13249B81A20E /* Pods */,
-				90E0E6F93B6E5C82BFEE8F40 /* Frameworks */,
+				72D5A3B3A6F5CB0B2DCE12DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,7 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				E93B16D628835F4E00DBFE21 /* Supporting Files */,
-				E97565B9288C7E7C006442FD /* GoogleService-Info.plist */,
 				E9B4A8CA287A36CE000AFE72 /* View */,
 				E9B4A8BF287A0E17000AFE72 /* ViewModel */,
 				E9B4A8BE287A0E10000AFE72 /* Model */,
@@ -481,11 +475,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E95E34AC2879DE3B0098404F /* Build configuration list for PBXNativeTarget "MakeItGreener" */;
 			buildPhases = (
-				B6684A0B7261C342977F80D1 /* [CP] Check Pods Manifest.lock */,
+				303F40F204D0B9DD21E9F529 /* [CP] Check Pods Manifest.lock */,
 				E95E34952879DE3A0098404F /* Sources */,
 				E95E34962879DE3A0098404F /* Frameworks */,
 				E95E34972879DE3A0098404F /* Resources */,
-				95997AE700B1E54E9AA25893 /* [CP] Embed Pods Frameworks */,
+				FB3D4F4BB3D9260B7CB8A588 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -500,7 +494,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E961ECB0287B140A00D92C64 /* Build configuration list for PBXNativeTarget "MakeItGreenerTests" */;
 			buildPhases = (
-				C9390F2E7E3F3EDFF0706CC6 /* [CP] Check Pods Manifest.lock */,
+				EC9C39F6FE7B22E19D5CA8A7 /* [CP] Check Pods Manifest.lock */,
 				E961ECA6287B140A00D92C64 /* Sources */,
 				E961ECA7287B140A00D92C64 /* Frameworks */,
 				E961ECA8287B140A00D92C64 /* Resources */,
@@ -561,7 +555,6 @@
 			files = (
 				E95E34A42879DE3B0098404F /* Preview Assets.xcassets in Resources */,
 				E95E34A12879DE3B0098404F /* Assets.xcassets in Resources */,
-				E97565BA288C7E7C006442FD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,24 +569,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		95997AE700B1E54E9AA25893 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B6684A0B7261C342977F80D1 /* [CP] Check Pods Manifest.lock */ = {
+		303F40F204D0B9DD21E9F529 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -615,7 +591,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C9390F2E7E3F3EDFF0706CC6 /* [CP] Check Pods Manifest.lock */ = {
+		EC9C39F6FE7B22E19D5CA8A7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -635,6 +611,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB3D4F4BB3D9260B7CB8A588 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -666,7 +659,6 @@
 				E9CEFCC5287D9BF90024198C /* TransportationTypeView.swift in Sources */,
 				E93B9EB52883063E00FFF6A0 /* AnnotationDesign.swift in Sources */,
 				E961EC9D287AF9C900D92C64 /* CarbonFootprintEndpoint.swift in Sources */,
-				E97565B8288C5F99006442FD /* AppDelegate.swift in Sources */,
 				E9B4A8C9287A1B69000AFE72 /* CarbonFootprintConstant.swift in Sources */,
 				E95FFC0B287F35D800B934B3 /* LocationLabel.swift in Sources */,
 				E9CEFCBE287D90390024198C /* MyFootprintTab.swift in Sources */,
@@ -817,7 +809,7 @@
 		};
 		E95E34AD2879DE3B0098404F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1487C2F41BCA6D4D929A805E /* Pods-MakeItGreener.debug.xcconfig */;
+			baseConfigurationReference = 815379C0C1088D33DFC9A3A5 /* Pods-MakeItGreener.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -839,7 +831,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bertranddalleau.MakeItGreen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bertranddalleau.MakeItGreener;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -851,7 +843,7 @@
 		};
 		E95E34AE2879DE3B0098404F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C301A9392C40AB43E802BD8 /* Pods-MakeItGreener.release.xcconfig */;
+			baseConfigurationReference = 51427831A72954688DF75713 /* Pods-MakeItGreener.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -873,7 +865,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bertranddalleau.MakeItGreen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bertranddalleau.MakeItGreener;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -885,7 +877,7 @@
 		};
 		E961ECB1287B140A00D92C64 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28D0574804C7DA57FAC0EEB0 /* Pods-MakeItGreenerTests.debug.xcconfig */;
+			baseConfigurationReference = 3025ECEF5B066AE7C9B03AEC /* Pods-MakeItGreenerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -893,12 +885,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 32VPA6HJ38;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
-					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
-				);
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -917,7 +903,7 @@
 		};
 		E961ECB2287B140A00D92C64 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22C9B16AE741C43AA947472C /* Pods-MakeItGreenerTests.release.xcconfig */;
+			baseConfigurationReference = 5D15472A2CACCB97657F49BD /* Pods-MakeItGreenerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -925,12 +911,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 32VPA6HJ38;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
-					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
-				);
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
