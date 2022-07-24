@@ -21,5 +21,6 @@ struct MyTravelTabHome: View {
 struct MyTravelTabHome_Previews: PreviewProvider {
     static var previews: some View {
         MyTravelTabHome()
+            .environmentObject(travelSearchObservableObject())
     }
 }
