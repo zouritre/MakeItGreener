@@ -15,16 +15,7 @@ class travelSearchObservableObject: NSObject, ObservableObject {
         completer.delegate = self
     }
     
-    /// Travel distance from departure point to arrival
-    @Published var travelDistance: Double = 0 {
-        didSet {
-            // Send the travel distance via notification to CarbonFootprintObservableObject
-            let name = Notification.Name(rawValue: "travelDistance")
-            let notification = Notification(name: name, userInfo: ["value":travelDistance])
-            
-            NotificationCenter.default.post(notification)
-        }
-    }
+    
     /// Search completion results
     @Published var completerResults = [MKLocalSearchCompletion]()
     /// Search completion is empty
@@ -59,6 +50,7 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     @Published var departureLocation: MKLocalSearchCompletion?
     @Published var arrivalLocation: MKLocalSearchCompletion?
 
+    var travelDistance: Double?
     /// Provide text completion for the search bar
     var completer = MKLocalSearchCompleter()
     /// Departure and arrival locations chosen by the user
@@ -96,6 +88,8 @@ class travelSearchObservableObject: NSObject, ObservableObject {
             self.switchToolbarItemFocus()
             
             self.calculateDistance()
+            
+            self.sendTravelData()
         }
     }
     
@@ -152,6 +146,7 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     
     /// Calculate the distance between the departure and arrival locations
     func calculateDistance() {
+        // Continue only if both departure and arrival locations are set
         guard mapAnnotations.count == 2 else { return }
         
         let location1 = MKMapPoint.init(mapAnnotations[0].location)
@@ -159,6 +154,25 @@ class travelSearchObservableObject: NSObject, ObservableObject {
         let distance = location1.distance(to: location2)
         
         travelDistance = distance
+    }
+    
+    
+    /// Use notification to send the travel datas
+    func sendTravelData() {
+        guard let departureLocation = departureLocation,
+              let arrivalLocation = arrivalLocation,
+              let travelDistance = travelDistance  else {
+            return
+        }
+
+        // Send the travel distance via notification to CarbonFootprintObservableObject
+        let name = Notification.Name(rawValue: "travel data")
+        let notification = Notification(name: name, userInfo: [
+            "distance":travelDistance,
+            "departure":departureLocation.title,
+            "arrival":arrivalLocation.title])
+        
+        NotificationCenter.default.post(notification)
     }
 }
 

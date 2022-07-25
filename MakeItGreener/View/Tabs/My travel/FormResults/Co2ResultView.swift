@@ -11,7 +11,7 @@ struct Co2ResultView: View {
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     
     var body: some View {
-        Text("Your footprint for this travel is: \(carbonFootprintOO.footprintResult)")
+        Text("Your footprint for this travel is: \(carbonFootprintOO.formattedFootprintResult)")
         .onAppear {
             carbonFootprintOO.getFootprint()
         }
