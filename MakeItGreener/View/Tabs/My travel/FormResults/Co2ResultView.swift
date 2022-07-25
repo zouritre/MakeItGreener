@@ -12,10 +12,6 @@ struct Co2ResultView: View {
     
     var body: some View {
         Text("Your footprint for this travel is: \(carbonFootprintOO.formattedFootprintResult)")
-        .onAppear {
-            carbonFootprintOO.getFootprint()
-        }
-        .alert(carbonFootprintOO.errorDescription ?? "Unknown error", isPresented: $carbonFootprintOO.requestError, actions: {})
     }
 }
 

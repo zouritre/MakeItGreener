@@ -23,10 +23,12 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     
     /// Travel distance from departure point to arrival
     @Published var formattedTravelDistance = "0 m"
+    /// Set to true if the travel carbon footprint has been retrieved successfully from the API
+    @Published var hasFootprintResult = false
+    /// Set to true if an API request is pending
+    @Published var isLoading = false
     /// Co2 footprint value received from API according to the provided travel informations
     @Published var formattedFootprintResult = "0 KgCO2e"
-    /// Set to true if an error ocurred when processing the request to API
-    @Published var requestError: Bool = false
     /// Transportation mode chosen by the user for his travel
     @Published var chosenTransportationMode: TransportationMode = .Vehicule {
         didSet {
@@ -37,6 +39,8 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     }
     /// Transportation type chosen by the user for his travel
     @Published var chosenTransportationType: TransportationType = .SmallPetrolCar
+    /// Set to true if an error ocurred when processing the request to API
+    @Published var requestError: Bool = false
     /// Description of the error encountered from the API request
     @Published var errorDescription: String?
     
@@ -45,7 +49,6 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     var departure: String?
     /// Arrival location name
     var arrival: String?
-    
     /// Travel distance from departure point to arrival in km
     var travelDistance: Double? {
         didSet {
@@ -86,7 +89,6 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     
     /// Every transportation modes avalaible
     var transportationModes = TransportationMode.allCases
-    
     /// Every transportation types avalaible for the chosen transportation mode
     var transportationTypes: [TransportationType] {
         let filteredList = TransportationType.allCases.filter {
@@ -104,7 +106,13 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     
     var travelData: TravelData? {
         willSet {
-            
+            if newValue == nil {
+                self.requestError.toggle()
+                self.errorDescription = "Couldn't retrieve the complete travel data"
+            }
+            else {
+                self.hasFootprintResult = true
+            }
         }
     }
     
@@ -127,7 +135,7 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     }
     
     /// Store the travel data in database
-    func getTravelData() -> TravelData? {
+    func getCompleteTravelData() -> TravelData? {
         guard let arrival = arrival,
               let departure = departure,
               let travelDistance = travelDistance,
@@ -141,8 +149,12 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     /// Send the travel form data to the API
     func getFootprint(completionHandler: ((_ endedWithError: Bool, _ errorDescription: String?, _ result: Float?) -> Void)? = nil) {
         guard let travelDistance = travelDistance else {
+            requestError = true
+            errorDescription = "Couldn't retrieve travel distance"
             return
         }
+        
+        isLoading = true
         
         // Create an object with the travel form datas
         let travelData = TravelData(distance: travelDistance,
@@ -162,7 +174,10 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
                     // Get the error description
                     self.errorDescription = error.localizedDescription
                     self.requestError = true
+                    self.isLoading = false
+                    #if DEBUG
                     completionHandler?(true, error.errorDescription, nil)
+                    #endif
                 }
                 
                 return
@@ -173,8 +188,11 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
                 // Get the error description
                 self.errorDescription = SwiftyJSONError.invalidJSON.localizedDescription
                 self.requestError = true
-                completionHandler?(true, SwiftyJSONError.invalidJSON.localizedDescription, nil)
+                self.isLoading = false
                 
+                #if DEBUG
+                completionHandler?(true, SwiftyJSONError.invalidJSON.localizedDescription, nil)
+                #endif
                 return
             }
         
@@ -182,6 +200,10 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
             
             // Get the carbon footprint of the user according to his travel datas
             self.footprintResult = json["carbonEquivalent"].doubleValue
+            
+            self.travelData = self.getCompleteTravelData()
+            
+            self.isLoading = false
             
             #if DEBUG
             // Used in unit test
