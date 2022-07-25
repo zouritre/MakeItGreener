@@ -175,9 +175,9 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
                     self.errorDescription = error.localizedDescription
                     self.requestError = true
                     self.isLoading = false
-                    #if DEBUG
+                    
                     completionHandler?(true, error.errorDescription, nil)
-                    #endif
+                    
                 }
                 
                 return
@@ -190,9 +190,8 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
                 self.requestError = true
                 self.isLoading = false
                 
-                #if DEBUG
                 completionHandler?(true, SwiftyJSONError.invalidJSON.localizedDescription, nil)
-                #endif
+                
                 return
             }
         
@@ -205,10 +204,7 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
             
             self.isLoading = false
             
-            #if DEBUG
-            // Used in unit test
             completionHandler?(false, nil, json["carbonEquivalent"].floatValue)
-            #endif
                     }
     }
 }

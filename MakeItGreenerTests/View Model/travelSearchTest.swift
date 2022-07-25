@@ -114,7 +114,7 @@ class travelSearchTest: XCTestCase {
         travelSearch.calculateDistance()
         
         // Then
-        XCTAssertEqual(travelSearch.travelDistance, 0)
+        XCTAssertEqual(travelSearch.travelDistance, nil)
 
     }
     // Can't test MapKit MKLocalSearch API responses (neither text completion request or location search)
