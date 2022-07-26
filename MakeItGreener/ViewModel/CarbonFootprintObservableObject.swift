@@ -104,6 +104,7 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
         return filteredList
     }
     
+    /// Store the complete travel datas if every necessary properties has been previously set
     var travelData: TravelData? {
         willSet {
             if newValue == nil {

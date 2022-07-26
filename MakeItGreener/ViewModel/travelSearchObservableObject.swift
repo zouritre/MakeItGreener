@@ -58,10 +58,12 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     
     /// Get the coordinates of the location chosen  from the search completion
     func search(usingCompletion: Bool) {
-//        self.setLocationFromCompletion()
-        
         let completion = setLocationFromCompletion(usingCompletion: usingCompletion)
         
+        guard let completion = completion else {
+            return
+        }
+
         // Create a search request from the completion object
         let searchRequest = MKLocalSearch.Request(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
@@ -109,14 +111,14 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     /// Set the completion to use for the map location search
     /// - Parameter usingCompletion: Define if the user  chosen completion will be use or the default one
     /// - Returns: The completion to use for the search
-    func setLocationFromCompletion(usingCompletion: Bool) -> MKLocalSearchCompletion {
-        var completion: MKLocalSearchCompletion
+    func setLocationFromCompletion(usingCompletion: Bool) -> MKLocalSearchCompletion? {
+        var completion: MKLocalSearchCompletion?
         
         if usingCompletion {
-            completion = (self.travelSide == .Start ? self.departureLocation : self.arrivalLocation) ?? MKLocalSearchCompletion()
+            completion = (self.travelSide == .Start ? self.departureLocation : self.arrivalLocation)
         }
         else {
-            completion = completerResults.count > 0 ? completerResults[0] : MKLocalSearchCompletion()
+            completion = completerResults.count > 0 ? completerResults[0] : nil
         }
         
         // Send the searched location to their subscribers according to the travel side

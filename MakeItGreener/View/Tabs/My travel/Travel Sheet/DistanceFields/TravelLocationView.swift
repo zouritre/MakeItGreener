@@ -11,10 +11,12 @@ import MapKit
 struct TravelLocationView: View {
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
+    // Completion object to be used for displaying travel location informations
     var locationData: MKLocalSearchCompletion? {
         travelSide == .Start ? travelSearchOO.departureLocation : travelSearchOO.arrivalLocation
     }
     
+    /// Represent the arrival or departure location
     let travelSide: LocationLabel
     
     var body: some View {
