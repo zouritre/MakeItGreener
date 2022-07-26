@@ -89,7 +89,13 @@ class travelSearchObservableObject: NSObject, ObservableObject {
             
             self.calculateDistance()
             
-            self.sendTravelData()
+            guard let departureLocation = self.departureLocation?.title,
+                  let arrivalLocation = self.arrivalLocation?.title,
+                  let travelDistance = self.travelDistance  else {
+                return
+            }
+            
+            self.sendTravelData(distance: travelDistance, departure: departureLocation, arrival: arrivalLocation)
         }
     }
     
@@ -158,19 +164,13 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     
     
     /// Use notification to send the travel datas
-    func sendTravelData() {
-        guard let departureLocation = departureLocation,
-              let arrivalLocation = arrivalLocation,
-              let travelDistance = travelDistance  else {
-            return
-        }
-
+    func sendTravelData(distance: Double, departure: String, arrival: String) {
         // Send the travel distance via notification to CarbonFootprintObservableObject
         let name = Notification.Name(rawValue: "travel data")
         let notification = Notification(name: name, userInfo: [
-            "distance":travelDistance,
-            "departure":departureLocation.title,
-            "arrival":arrivalLocation.title])
+            "distance":distance,
+            "departure":departure,
+            "arrival":arrival])
         
         NotificationCenter.default.post(notification)
     }

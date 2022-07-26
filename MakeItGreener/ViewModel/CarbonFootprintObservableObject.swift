@@ -82,8 +82,8 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
             formatter.numberStyle = .decimal
             formatter.maximumFractionDigits = 2
             
-            let doubletoString = formatter.string(from: footprintResult as? NSNumber ?? 0) ?? "0"
-            formattedFootprintResult = "\(doubletoString) KgCO2e"
+            let doubleToString = formatter.string(from: footprintResult as? NSNumber ?? 0) ?? "0"
+            formattedFootprintResult = "\(doubleToString) KgCO2e"
         }
     }
     
@@ -119,15 +119,10 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     /// Store the travl distance whenever it changes
     /// - Parameter notification: The notifcation wich emitted the data
     @objc func listenTravelDistanceChanges(_ notification: Notification) {
-        guard let travelDistance = notification.userInfo?["distance"] as? Double else {
-            return
-        }
-        guard let departure = notification.userInfo?["departure"] as? String else {
-            return
-        }
-        guard let arrival = notification.userInfo?["arrival"] as? String else {
-            return
-        }
+        guard let travelDistance = notification.userInfo?["distance"] as? Double,
+              let departure = notification.userInfo?["departure"] as? String,
+              let arrival = notification.userInfo?["arrival"] as? String
+        else { return }
         
         self.departure = departure
         self.arrival = arrival
@@ -139,7 +134,8 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
         guard let arrival = arrival,
               let departure = departure,
               let travelDistance = travelDistance,
-              let footprintResult = footprintResult else { return nil }
+              let footprintResult = footprintResult
+        else { return nil }
 
         let travelData = TravelData(arrival: arrival, departure: departure, distance: travelDistance, transportationType: chosenTransportationType, transportationMode: chosenTransportationMode, footprint: footprintResult)
         

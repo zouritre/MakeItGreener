@@ -104,7 +104,7 @@ class travelSearchTest: XCTestCase {
 
     }
     
-    func testTravelDistanceShouldReturnOnly() {
+    func testTravelDistanceShouldBeUnset() {
         // Given
         let location1 = MapLocation(lat: 37.334, long: -122.009, name: .Start)
         

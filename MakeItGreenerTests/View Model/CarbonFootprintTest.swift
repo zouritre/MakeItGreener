@@ -172,10 +172,71 @@ class CarbonFootprintTest: XCTestCase {
         wait(for: [expectation], timeout: 0.1)
         
     }
-//    func testPerformanceExample() throws {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
+    
+    func testTravelDataObjectShouldBeReturn() {
+        // Given
+        carbonFootprint.arrival = String()
+        carbonFootprint.departure = String()
+        carbonFootprint.travelDistance = Double()
+        carbonFootprint.footprintResult = Double()
+        
+        // When
+        let travelData = carbonFootprint.getCompleteTravelData()
+        
+        // Then
+        XCTAssertNotNil(travelData)
+    }
+    
+    func testTravelDataObjectShouldNotBeReturn() {
+        // Given
+        carbonFootprint.arrival = String()
+        carbonFootprint.departure = nil
+        carbonFootprint.travelDistance = Double()
+        carbonFootprint.footprintResult = Double()
+        
+        // When
+        let travelData = carbonFootprint.getCompleteTravelData()
+        
+        // Then
+        XCTAssertNil(travelData)
+    }
+    
+    func testApiRequestShouldFail() {
+        // Given
+        carbonFootprint.travelDistance = nil
+        
+        // When
+        carbonFootprint.getFootprint()
+        
+        // Then
+        XCTAssertTrue(carbonFootprint.requestError)
+    }
+    
+    func testTravelDataShouldBeSet() {
+        // Given
+        carbonFootprint.arrival = String()
+        carbonFootprint.departure = String()
+        carbonFootprint.travelDistance = Double()
+        
+        let response: HTTPURLResponse? = FakeResponse.responseOK
+        let data: Data? = FakeResponse.correctCo2FootprintData
+        let error: Error? = nil
+        
+        MockURLProtocol.requestHandler = { request in
+            return (response, data, error)
+        }
+        
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        
+        carbonFootprint.getFootprint() { endedWithError,errorDescription,result in
+            
+            // Then
+            XCTAssertNotNil(self.carbonFootprint.travelData)
+            expectation.fulfill()
+        }
+        
+        //wait 100ms for closure to return
+        wait(for: [expectation], timeout: 0.1)
+    }
 }

@@ -15,6 +15,7 @@
 		E93B16DB288364ED00DBFE21 /* TravelLocationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B16DA288364ED00DBFE21 /* TravelLocationItem.swift */; };
 		E93B9EB52883063E00FFF6A0 /* AnnotationDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B9EB42883063E00FFF6A0 /* AnnotationDesign.swift */; };
 		E93B9EB728830DB200FFF6A0 /* TravelLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93B9EB628830DB200FFF6A0 /* TravelLocationView.swift */; };
+		E93FDB64288F580A009A5DF2 /* InterClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93FDB63288F580A009A5DF2 /* InterClassTest.swift */; };
 		E94BAC232884486000A21CCD /* travelSearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BAC222884486000A21CCD /* travelSearchTest.swift */; };
 		E94BAC2728848B9300A21CCD /* CarbonFootprintTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BAC2628848B9300A21CCD /* CarbonFootprintTest.swift */; };
 		E94BAC2A288490AC00A21CCD /* Co2FootprintData.json in Resources */ = {isa = PBXBuildFile; fileRef = E94BAC29288490AC00A21CCD /* Co2FootprintData.json */; };
@@ -74,6 +75,7 @@
 		E93B16DA288364ED00DBFE21 /* TravelLocationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelLocationItem.swift; sourceTree = "<group>"; };
 		E93B9EB42883063E00FFF6A0 /* AnnotationDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDesign.swift; sourceTree = "<group>"; };
 		E93B9EB628830DB200FFF6A0 /* TravelLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelLocationView.swift; sourceTree = "<group>"; };
+		E93FDB63288F580A009A5DF2 /* InterClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterClassTest.swift; sourceTree = "<group>"; };
 		E94BAC222884486000A21CCD /* travelSearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travelSearchTest.swift; sourceTree = "<group>"; };
 		E94BAC2628848B9300A21CCD /* CarbonFootprintTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintTest.swift; sourceTree = "<group>"; };
 		E94BAC29288490AC00A21CCD /* Co2FootprintData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Co2FootprintData.json; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			children = (
 				E94BAC222884486000A21CCD /* travelSearchTest.swift */,
 				E94BAC2628848B9300A21CCD /* CarbonFootprintTest.swift */,
+				E93FDB63288F580A009A5DF2 /* InterClassTest.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				E961ECB6287B147D00D92C64 /* NetworkServiceTest.swift in Sources */,
 				E94BAC2728848B9300A21CCD /* CarbonFootprintTest.swift in Sources */,
 				E961ECB9287B14C500D92C64 /* FakeResponse.swift in Sources */,
+				E93FDB64288F580A009A5DF2 /* InterClassTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
