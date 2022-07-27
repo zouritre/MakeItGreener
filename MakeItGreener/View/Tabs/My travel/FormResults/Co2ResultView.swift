@@ -11,6 +11,8 @@ import MapKit
 struct Co2ResultView: View {
     @ObservedObject var footprintResult: FootprintResultObservableObject
     
+    var isFromDatabase: Bool = false
+    
     var body: some View {
         Group{
             VStack(spacing: 20 ) {
@@ -66,14 +68,17 @@ struct Co2ResultView: View {
                     .foregroundColor(.black)
                 }
                 .padding()
-                Button("Save this travel"){}
-                    .font(.headline)
-                    .buttonStyle(.borderedProminent)
-                    .tint(Color.init(white: 0.5, opacity: 0.5))
-                    .foregroundColor(.white)
-                    .cornerRadius(15)
-                    .shadow(radius: 0)
-                    .padding()
+                if !isFromDatabase {
+                    // Display the button if the view was shown from My travel tab, and not from My footprint tab"
+                    Button("Save this travel"){}
+                        .font(.headline)
+                        .buttonStyle(.borderedProminent)
+                        .tint(Color.init(white: 0.5, opacity: 0.5))
+                        .foregroundColor(.white)
+                        .cornerRadius(15)
+                        .shadow(radius: 0)
+                        .padding()
+                }
             }
         }
         .background(.green)

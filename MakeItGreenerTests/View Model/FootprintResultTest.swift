@@ -30,10 +30,10 @@ class FootprintResultTest: XCTestCase {
         // Then
         XCTAssertNotNil(footprintResult.arrival)
         XCTAssertNotNil(footprintResult.departure)
-        XCTAssertEqual(footprintResult.distance, 492)
+        XCTAssertEqual(footprintResult.distance, "492")
         XCTAssertEqual(footprintResult.transportationType, .SmallPetrolCar)
         XCTAssertEqual(footprintResult.transportationMode, .Vehicule)
-        XCTAssertEqual(footprintResult.footprint, 50)
+        XCTAssertEqual(footprintResult.footprint, "50")
     }
 
     func testPerformanceExample() throws {

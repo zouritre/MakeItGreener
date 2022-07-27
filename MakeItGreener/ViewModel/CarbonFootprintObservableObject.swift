@@ -84,6 +84,7 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
             formatter.maximumFractionDigits = 2
             
             let doubleToString = formatter.string(from: footprintResult as? NSNumber ?? 0) ?? "0"
+            
             formattedFootprintResult = "\(doubleToString) KgCO2e"
         }
     }
