@@ -15,7 +15,12 @@ struct SubmitTravelFormOverlay: View {
 
     var body: some View {
         VStack {
-            NavigationLink(destination: Co2ResultView(), isActive: $carbonFootprintOO.hasFootprintResult) {}
+            NavigationLink(destination: Co2ResultView(footprintResult:
+                                                        FootprintResultObservableObject(with: carbonFootprintOO.travelData ??
+                                                                        TravelData(distance: 0,
+                                                                                   transportationType: .SmallPetrolCar,
+                                                                                   transportationMode: .Vehicule))),
+                           isActive: $carbonFootprintOO.hasFootprintResult) {}
             Button(action: {
                 // Display alert if departure or arrival location is not set
                 if travelSearchOO.mapAnnotations.count < 2 {
