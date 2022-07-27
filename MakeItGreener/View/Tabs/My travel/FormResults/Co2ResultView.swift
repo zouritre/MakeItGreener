@@ -17,7 +17,7 @@ struct Co2ResultView: View {
                 HStack {
                     VStack(alignment: .center) {
                         Text(footprintResult.transportationType.userString())
-                        Image("car")
+                        Image(footprintResult.transportationMode.imageName())
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 50)
@@ -41,7 +41,7 @@ struct Co2ResultView: View {
                 }
                 .font(.headline.weight(.heavy))
                 .multilineTextAlignment(.center)
-                .minimumScaleFactor(0.5)
+                .minimumScaleFactor(0.6)
                 .background(Color.init(white: 0.5, opacity: 0.5))
                 .foregroundColor(.white)
                 .cornerRadius(20)

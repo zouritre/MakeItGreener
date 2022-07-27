@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum TransportationMode: String, CaseIterable {
     case Plane = "f"
@@ -49,6 +50,19 @@ enum TransportationMode: String, CaseIterable {
             return .CarbonFootprintFromMotorBike
         case .Public:
             return .CarbonFootprintFromPublicTransit
+        }
+    }
+    
+    func imageName() -> String {
+        switch self {
+            case .Plane:
+                return "plane"
+            case .Vehicule:
+                return "car"
+            case .Motorbike:
+                return "motorbike"
+            case .Public:
+                return "train"
         }
     }
 }
