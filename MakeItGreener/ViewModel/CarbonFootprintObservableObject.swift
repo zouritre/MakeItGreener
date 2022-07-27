@@ -8,6 +8,7 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
+import MapKit
 
 class CarbonFootprintObservableObject: NSObject, ObservableObject {
     override init() {
@@ -46,9 +47,9 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     
     
     /// Departure location name
-    var departure: String?
+    var departure: MKLocalSearchCompletion?
     /// Arrival location name
-    var arrival: String?
+    var arrival: MKLocalSearchCompletion?
     /// Travel distance from departure point to arrival in km
     var travelDistance: Double? {
         didSet {
@@ -121,8 +122,8 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     /// - Parameter notification: The notifcation wich emitted the data
     @objc func listenTravelDistanceChanges(_ notification: Notification) {
         guard let travelDistance = notification.userInfo?["distance"] as? Double,
-              let departure = notification.userInfo?["departure"] as? String,
-              let arrival = notification.userInfo?["arrival"] as? String
+              let departure = notification.userInfo?["departure"] as? MKLocalSearchCompletion,
+              let arrival = notification.userInfo?["arrival"] as? MKLocalSearchCompletion
         else { return }
         
         self.departure = departure

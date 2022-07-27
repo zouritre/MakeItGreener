@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import MakeItGreener
+import MapKit
 
 class CarbonFootprintTest: XCTestCase {
     var carbonFootprint: CarbonFootprintObservableObject!
@@ -175,8 +176,8 @@ class CarbonFootprintTest: XCTestCase {
     
     func testTravelDataObjectShouldBeReturn() {
         // Given
-        carbonFootprint.arrival = String()
-        carbonFootprint.departure = String()
+        carbonFootprint.arrival = MKLocalSearchCompletion()
+        carbonFootprint.departure = MKLocalSearchCompletion()
         carbonFootprint.travelDistance = Double()
         carbonFootprint.footprintResult = Double()
         
@@ -189,7 +190,7 @@ class CarbonFootprintTest: XCTestCase {
     
     func testTravelDataObjectShouldNotBeReturn() {
         // Given
-        carbonFootprint.arrival = String()
+        carbonFootprint.arrival = MKLocalSearchCompletion()
         carbonFootprint.departure = nil
         carbonFootprint.travelDistance = Double()
         carbonFootprint.footprintResult = Double()
@@ -214,8 +215,8 @@ class CarbonFootprintTest: XCTestCase {
     
     func testTravelDataShouldBeSet() {
         // Given
-        carbonFootprint.arrival = String()
-        carbonFootprint.departure = String()
+        carbonFootprint.arrival = MKLocalSearchCompletion()
+        carbonFootprint.departure = MKLocalSearchCompletion()
         carbonFootprint.travelDistance = Double()
         
         let response: HTTPURLResponse? = FakeResponse.responseOK

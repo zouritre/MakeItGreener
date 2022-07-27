@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import MakeItGreener
+import MapKit
 
 class InterClassTest: XCTestCase {
     var carbonFootprint: CarbonFootprintObservableObject!
@@ -24,11 +25,11 @@ class InterClassTest: XCTestCase {
 
     func testAllTravelDataShouldBeReceivedViaNotification() {
         // Given
-        travelSearch.sendTravelData(distance: 492000, departure: "Paris", arrival: "Lyon")
+        travelSearch.sendTravelData(distance: 492000, departure: MKLocalSearchCompletion(), arrival: MKLocalSearchCompletion())
         
         // Then
-        XCTAssertEqual(carbonFootprint.departure, "Paris")
-        XCTAssertEqual(carbonFootprint.arrival, "Lyon")
+        XCTAssertNotNil(carbonFootprint.departure)
+        XCTAssertNotNil(carbonFootprint.arrival)
         XCTAssertEqual(carbonFootprint.travelDistance, 492)
     }
 }

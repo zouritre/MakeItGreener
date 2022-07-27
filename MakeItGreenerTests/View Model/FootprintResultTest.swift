@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import MakeItGreener
+import MapKit
 
 class FootprintResultTest: XCTestCase {
     var footprintResult: FootprintResultObservableObject!
@@ -21,14 +22,14 @@ class FootprintResultTest: XCTestCase {
 
     func testPublishersShouldHaveTravelDataValue() {
         // Given
-        let travelData = TravelData(arrival: "Paris", departure: "Lyon", distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 50)
+        let travelData = TravelData(arrival: MKLocalSearchCompletion(), departure: MKLocalSearchCompletion(), distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 50)
         
         // When
         footprintResult = FootprintResultObservableObject(with: travelData)
         
         // Then
-        XCTAssertEqual(footprintResult.arrival, "Paris")
-        XCTAssertEqual(footprintResult.departure, "Lyon")
+        XCTAssertNotNil(footprintResult.arrival)
+        XCTAssertNotNil(footprintResult.departure)
         XCTAssertEqual(footprintResult.distance, 492)
         XCTAssertEqual(footprintResult.transportationType, .SmallPetrolCar)
         XCTAssertEqual(footprintResult.transportationMode, .Vehicule)

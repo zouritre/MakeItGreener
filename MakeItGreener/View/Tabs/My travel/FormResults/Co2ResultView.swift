@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct Co2ResultView: View {
     @ObservedObject var footprintResult: FootprintResultObservableObject
@@ -25,12 +26,16 @@ struct Co2ResultView: View {
                     .padding()
                     Spacer()
                     VStack(alignment: .center) {
-                        Text(footprintResult.departure)
+                        Text(footprintResult.departure.title)
+                        Text(footprintResult.departure.subtitle)
+                            .font(.subheadline)
                         Image("arrow")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 30)
-                        Text(footprintResult.arrival)
+                        Text(footprintResult.arrival.title)
+                        Text(footprintResult.arrival.subtitle)
+                            .font(.subheadline)
                     }
                     .padding()
                 }
@@ -76,7 +81,7 @@ struct Co2ResultView: View {
 }
 
 struct co2Result_Previews: PreviewProvider {
-    static let travelData = TravelData(arrival: "10 rue Jean Jean à Paris somewhere proche de mafate", departure: "10 rue Jean Jean à Paris somewhere proche de mafate", distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 50)
+    static let travelData = TravelData(arrival: MKLocalSearchCompletion(), departure: MKLocalSearchCompletion(), distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 50)
     
     static var previews: some View {
         Co2ResultView(footprintResult: FootprintResultObservableObject(with: travelData))

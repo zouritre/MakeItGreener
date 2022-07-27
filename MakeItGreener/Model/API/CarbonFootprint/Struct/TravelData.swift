@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import MapKit
 
 ///Store data about the user journey
 struct TravelData {
-    var arrival: String?
-    var departure: String?
+    var arrival: MKLocalSearchCompletion?
+    var departure: MKLocalSearchCompletion?
     var distance: Double
     var transportationType: TransportationType
     var transportationMode: TransportationMode
