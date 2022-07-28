@@ -1,5 +1,5 @@
 //
-//  travelSearchTest.swift
+//  TravelSearchTest.swift
 //  MakeItGreenerTests
 //
 //  Created by Bertrand Dalleau on 17/07/2022.
@@ -9,7 +9,7 @@ import XCTest
 @testable import MakeItGreener
 import MapKit
 
-class travelSearchTest: XCTestCase {
+class TravelSearchTest: XCTestCase {
     // Prevent requiering initializer
     var travelSearch: travelSearchObservableObject!
     
@@ -247,13 +247,4 @@ class travelSearchTest: XCTestCase {
         // Then
         XCTAssertEqual(travelSearch.mapAnnotations.count, 0)
     }
-    // Can't test MapKit MKLocalSearch API responses (neither text completion request or location search)
-    //    func testCompleterShouldHaveResults() {
-    //        // Given
-    //        self.travelSearch.searchTerm = "Paris"
-    //
-    //        // Then
-    //        XCTAssertGreaterThan(self.travelSearch.completerResults.count, 1)
-    //        XCTAssertFalse(self.travelSearch.completerHasError)
-    //    }
 }

@@ -19,9 +19,9 @@ class FootprintResultObservableObject: ObservableObject {
         return formatter
     }
     
-    private var footprintSeverityHigh: [Color] = [.red, .yellow, .green]
-    private var footprintSeverityMedium: [Color] = [.yellow, .green, .red]
-    private var footprintSeverityLow: [Color] = [.green, .yellow, .red]
+    var footprintSeverityHigh: [Color] = [.red, .yellow, .green]
+    var footprintSeverityMedium: [Color] = [.yellow, .green, .red]
+    var footprintSeverityLow: [Color] = [.green, .yellow, .red]
     
     init(with travelData: TravelData) {
         arrival = travelData.arrival ?? MKLocalSearchCompletion()
@@ -44,7 +44,7 @@ class FootprintResultObservableObject: ObservableObject {
     @Published var gradientStartRadius: CGFloat = 0
     @Published var gradientEndRadius: CGFloat = 500
     
-    private func updateGradient(with footprint: Double) {
+    func updateGradient(with footprint: Double) {
         switch footprint {
         case 0..<100:
             footprintSeverityIndicator = footprintSeverityLow

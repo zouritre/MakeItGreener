@@ -14,6 +14,9 @@ class FootprintResultTest: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        let travelData = TravelData(arrival: MKLocalSearchCompletion(), departure: MKLocalSearchCompletion(), distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 50)
+        
+        footprintResult = FootprintResultObservableObject(with: travelData)
     }
 
     override func tearDownWithError() throws {
@@ -36,11 +39,36 @@ class FootprintResultTest: XCTestCase {
         XCTAssertEqual(footprintResult.footprint, "50")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testFootprintSeverityShouldBeLow() {
+        // Given
+        let footprint = 99.2
+        
+        // When
+        footprintResult.updateGradient(with: footprint)
+        
+        // Then
+        XCTAssertEqual(footprintResult.footprintSeverityIndicator, footprintResult.footprintSeverityLow)
     }
-
+    
+    func testFootprintSeverityShouldBeMedium() {
+        // Given
+        let footprint = 299.2
+        
+        // When
+        footprintResult.updateGradient(with: footprint)
+        
+        // Then
+        XCTAssertEqual(footprintResult.footprintSeverityIndicator, footprintResult.footprintSeverityMedium)
+    }
+    
+    func testFootprintSeverityShouldBeHigh() {
+        // Given
+        let footprint = 300.2
+        
+        // When
+        footprintResult.updateGradient(with: footprint)
+        
+        // Then
+        XCTAssertEqual(footprintResult.footprintSeverityIndicator, footprintResult.footprintSeverityHigh)
+    }
 }
