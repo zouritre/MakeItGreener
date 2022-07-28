@@ -84,12 +84,12 @@ struct Co2ResultView: View {
                 }
             }
         }
-        .background(.radialGradient(.init(colors: [.green, .yellow, .red]), center: UnitPoint.init(x: 0.5, y: 0.55), startRadius: 100, endRadius: 500))
+        .background(.radialGradient(.init(colors: footprintResult.footprintSeverityIndicator), center: UnitPoint.init(x: 0.5, y: 0.55), startRadius: footprintResult.gradientStartRadius, endRadius: footprintResult.gradientEndRadius))
     }
 }
 
 struct co2Result_Previews: PreviewProvider {
-    static let travelData = TravelData(arrival: MKLocalSearchCompletion(), departure: MKLocalSearchCompletion(), distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 50)
+    static let travelData = TravelData(arrival: MKLocalSearchCompletion(), departure: MKLocalSearchCompletion(), distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 3000)
     
     static var previews: some View {
         Co2ResultView(footprintResult: FootprintResultObservableObject(with: travelData))
