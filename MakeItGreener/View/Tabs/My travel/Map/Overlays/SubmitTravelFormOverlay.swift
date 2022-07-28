@@ -12,14 +12,11 @@ struct SubmitTravelFormOverlay: View {
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     
     @State var missingTravelData = false
-
+    
     var body: some View {
         VStack {
-            NavigationLink(destination: Co2ResultView(footprintResult:
-                                                        FootprintResultObservableObject(with: carbonFootprintOO.travelData ??
-                                                                        TravelData(distance: 0,
-                                                                                   transportationType: .SmallPetrolCar,
-                                                                                   transportationMode: .Vehicule))),
+            NavigationLink(destination:
+                            Co2ResultView(footprintResult: FootprintResultObservableObject(with: carbonFootprintOO.travelData ?? TravelData(distance: 0, transportationType: .SmallPetrolCar, transportationMode: .Vehicule))),
                            isActive: $carbonFootprintOO.hasFootprintResult) {}
             Button(action: {
                 // Display alert if departure or arrival location is not set
@@ -28,7 +25,10 @@ struct SubmitTravelFormOverlay: View {
                 }
                 else {
                     // Otherwise request carbon footprint from API
-                    carbonFootprintOO.getFootprint()
+//                    carbonFootprintOO.getFootprint()
+                    carbonFootprintOO.footprintResult = 47.987
+                    carbonFootprintOO.travelData = carbonFootprintOO.getCompleteTravelData()
+                    carbonFootprintOO.hasFootprintResult = true
                 }
             }, label: {
                 if carbonFootprintOO.isLoading {

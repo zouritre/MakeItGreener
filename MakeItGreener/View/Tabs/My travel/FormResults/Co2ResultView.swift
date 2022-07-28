@@ -15,7 +15,7 @@ struct Co2ResultView: View {
     
     var body: some View {
         Group{
-            VStack(spacing: 20 ) {
+            VStack() {
                 HStack {
                     VStack(alignment: .center) {
                         Text(footprintResult.transportationType.userString())
@@ -50,24 +50,17 @@ struct Co2ResultView: View {
                 .shadow(radius: 0)
                 .frame(height: 150)
                 .padding()
-                ZStack (alignment: .center) {
-                    Circle()
-                        .foregroundColor(.white)
-                        .shadow(radius: 3)
-                    VStack(alignment: .center) {
-                        Spacer()
-                        Text("Empreinte carbone\ndu trajet")
-                            .multilineTextAlignment(.center)
-                        Spacer()
-                        Text("\(footprintResult.footprint)")
-                        Text("KgCO2e")
-                            .font(.headline)
-                        Spacer()
-                    }
-                    .font(.title3.weight(.heavy))
-                    .foregroundColor(.black)
+                Spacer()
+                VStack(alignment: .center) {
+                    Spacer()
+                    Text("\(footprintResult.footprint)")
+                    Text("KgCO2e")
+                        .font(.headline)
+                    Spacer()
                 }
-                .padding()
+                .font(.system(size: 70).weight(.heavy))
+                .foregroundColor(.white)
+                Spacer()
                 if !isFromDatabase {
                     // Display the button if the view was shown from My travel tab, and not from My footprint tab"
                     Button("Save this travel"){}
@@ -79,9 +72,19 @@ struct Co2ResultView: View {
                         .shadow(radius: 0)
                         .padding()
                 }
+                else {
+                    Button("X") {}
+                        .font(.headline)
+                        .buttonStyle(.borderedProminent)
+                        .tint(Color.init(white: 0.5, opacity: 0.5))
+                        .foregroundColor(.white)
+                        .cornerRadius(50)
+                        .shadow(radius: 0)
+                        .padding()
+                }
             }
         }
-        .background(.green)
+        .background(.radialGradient(.init(colors: [.green, .yellow, .red]), center: UnitPoint.init(x: 0.5, y: 0.55), startRadius: 100, endRadius: 500))
     }
 }
 
@@ -90,7 +93,6 @@ struct co2Result_Previews: PreviewProvider {
     
     static var previews: some View {
         Co2ResultView(footprintResult: FootprintResultObservableObject(with: travelData))
-            .preferredColorScheme(.dark)
             
     }
 }
