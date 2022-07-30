@@ -26,20 +26,19 @@ struct MainView: View {
             
             let appearance = UITabBarAppearance()
             appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-            appearance.backgroundColor = UIColor(Color.clear)
-            
+            appearance.backgroundColor = .clear
             // Use this appearance when scrolling behind the TabView:
             UITabBar.appearance().standardAppearance = appearance
             // Use this appearance when scrolled all the way up:
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
+        .accentColor(.red)
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-            .preferredColorScheme(.light)
             .environmentObject(CarbonFootprintObservableObject())
             .environmentObject(travelSearchObservableObject())
     }
