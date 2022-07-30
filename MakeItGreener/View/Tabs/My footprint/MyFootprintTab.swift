@@ -11,6 +11,38 @@ struct MyFootprintTab: View {
     @FetchRequest(
         sortDescriptors: [])
     private var items: FetchedResults<Travel>
+    
+    private var formatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        
+        return formatter
+    }
+    
+    private var unit: String {
+        let unit = totalCo2 >= 1000 ? "TCO2e" : "KgCO2e"
+    
+        return unit
+    }
+    
+    private var totalCo2: Double {
+        
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        
+        var total: Double = 0
+        
+        items.forEach { travelData in
+            total += travelData.data?.footprint ?? 0
+        }
+        
+        return total
+    }
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
@@ -19,8 +51,8 @@ struct MyFootprintTab: View {
                         .multilineTextAlignment(.center)
                         .padding()
                     VStack(alignment: .center) {
-                        Text("50")
-                        Text("KgCO2e")
+                        Text(formatter.string(from: totalCo2 as NSNumber) ?? "Error")
+                        Text(unit)
                             .font(.system(size: 30).bold())
                     }
                     .font(.system(size: 100, weight: .heavy, design: .rounded))

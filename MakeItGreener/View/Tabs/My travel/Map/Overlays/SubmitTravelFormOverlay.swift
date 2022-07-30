@@ -26,7 +26,7 @@ struct SubmitTravelFormOverlay: View {
                 else {
                     // Otherwise request carbon footprint from API
 //                    carbonFootprintOO.getFootprint()
-                    carbonFootprintOO.footprintResult = 47.987
+                    carbonFootprintOO.footprintResult = 120.987
                     carbonFootprintOO.travelData = carbonFootprintOO.getCompleteTravelData()
                     carbonFootprintOO.hasFootprintResult = true
                 }
