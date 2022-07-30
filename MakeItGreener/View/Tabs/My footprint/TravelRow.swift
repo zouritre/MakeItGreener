@@ -15,7 +15,7 @@ struct TravelRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .center) {
-                Text(footprintResult.timestamp)
+                Text(footprintResult.timestamp.localizedCapitalized)
                 Image(footprintResult.transportationMode.imageName())
                     .resizable()
                     .frame(width: 40, height: 40, alignment: .center)
