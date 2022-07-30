@@ -28,11 +28,13 @@ class FootprintResultObservableObject: ObservableObject {
         return formatter
     }
     
+    var travelData: TravelData
     var footprintSeverityHigh: [Color] = [.red, .yellow, .green]
     var footprintSeverityMedium: [Color] = [.yellow, .green, .red]
     var footprintSeverityLow: [Color] = [.green, .yellow, .red]
     
     init(with travelData: TravelData) {
+        self.travelData = travelData
         arrival = travelData.arrival ?? MKLocalSearchCompletion()
         departure = travelData.departure ?? MKLocalSearchCompletion()
         distance = numberFormatter.string(from: travelData.distance as NSNumber) ?? "Error"
