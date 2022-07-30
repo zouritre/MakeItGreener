@@ -30,7 +30,7 @@ class FootprintResultObservableObject: ObservableObject {
     
     var travelData: TravelData
     var footprintSeverityHigh: [Color] = [.red, .yellow, .green]
-    var footprintSeverityMedium: [Color] = [.yellow, .green, .red]
+    var footprintSeverityMedium: [Color] = [.yellow, .red, .green]
     var footprintSeverityLow: [Color] = [.green, .yellow, .red]
     
     init(with travelData: TravelData) {
@@ -63,8 +63,8 @@ class FootprintResultObservableObject: ObservableObject {
             footprintSeverityIndicator = footprintSeverityLow
         case 100..<300:
             footprintSeverityIndicator = footprintSeverityMedium
-            gradientEndRadius = 400
-            gradientStartRadius = 50
+            gradientEndRadius = 300
+            gradientStartRadius = 150
         case 300...:
             footprintSeverityIndicator = footprintSeverityHigh
         default: return

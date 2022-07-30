@@ -307,7 +307,6 @@
 			children = (
 				E92F32FA2886DA2A00F6E844 /* Map */,
 				E95F20022885F11A00F27852 /* Travel Sheet */,
-				E93B16D528835F0C00DBFE21 /* FormResults */,
 				E92F32FB2886DA6F00F6E844 /* MyTravelTabHome.swift */,
 			);
 			path = "My travel";
@@ -410,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				E95F20002885F06300F27852 /* My footprint */,
+				E93B16D528835F0C00DBFE21 /* FormResults */,
 				E95F1FFF2885F04F00F27852 /* My travel */,
 			);
 			path = Tabs;
