@@ -43,6 +43,13 @@ struct MyFootprintTab: View {
         return total
     }
     
+    /// Convert from Kg to tons if >= 1000kg
+    private var formattedTotal: String {
+        let formattedTotal = totalCo2 >= 1000 ? totalCo2/1000 : totalCo2
+        
+        return formatter.string(from: formattedTotal as NSNumber) ?? "Error"
+    }
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
@@ -51,7 +58,7 @@ struct MyFootprintTab: View {
                         .multilineTextAlignment(.center)
                         .padding()
                     VStack(alignment: .center) {
-                        Text(formatter.string(from: totalCo2 as NSNumber) ?? "Error")
+                        Text(formattedTotal)
                         Text(unit)
                             .font(.system(size: 30).bold())
                     }
