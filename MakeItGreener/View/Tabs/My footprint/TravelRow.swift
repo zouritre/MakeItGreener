@@ -27,8 +27,10 @@ struct TravelRow: View {
                 Text("KgCO2e")
             }
         }
-        .padding(6)
-        .background(.green)
+        .font(.system(.headline))
+        .foregroundColor(.white)
+        .padding()
+        .background(.linearGradient(colors: [.green, .blue], startPoint: .leading, endPoint: .bottomTrailing))
         .cornerRadius(15)
         .sheet(isPresented: $showDetail) {
             Co2ResultView(footprintResult: footprintResult, isFromDatabase: true)

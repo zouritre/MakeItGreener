@@ -14,32 +14,46 @@ struct MyFootprintTab: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
-                GeometryReader { geometry in
-                    VStack(alignment: .center, spacing: 50) {
-                        Spacer()
-                        Text("Mon empreinte\ncarbone annuel")
-                            .multilineTextAlignment(.center)
+                VStack(alignment: .center, spacing: 20) {
+                    Text("Mon empreinte carbone annuel")
+                        .multilineTextAlignment(.center)
+                        .padding()
+                    VStack(alignment: .center) {
                         Text("50")
                         Text("KgCO2e")
-                            .font(.headline)
-                        Spacer()
+                            .font(.system(size: 30).bold())
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-                    .background(Rectangle()
-                        .frame(width: geometry.size.width/1.5, alignment: .center)
-                        .foregroundColor(.white))
+                    .font(.system(size: 100, weight: .heavy, design: .rounded))
+                    .padding()
                 }
-                List {
-                    ForEach(items) { item in
-                        TravelRow(footprintResult: FootprintResultObservableObject(with: item.data!))
+                .padding([.leading, .trailing], 20)
+                .font(.system(size: 30).weight(.heavy))
+                .minimumScaleFactor(0.5)
+                .foregroundColor(.white)
+                .background(Rectangle()
+                    .foregroundColor(Color.init(white: 0.3, opacity: 0.7))
+                    .cornerRadius(20)
+                    .shadow(radius: 0))
+                .padding()
+                ScrollView {
+                    LazyVStack {
+                        ForEach(items) { item in
+                            TravelRow(footprintResult: FootprintResultObservableObject(with: item.data!))
+                                .shadow(color: .white, radius: 5)
+                                .padding(3)
+                        }
                     }
                 }
                 .frame(height: 400, alignment: .center)
                 .cornerRadius(20)
                 .padding()
             }
-            .background(.green)
+//            .ignoresSafeArea()
+            .background(Image("greenland"))
         }
+        .navigationViewStyle(.stack)
+        .navigationTitle("Test")
+        .navigationBarHidden(true)
     }
 }
 
