@@ -15,7 +15,7 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let data = TravelData(distance: 509, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 3000)
+            let data = TravelData(distance: 509, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 3000, timestamp: .now)
             
             let aTravel = Travel(context: viewContext)
             aTravel.data = data

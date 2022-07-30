@@ -24,14 +24,16 @@ struct MyFootprintTab: View {
                     Spacer()
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-                .background(Circle()
+                .background(Rectangle()
+                    .frame(width: geometry.size.width/1.5, alignment: .center)
                     .foregroundColor(.white))
             }
             List {
                 ForEach(items) { item in
-                    Text("\(item.data?.distance ?? 0)")
+                    TravelRow(footprintResult: FootprintResultObservableObject(with: item.data!))
                 }
             }
+            .frame(height: 400, alignment: .center)
             .cornerRadius(20)
             .padding()
         }

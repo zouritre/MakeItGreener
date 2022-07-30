@@ -19,6 +19,15 @@ class FootprintResultObservableObject: ObservableObject {
         return formatter
     }
     
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.doesRelativeDateFormatting = true
+        formatter.dateStyle = .short
+        
+        return formatter
+    }
+    
     var footprintSeverityHigh: [Color] = [.red, .yellow, .green]
     var footprintSeverityMedium: [Color] = [.yellow, .green, .red]
     var footprintSeverityLow: [Color] = [.green, .yellow, .red]
@@ -30,6 +39,7 @@ class FootprintResultObservableObject: ObservableObject {
         transportationType = travelData.transportationType
         transportationMode = travelData.transportationMode
         footprint = numberFormatter.string(from: travelData.footprint as? NSNumber ?? 0) ?? "Error"
+        timestamp = dateFormatter.string(from: .now)
         
         updateGradient(with: travelData.footprint ?? 0)
     }
@@ -39,6 +49,7 @@ class FootprintResultObservableObject: ObservableObject {
     @Published var distance = String()
     @Published var transportationType: TransportationType = .SmallPetrolCar
     @Published var transportationMode: TransportationMode = .Vehicule
+    @Published var timestamp = String()
     @Published var footprint = String()
     @Published var footprintSeverityIndicator: [Color] = [.red, .yellow, .green]
     @Published var gradientStartRadius: CGFloat = 0

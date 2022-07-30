@@ -21,6 +21,7 @@
 		E94BAC232884486000A21CCD /* TravelSearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BAC222884486000A21CCD /* TravelSearchTest.swift */; };
 		E94BAC2728848B9300A21CCD /* CarbonFootprintTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BAC2628848B9300A21CCD /* CarbonFootprintTest.swift */; };
 		E94BAC2A288490AC00A21CCD /* Co2FootprintData.json in Resources */ = {isa = PBXBuildFile; fileRef = E94BAC29288490AC00A21CCD /* Co2FootprintData.json */; };
+		E95694BB28955A2F00EA305A /* TravelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95694BA28955A2F00EA305A /* TravelRow.swift */; };
 		E95E349D2879DE3A0098404F /* MakeItGreenerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E349C2879DE3A0098404F /* MakeItGreenerApp.swift */; };
 		E95E34A12879DE3B0098404F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95E34A02879DE3B0098404F /* Assets.xcassets */; };
 		E95E34A42879DE3B0098404F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95E34A32879DE3B0098404F /* Preview Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		E94BAC222884486000A21CCD /* TravelSearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelSearchTest.swift; sourceTree = "<group>"; };
 		E94BAC2628848B9300A21CCD /* CarbonFootprintTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintTest.swift; sourceTree = "<group>"; };
 		E94BAC29288490AC00A21CCD /* Co2FootprintData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Co2FootprintData.json; sourceTree = "<group>"; };
+		E95694BA28955A2F00EA305A /* TravelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelRow.swift; sourceTree = "<group>"; };
 		E95E34992879DE3A0098404F /* MakeItGreener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeItGreener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95E349C2879DE3A0098404F /* MakeItGreenerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeItGreenerApp.swift; sourceTree = "<group>"; };
 		E95E34A02879DE3B0098404F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				E9CEFCBD287D90390024198C /* MyFootprintTab.swift */,
+				E95694BA28955A2F00EA305A /* TravelRow.swift */,
 			);
 			path = "My footprint";
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				E961EC9D287AF9C900D92C64 /* CarbonFootprintEndpoint.swift in Sources */,
 				E91AF4DA288DF779005D847B /* AppDelegate.swift in Sources */,
 				E9B4A8C9287A1B69000AFE72 /* CarbonFootprintConstant.swift in Sources */,
+				E95694BB28955A2F00EA305A /* TravelRow.swift in Sources */,
 				E95FFC0B287F35D800B934B3 /* LocationLabel.swift in Sources */,
 				E9CEFCBE287D90390024198C /* MyFootprintTab.swift in Sources */,
 				E961ECA5287B125F00D92C64 /* NetworkService.swift in Sources */,
