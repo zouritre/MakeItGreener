@@ -51,5 +51,6 @@ struct MapView_Previews: PreviewProvider {
         MapView()
             .preferredColorScheme(.dark)
             .environmentObject(travelSearchObservableObject())
+            .environmentObject(CarbonFootprintObservableObject())
     }
 }

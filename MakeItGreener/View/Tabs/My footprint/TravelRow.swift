@@ -10,6 +10,7 @@ import MapKit
 
 struct TravelRow: View {
     @ObservedObject var footprintResult: FootprintResultObservableObject
+    @State private var showDetail = false
     
     var body: some View {
         HStack {
@@ -29,6 +30,12 @@ struct TravelRow: View {
         .padding(6)
         .background(.green)
         .cornerRadius(15)
+        .sheet(isPresented: $showDetail) {
+            Co2ResultView(footprintResult: footprintResult, isFromDatabase: true)
+        }
+        .onTapGesture {
+            showDetail.toggle()
+        }
     }
 }
 

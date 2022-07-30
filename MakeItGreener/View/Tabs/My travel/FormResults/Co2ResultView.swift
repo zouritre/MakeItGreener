@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 
 struct Co2ResultView: View {
+    @Environment(\.presentationMode) private var presentationMode
     @ObservedObject var footprintResult: FootprintResultObservableObject
     
     var isFromDatabase: Bool = false
@@ -73,7 +74,9 @@ struct Co2ResultView: View {
                         .padding()
                 }
                 else {
-                    Button("X") {}
+                    Button("X") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                         .font(.headline)
                         .buttonStyle(.borderedProminent)
                         .tint(Color.init(white: 0.5, opacity: 0.5))
