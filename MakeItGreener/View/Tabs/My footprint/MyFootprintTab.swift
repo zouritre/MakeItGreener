@@ -54,7 +54,7 @@ struct MyFootprintTab: View {
         NavigationView {
             VStack(alignment: .center) {
                 VStack(alignment: .center, spacing: 20) {
-                    Text("Mon empreinte carbone annuel")
+                    Text("My annual carbon footprint")
                         .multilineTextAlignment(.center)
                         .padding()
                     VStack(alignment: .center) {

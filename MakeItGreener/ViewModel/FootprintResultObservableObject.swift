@@ -21,7 +21,7 @@ class FootprintResultObservableObject: ObservableObject {
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.locale = Locale.current
+        formatter.locale = Locale(identifier: "en-US")
         formatter.doesRelativeDateFormatting = true
         formatter.dateStyle = .short
         
