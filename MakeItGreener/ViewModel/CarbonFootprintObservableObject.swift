@@ -140,7 +140,7 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
               let footprintResult = footprintResult
         else { return nil }
 
-        let travelData = TravelData(arrival: arrival, departure: departure, distance: travelDistance, transportationType: chosenTransportationType, transportationMode: chosenTransportationMode, footprint: footprintResult)
+        let travelData = TravelData(arrival: arrival, departure: departure, distance: travelDistance, transportationType: chosenTransportationType, transportationMode: chosenTransportationMode, footprint: footprintResult, timestamp: Date.now)
         
         return travelData
     }
