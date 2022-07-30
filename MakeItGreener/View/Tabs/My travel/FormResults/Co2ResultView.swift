@@ -68,26 +68,27 @@ struct Co2ResultView: View {
                     Button("Save this travel"){
                         saveTravel()
                     }
-                        .font(.headline)
-                        .buttonStyle(.borderedProminent)
-                        .tint(Color.init(white: 0.5, opacity: 0.5))
-                        .foregroundColor(.white)
-                        .cornerRadius(15)
-                        .shadow(radius: 0)
-                        .padding()
+                    .font(.system(size: 40).bold())
+                    .buttonStyle(.borderedProminent)
+                    .tint(Color.init(white: 0.5, opacity: 0.5))
+                    .foregroundColor(.white)
+                    .cornerRadius(15)
+                    .shadow(radius: 0)
+                    .padding()
                 }
                 else {
                     Button("X") {
                         presentationMode.wrappedValue.dismiss()
                     }
-                        .font(.headline)
-                        .buttonStyle(.borderedProminent)
-                        .tint(Color.init(white: 0.5, opacity: 0.5))
-                        .foregroundColor(.white)
-                        .cornerRadius(50)
-                        .shadow(radius: 0)
-                        .padding()
+                    .font(.system(size: 40).bold())
+                    .buttonStyle(.plain)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Circle()
+                        .foregroundColor(Color.init(white: 0.5, opacity: 0.5))
+                        .shadow(radius: 0))
                 }
+                Spacer()
             }
         }
         .background(.radialGradient(.init(colors: footprintResult.footprintSeverityIndicator), center: UnitPoint.init(x: 0.5, y: 0.55), startRadius: footprintResult.gradientStartRadius, endRadius: footprintResult.gradientEndRadius))
@@ -97,7 +98,7 @@ struct Co2ResultView: View {
         withAnimation {
             let newTravel = Travel(context: managedObjectContext)
             newTravel.data = footprintResult.travelData
-
+            
             do {
                 try managedObjectContext.save()
             } catch {
@@ -105,7 +106,7 @@ struct Co2ResultView: View {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }
@@ -116,6 +117,6 @@ struct co2Result_Previews: PreviewProvider {
     
     static var previews: some View {
         Co2ResultView(footprintResult: FootprintResultObservableObject(with: travelData))
-            
+        
     }
 }
