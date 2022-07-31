@@ -104,6 +104,7 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
         
         self.departure = departure
         self.arrival = arrival
+        // Convert the distance form meters to kms
         self.travelDistance = travelDistance/1000
     }
     
@@ -113,12 +114,28 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
               let departure = departure,
               let footprintResult = footprintResult
         else {
-            let travelDataError = TravelData(arrivalTitle: "Error", arrivalSubtitle: "Error", departureTitle: "Error", departureSubtitle: "Error", distance: 0, transportationType: "Error", footprint: 0, timestamp: .now, imageName: "Error")
+            let travelDataError = TravelData(arrivalTitle: "Error",
+                                             arrivalSubtitle: "Error",
+                                             departureTitle: "Error",
+                                             departureSubtitle: "Error",
+                                             distance: 0,
+                                             transportationType: "Error",
+                                             footprint: 0,
+                                             timestamp: .now,
+                                             imageName: "Error")
             
             return travelDataError
         }
         
-        let travelData = TravelData(arrivalTitle: arrival.title, arrivalSubtitle: arrival.subtitle, departureTitle: departure.title, departureSubtitle: departure.subtitle, distance: travelDistance, transportationType: chosenTransportationType.userString(), footprint: footprintResult, timestamp: .now, imageName: chosenTransportationMode.imageName())
+        let travelData = TravelData(arrivalTitle: arrival.title,
+                                    arrivalSubtitle: arrival.subtitle,
+                                    departureTitle: departure.title,
+                                    departureSubtitle: departure.subtitle,
+                                    distance: travelDistance,
+                                    transportationType: chosenTransportationType.userString(),
+                                    footprint: footprintResult,
+                                    timestamp: .now,
+                                    imageName: chosenTransportationMode.imageName())
         
         return travelData
     }
@@ -132,12 +149,16 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
         // Contain the API informations
         let api = CarbonFootprintApi()
         // Create an url from the travel form data
-        let url = api.co2FootprintUrl(distance: travelDistance, transportationMode: chosenTransportationMode, transportationType: chosenTransportationType)
+        let url = api.co2FootprintUrl(distance: travelDistance,
+                                      transportationMode: chosenTransportationMode,
+                                      transportationType: chosenTransportationType)
         // Requiered headers for the request
         let headers = HTTPHeaders(CarbonFootprintConstant.headers)
         
         //Send a request to the API with the provided url and headers
-        NetworkService.shared.makeRequest(url: url, method: .get, headers: headers) { data, error in
+        NetworkService.shared.makeRequest(url: url,
+                                          method: .get,
+                                          headers: headers) { data, error in
             guard let data = data, error == nil else {
                 if let error = error {
                     // Get the error description
@@ -148,7 +169,6 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
                     self.isLoading = false
                     
                     completionHandler?(true, error.errorDescription, nil)
-                    
                 }
                 
                 return
