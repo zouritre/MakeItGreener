@@ -11,25 +11,26 @@ import Alamofire
 import MapKit
 
 class CarbonFootprintObservableObject: NSObject, ObservableObject {
+    
     override init() {
         super.init()
         
         let name = Notification.Name(rawValue: "travel data")
         
-        // Get the travel distance as soon as it is set
+        // Set up a listener to get the travel distance as soon as it changes in TravelSearchObservableObject
         NotificationCenter.default.addObserver(
-                    self, selector: #selector(listenTravelDistanceChanges(_:)),
-                    name: name, object: nil)
+            self, selector: #selector(listenTravelDistanceChanges(_:)),
+            name: name, object: nil)
     }
     
     /// Travel distance from departure point to arrival
     @Published var formattedTravelDistance = "0 m"
     /// Set to true if the travel carbon footprint has been retrieved successfully from the API
     @Published var hasFootprintResult = false
-    /// Set to true if an API request is pending
-    @Published var isLoading = false
-    /// Co2 footprint value received from API according to the provided travel informations
-    @Published var formattedFootprintResult = "0 KgCO2e"
+    /// Transportation type chosen by the user for his travel
+    @Published var chosenTransportationType: TransportationType = .SmallPetrolCar
+    /// Set to true if an error ocurred when processing the request to API
+    @Published var requestError: Bool = false
     /// Transportation mode chosen by the user for his travel
     @Published var chosenTransportationMode: TransportationMode = .Vehicule {
         didSet {
@@ -38,60 +39,21 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
             chosenTransportationType = transportationTypes[0]
         }
     }
-    /// Transportation type chosen by the user for his travel
-    @Published var chosenTransportationType: TransportationType = .SmallPetrolCar
-    /// Set to true if an error ocurred when processing the request to API
-    @Published var requestError: Bool = false
+    
+    /// Set to true if an API request is pending
+    var isLoading = false
     /// Description of the error encountered from the API request
-    @Published var errorDescription: String?
-    
-    
+    var errorDescription: String?
     /// Departure location name
     var departure: MKLocalSearchCompletion?
     /// Arrival location name
     var arrival: MKLocalSearchCompletion?
-    /// Travel distance from departure point to arrival in km
-    var travelDistance: Double? {
-        didSet {
-            let unit = travelDistance ?? 0 >= 1 ? "km" : "m"
-            
-            // Format any number to max 2 decimals in user local
-            let formatter = NumberFormatter()
-            formatter.locale = Locale.current
-            formatter.numberStyle = .decimal
-            formatter.maximumFractionDigits = 2
-            
-            guard let travelDistance = travelDistance else {
-                formattedTravelDistance = "0 m"
-                
-                return
-            }
-            
-            // Display the distance value according to the unit
-            let distance = unit == "km" ? travelDistance : (travelDistance*1000)
-            
-            let formattedString = formatter.string(from: distance as NSNumber)
-            
-            formattedTravelDistance = "\(formattedString ?? "0") \(unit)"
-        }
-    }
-    
-    var footprintResult: Double? {
-        didSet {
-            let formatter = NumberFormatter()
-            formatter.locale = Locale.current
-            formatter.numberStyle = .decimal
-            formatter.maximumFractionDigits = 2
-            
-            let doubleToString = formatter.string(from: footprintResult as? NSNumber ?? 0) ?? "0"
-            
-            formattedFootprintResult = "\(doubleToString) KgCO2e"
-        }
-    }
-    
+    /// Footprint calculated by the API according to the travel configuration
+    var footprintResult: Double?
     /// Every transportation modes avalaible
     var transportationModes = TransportationMode.allCases
-    /// Every transportation types avalaible for the chosen transportation mode
+    
+    /// Transportation types avalaible for the chosen transportation mode
     var transportationTypes: [TransportationType] {
         let filteredList = TransportationType.allCases.filter {
             //Get the transportation type prefix on the current element
@@ -106,20 +68,33 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
         return filteredList
     }
     
-    /// Store the complete travel datas if every necessary properties has been previously set
-    var travelData: TravelData? {
-        willSet {
-            if newValue == nil {
-                self.requestError.toggle()
-                self.errorDescription = "Couldn't retrieve the complete travel data"
-            }
-            else {
-                self.hasFootprintResult = true
-            }
-        }
+    /// Format a decimal number to a max 2 digit number  in the device locale
+    var formatter: NumberFormatter {
+        // Format any number to max 2 decimals in user local
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        
+        return formatter
     }
     
-    /// Store the travl distance whenever it changes
+    /// Travel distance from departure point to arrival in km
+    var travelDistance: Double = 0 {
+        didSet {
+            let unit = travelDistance >= 1 ? "km" : "m"
+            
+            // Display the distance value according to the unit
+            let distance = unit == "km" ? travelDistance : (travelDistance*1000)
+            
+            // Convert the Double to a String
+            let formattedString = formatter.string(from: distance as NSNumber)
+            
+            // Set the property to a human readable format
+            formattedTravelDistance = "\(formattedString ?? "0") \(unit)"
+        }
+    }
+    /// Set properties from the received notification
     /// - Parameter notification: The notifcation wich emitted the data
     @objc func listenTravelDistanceChanges(_ notification: Notification) {
         guard let travelDistance = notification.userInfo?["distance"] as? Double,
@@ -132,14 +107,17 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
         self.travelDistance = travelDistance/1000
     }
     
-    /// Store the travel data in database
-    func getCompleteTravelData() -> TravelData? {
+    /// Store the travel data from the form in an object
+    func getCompleteTravelData() -> TravelData {
         guard let arrival = arrival,
               let departure = departure,
-              let travelDistance = travelDistance,
               let footprintResult = footprintResult
-        else { return nil }
-
+        else {
+            let travelDataError = TravelData(arrivalTitle: "Error", arrivalSubtitle: "Error", departureTitle: "Error", departureSubtitle: "Error", distance: 0, transportationType: "Error", footprint: 0, timestamp: .now, imageName: "Error")
+            
+            return travelDataError
+        }
+        
         let travelData = TravelData(arrivalTitle: arrival.title, arrivalSubtitle: arrival.subtitle, departureTitle: departure.title, departureSubtitle: departure.subtitle, distance: travelDistance, transportationType: chosenTransportationType.userString(), footprint: footprintResult, timestamp: .now, imageName: chosenTransportationMode.imageName())
         
         return travelData
@@ -147,12 +125,8 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     
     /// Send the travel form data to the API
     func getFootprint(completionHandler: ((_ endedWithError: Bool, _ errorDescription: String?, _ result: Float?) -> Void)? = nil) {
-        guard let travelDistance = travelDistance else {
-            requestError = true
-            errorDescription = "Couldn't retrieve travel distance"
-            return
-        }
         
+        // Start the loading indicator
         isLoading = true
         
         // Contain the API informations
@@ -168,7 +142,9 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
                 if let error = error {
                     // Get the error description
                     self.errorDescription = error.localizedDescription
-                    self.requestError = true
+                    // Display an alert
+                    self.requestError.toggle()
+                    // Stop the loading indicator
                     self.isLoading = false
                     
                     completionHandler?(true, error.errorDescription, nil)
@@ -177,29 +153,29 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
                 
                 return
             }
-
+            
             //Decode the JSON response from the server
             guard let json = try? JSON(data: data) else {
                 // Get the error description
                 self.errorDescription = SwiftyJSONError.invalidJSON.localizedDescription
-                self.requestError = true
+                // Display an alert
+                self.requestError.toggle()
+                // Stop the loading indicator
                 self.isLoading = false
                 
                 completionHandler?(true, SwiftyJSONError.invalidJSON.localizedDescription, nil)
                 
                 return
             }
-        
-            self.requestError = false
             
             // Get the carbon footprint of the user according to his travel datas
             self.footprintResult = json["carbonEquivalent"].doubleValue
-            
-            self.travelData = self.getCompleteTravelData()
-            
+            // Stop the loading indicator
             self.isLoading = false
+            // Start a navigation to Co2ResultView
+            self.hasFootprintResult = true
             
             completionHandler?(false, nil, json["carbonEquivalent"].floatValue)
-                    }
+        }
     }
 }
