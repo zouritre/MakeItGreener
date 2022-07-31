@@ -66,7 +66,7 @@ struct Co2ResultView: View {
                 if !isFromDatabase {
                     // Display the button if the view was shown from My travel tab, and not from My footprint tab"
                     Button("Save this travel"){
-                        saveTravel()
+                        footprintResult.saveTravel(in: managedObjectContext)
                     }
                     .font(.system(size: 40).bold())
                     .buttonStyle(.borderedProminent)
@@ -92,22 +92,6 @@ struct Co2ResultView: View {
             }
         }
         .background(.radialGradient(.init(colors: footprintResult.footprintSeverityIndicator), center: UnitPoint.init(x: 0.5, y: 0.55), startRadius: footprintResult.gradientStartRadius, endRadius: footprintResult.gradientEndRadius))
-    }
-    
-    private func saveTravel() {
-        withAnimation {
-//            let newTravel = Travel(context: managedObjectContext)
-            
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Save failed")
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
     }
 }
 
