@@ -37,7 +37,7 @@ struct MyFootprintTab: View {
         var total: Double = 0
         
         items.forEach { travelData in
-            total += travelData.data?.footprint ?? 0
+            total += travelData.footprint
         }
         
         return total
@@ -77,7 +77,7 @@ struct MyFootprintTab: View {
                 ScrollView {
                     LazyVStack {
                         ForEach(items) { item in
-                            TravelRow(footprintResult: FootprintResultObservableObject(with: item.data!))
+                            TravelRow(footprintResult: FootprintResultViewModel(with: item))
                                 .shadow(color: .white, radius: 5)
                                 .padding(3)
                         }

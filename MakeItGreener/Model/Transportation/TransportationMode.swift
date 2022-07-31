@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum TransportationMode: String, CaseIterable {
+public enum TransportationMode: String, CaseIterable {
     case Plane = "f"
     case Vehicule = "v"
     case Motorbike = "m"

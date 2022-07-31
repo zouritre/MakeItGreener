@@ -140,7 +140,7 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
               let footprintResult = footprintResult
         else { return nil }
 
-        let travelData = TravelData(arrival: arrival, departure: departure, distance: travelDistance, transportationType: chosenTransportationType, transportationMode: chosenTransportationMode, footprint: footprintResult, timestamp: Date.now)
+        let travelData = TravelData(arrivalTitle: arrival.title, arrivalSubtitle: arrival.subtitle, departureTitle: departure.title, departureSubtitle: departure.subtitle, distance: travelDistance, transportationType: chosenTransportationType.userString(), footprint: footprintResult, timestamp: .now, imageName: chosenTransportationMode.imageName())
         
         return travelData
     }
@@ -155,14 +155,10 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
         
         isLoading = true
         
-        // Create an object with the travel form datas
-        let travelData = TravelData(distance: travelDistance,
-                                    transportationType: chosenTransportationType,
-                                    transportationMode: chosenTransportationMode)
         // Contain the API informations
         let api = CarbonFootprintApi()
         // Create an url from the travel form data
-        let url = api.co2FootprintUrl(for: travelData)
+        let url = api.co2FootprintUrl(distance: travelDistance, transportationMode: chosenTransportationMode, transportationType: chosenTransportationType)
         // Requiered headers for the request
         let headers = HTTPHeaders(CarbonFootprintConstant.headers)
         

@@ -11,7 +11,7 @@ import MapKit
 struct Co2ResultView: View {
     @Environment(\.presentationMode) private var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
-    @ObservedObject var footprintResult: FootprintResultObservableObject
+    var footprintResult: FootprintResultViewModel
     
     var isFromDatabase: Bool = false
     
@@ -20,8 +20,8 @@ struct Co2ResultView: View {
             VStack() {
                 HStack {
                     VStack(alignment: .center) {
-                        Text(footprintResult.transportationType.userString())
-                        Image(footprintResult.transportationMode.imageName())
+                        Text(footprintResult.transportationType)
+                        Image(footprintResult.imageName)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 50)
@@ -30,15 +30,15 @@ struct Co2ResultView: View {
                     .padding()
                     Spacer()
                     VStack(alignment: .center) {
-                        Text(footprintResult.departure.title)
-                        Text(footprintResult.departure.subtitle)
+                        Text(footprintResult.departureTitle)
+                        Text(footprintResult.departureSubtitle)
                             .font(.subheadline)
                         Image("arrow")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 30)
-                        Text(footprintResult.arrival.title)
-                        Text(footprintResult.arrival.subtitle)
+                        Text(footprintResult.arrivalTitle)
+                        Text(footprintResult.arrivalSubtitle)
                             .font(.subheadline)
                     }
                     .padding()
@@ -96,8 +96,7 @@ struct Co2ResultView: View {
     
     private func saveTravel() {
         withAnimation {
-            let newTravel = Travel(context: managedObjectContext)
-            newTravel.data = footprintResult.travelData
+//            let newTravel = Travel(context: managedObjectContext)
             
             do {
                 try managedObjectContext.save()
@@ -106,17 +105,16 @@ struct Co2ResultView: View {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
-                //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }
 }
 
 struct co2Result_Previews: PreviewProvider {
-    static let travelData = TravelData(arrival: MKLocalSearchCompletion(), departure: MKLocalSearchCompletion(), distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 120)
     
     static var previews: some View {
-        Co2ResultView(footprintResult: FootprintResultObservableObject(with: travelData))
+        Co2ResultView(footprintResult: FootprintResultViewModel())
         
     }
 }

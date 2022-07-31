@@ -9,14 +9,15 @@ import SwiftUI
 import MapKit
 
 struct TravelRow: View {
-    @ObservedObject var footprintResult: FootprintResultObservableObject
     @State private var showDetail = false
+    
+    let footprintResult: FootprintResultViewModel
     
     var body: some View {
         HStack {
             VStack(alignment: .center) {
-                Text(footprintResult.timestamp.localizedCapitalized)
-                Image(footprintResult.transportationMode.imageName())
+                Text("\(footprintResult.timestamp)")
+                Image("\(footprintResult.imageName)")
                     .resizable()
                     .frame(width: 40, height: 40, alignment: .center)
                 Text("\(footprintResult.distance) km")
@@ -33,7 +34,7 @@ struct TravelRow: View {
         .background(.linearGradient(colors: [.green, .blue], startPoint: .leading, endPoint: .bottomTrailing))
         .cornerRadius(15)
         .sheet(isPresented: $showDetail) {
-            Co2ResultView(footprintResult: footprintResult, isFromDatabase: true)
+//            Co2ResultView(footprintResult: footprintResult, isFromDatabase: true)
         }
         .onTapGesture {
             showDetail.toggle()
@@ -42,8 +43,7 @@ struct TravelRow: View {
 }
 
 struct TravelRow_Previews: PreviewProvider {
-    static let travelData = TravelData(arrival: MKLocalSearchCompletion(), departure: MKLocalSearchCompletion(), distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 3000, timestamp: .now)
     static var previews: some View {
-        TravelRow(footprintResult: FootprintResultObservableObject(with: travelData))
+        TravelRow(footprintResult: FootprintResultViewModel())
     }
 }

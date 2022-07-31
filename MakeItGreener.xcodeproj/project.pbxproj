@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		99628892509A61FD547F9BF1 /* Pods_MakeItGreener.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB58022E954E91C06C721C6 /* Pods_MakeItGreener.framework */; };
 		E908E8C328914971002D9220 /* FootprintResultTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908E8C228914971002D9220 /* FootprintResultTest.swift */; };
-		E908E8C5289149A7002D9220 /* FootprintResultObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908E8C4289149A7002D9220 /* FootprintResultObservableObject.swift */; };
+		E908E8C5289149A7002D9220 /* FootprintResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908E8C4289149A7002D9220 /* FootprintResultViewModel.swift */; };
 		E91AF4DA288DF779005D847B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AF4D9288DF779005D847B /* AppDelegate.swift */; };
 		E92810BB2881D76E0089A77D /* CompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92810BA2881D76E0089A77D /* CompletionView.swift */; };
 		E92F32FC2886DA6F00F6E844 /* MyTravelTabHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92F32FB2886DA6F00F6E844 /* MyTravelTabHome.swift */; };
@@ -50,8 +50,6 @@
 		E9CEFCC2287D9A8A0024198C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCC1287D9A8A0024198C /* MapView.swift */; };
 		E9CEFCC5287D9BF90024198C /* TransportationTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCC4287D9BF90024198C /* TransportationTypeView.swift */; };
 		E9CEFCD1287DD6BF0024198C /* TransportationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CEFCD0287DD6BF0024198C /* TransportationMode.swift */; };
-		E9DC3CE4289498B7004A0C5F /* Travel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC3CE2289498B7004A0C5F /* Travel+CoreDataClass.swift */; };
-		E9DC3CE5289498B7004A0C5F /* Travel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC3CE3289498B7004A0C5F /* Travel+CoreDataProperties.swift */; };
 		F9AA19780A720A3510FF8299 /* libPods-MakeItGreenerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFE91B711BF1308A1488D18 /* libPods-MakeItGreenerTests.a */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +71,7 @@
 		5D15472A2CACCB97657F49BD /* Pods-MakeItGreenerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreenerTests.release.xcconfig"; path = "Target Support Files/Pods-MakeItGreenerTests/Pods-MakeItGreenerTests.release.xcconfig"; sourceTree = "<group>"; };
 		815379C0C1088D33DFC9A3A5 /* Pods-MakeItGreener.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.debug.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.debug.xcconfig"; sourceTree = "<group>"; };
 		E908E8C228914971002D9220 /* FootprintResultTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintResultTest.swift; sourceTree = "<group>"; };
-		E908E8C4289149A7002D9220 /* FootprintResultObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintResultObservableObject.swift; sourceTree = "<group>"; };
+		E908E8C4289149A7002D9220 /* FootprintResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintResultViewModel.swift; sourceTree = "<group>"; };
 		E91AF4D9288DF779005D847B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E92810BA2881D76E0089A77D /* CompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionView.swift; sourceTree = "<group>"; };
 		E92F32FB2886DA6F00F6E844 /* MyTravelTabHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTravelTabHome.swift; sourceTree = "<group>"; };
@@ -116,8 +114,6 @@
 		E9CEFCC1287D9A8A0024198C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E9CEFCC4287D9BF90024198C /* TransportationTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationTypeView.swift; sourceTree = "<group>"; };
 		E9CEFCD0287DD6BF0024198C /* TransportationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationMode.swift; sourceTree = "<group>"; };
-		E9DC3CE2289498B7004A0C5F /* Travel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Travel+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E9DC3CE3289498B7004A0C5F /* Travel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Travel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,8 +290,6 @@
 		E95E34AF2879DEE10098404F /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E9DC3CE2289498B7004A0C5F /* Travel+CoreDataClass.swift */,
-				E9DC3CE3289498B7004A0C5F /* Travel+CoreDataProperties.swift */,
 				E95E34A52879DE3B0098404F /* Persistence.swift */,
 				E95E34A72879DE3B0098404F /* MakeItGreener.xcdatamodeld */,
 			);
@@ -432,7 +426,7 @@
 			children = (
 				E961ECBC287B19D500D92C64 /* CarbonFootprintObservableObject.swift */,
 				E9AE2E98288084D200607895 /* travelSearchObservableObject.swift */,
-				E908E8C4289149A7002D9220 /* FootprintResultObservableObject.swift */,
+				E908E8C4289149A7002D9220 /* FootprintResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -640,7 +634,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E95E34A62879DE3B0098404F /* Persistence.swift in Sources */,
-				E9DC3CE5289498B7004A0C5F /* Travel+CoreDataProperties.swift in Sources */,
 				E95FFC01287EDA6E00B934B3 /* TransportationType.swift in Sources */,
 				E9AE2E9B2880B69000607895 /* TransportationModeView.swift in Sources */,
 				E9B4A8C5287A1A63000AFE72 /* TravelData.swift in Sources */,
@@ -659,8 +652,7 @@
 				E9CEFCC2287D9A8A0024198C /* MapView.swift in Sources */,
 				E92F32FC2886DA6F00F6E844 /* MyTravelTabHome.swift in Sources */,
 				E9CEFCC5287D9BF90024198C /* TransportationTypeView.swift in Sources */,
-				E908E8C5289149A7002D9220 /* FootprintResultObservableObject.swift in Sources */,
-				E9DC3CE4289498B7004A0C5F /* Travel+CoreDataClass.swift in Sources */,
+				E908E8C5289149A7002D9220 /* FootprintResultViewModel.swift in Sources */,
 				E93B9EB52883063E00FFF6A0 /* AnnotationDesign.swift in Sources */,
 				E961EC9D287AF9C900D92C64 /* CarbonFootprintEndpoint.swift in Sources */,
 				E91AF4DA288DF779005D847B /* AppDelegate.swift in Sources */,

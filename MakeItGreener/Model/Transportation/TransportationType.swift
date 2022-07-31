@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TransportationType: String, CaseIterable {
+public enum TransportationType: String, CaseIterable {
     case Taxi = "p_Taxi"
     case ClassicBus = "p_ClassicBus"
     case EcoBus = "p_EcoBus"
