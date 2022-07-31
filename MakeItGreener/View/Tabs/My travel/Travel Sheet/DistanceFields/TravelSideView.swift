@@ -23,7 +23,7 @@ struct TravelSideView: View {
         HStack {
             Image(systemName: self.travelSide == .Start ? "figure.walk" : "flag.fill")
                 .symbolRenderingMode(.palette)
-                .foregroundColor(.red)
+                .foregroundColor(.primary)
             VStack(alignment: .leading) {
                 Text(self.locationData?.title ?? "")
                 Text(self.locationData?.subtitle ?? "")
@@ -36,6 +36,7 @@ struct TravelSideView: View {
 struct TravelSideView_Previews: PreviewProvider {
     static var previews: some View {
         TravelSideView(travelSide: .Start)
+            .preferredColorScheme(.dark)
             .environmentObject(travelSearchObservableObject())
     }
 }

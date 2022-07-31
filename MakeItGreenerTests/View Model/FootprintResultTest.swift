@@ -22,15 +22,15 @@ class FootprintResultTest: XCTestCase {
 
     func testSaveTravelShouldSucceedWithTravelDataObjectAsInit() {
         // Given
-        let travelData = TravelData(arrivalTitle: "a",
-                              arrivalSubtitle: "a",
-                              departureTitle: "a",
-                              departureSubtitle: "a",
+        let travelData = TravelData(arrivalTitle: "",
+                              arrivalSubtitle: "",
+                              departureTitle: "",
+                              departureSubtitle: "",
                               distance: 0,
-                              transportationType: "a",
+                              transportationType: "",
                               footprint: 0,
                               timestamp: .now,
-                              imageName: "a")
+                              imageName: "")
         
         // When
         footprintResult = FootprintResultObservableObject(with: travelData)

@@ -85,8 +85,9 @@ struct MyFootprintTab: View {
             .background(Image("greenland"))
         }
         .navigationViewStyle(.stack)
-        .navigationTitle("Test")
+        .navigationTitle("")
         .navigationBarHidden(true)
+        
     }
 }
 

@@ -23,7 +23,7 @@ struct CompletionView: View {
             Button(self.completionObject.subtitle) {}
                 .font(.body.weight(.light))
         }
-        .foregroundColor(.black)
+        .foregroundColor(.primary)
         .onTapGesture {
             // Set the search bar text to the selected completion title
             travelSearchOO.searchTerm = self.completionObject.title

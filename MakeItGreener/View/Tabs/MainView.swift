@@ -14,7 +14,7 @@ struct MainView: View {
         TabView {
             MyTravelTabHome()
                 .tabItem {
-                    Label("My travel", systemImage: "square.and.pencil")
+                    Label("My travel", systemImage: "map.fill")
                 }
             MyFootprintTab()
                 .tabItem {
@@ -26,13 +26,13 @@ struct MainView: View {
             
             let appearance = UITabBarAppearance()
             appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-            appearance.backgroundColor = .clear
+            appearance.backgroundColor = .init(white: 0.8, alpha: 0.5)
             // Use this appearance when scrolling behind the TabView:
             UITabBar.appearance().standardAppearance = appearance
             // Use this appearance when scrolled all the way up:
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
-        .accentColor(.red)
+        .accentColor(.black)
     }
 }
 
@@ -41,5 +41,6 @@ struct MainView_Previews: PreviewProvider {
         MainView()
             .environmentObject(CarbonFootprintObservableObject())
             .environmentObject(travelSearchObservableObject())
+            .previewInterfaceOrientation(.portrait)
     }
 }

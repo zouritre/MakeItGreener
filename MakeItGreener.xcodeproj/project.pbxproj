@@ -73,6 +73,7 @@
 		815379C0C1088D33DFC9A3A5 /* Pods-MakeItGreener.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeItGreener.debug.xcconfig"; path = "Target Support Files/Pods-MakeItGreener/Pods-MakeItGreener.debug.xcconfig"; sourceTree = "<group>"; };
 		E908E8C228914971002D9220 /* FootprintResultTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintResultTest.swift; sourceTree = "<group>"; };
 		E908E8C4289149A7002D9220 /* FootprintResultObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintResultObservableObject.swift; sourceTree = "<group>"; };
+		E90AA9C62897298600F6AAEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E91AF4D9288DF779005D847B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E92810BA2881D76E0089A77D /* CompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionView.swift; sourceTree = "<group>"; };
 		E92F32FB2886DA6F00F6E844 /* MyTravelTabHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTravelTabHome.swift; sourceTree = "<group>"; };
@@ -188,7 +189,6 @@
 		E93B16D628835F4E00DBFE21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E9B4A8BC287A08FB000AFE72 /* MainView.swift */,
 				E95E349C2879DE3A0098404F /* MakeItGreenerApp.swift */,
 				E91AF4D9288DF779005D847B /* AppDelegate.swift */,
 			);
@@ -271,6 +271,7 @@
 		E95E349B2879DE3A0098404F /* MakeItGreener */ = {
 			isa = PBXGroup;
 			children = (
+				E90AA9C62897298600F6AAEB /* Info.plist */,
 				E93B16D628835F4E00DBFE21 /* Supporting Files */,
 				E9B4A8CA287A36CE000AFE72 /* View */,
 				E9B4A8BF287A0E17000AFE72 /* ViewModel */,
@@ -405,6 +406,7 @@
 		E9AE2E9E2880DCE800607895 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				E9B4A8BC287A08FB000AFE72 /* MainView.swift */,
 				E95F20002885F06300F27852 /* My footprint */,
 				E93B16D528835F0C00DBFE21 /* FormResults */,
 				E95F1FFF2885F04F00F27852 /* My travel */,
@@ -824,6 +826,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MakeItGreener/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -858,6 +861,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MakeItGreener/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
