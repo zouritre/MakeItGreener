@@ -64,11 +64,11 @@ struct Co2ResultView: View {
                 .foregroundColor(.white)
                 Spacer()
                 if !isFromDatabase {
-                    // Display the button if the view was shown from My travel tab, and not from My footprint tab"
+                    // Display the button if the view was shown after pressing "Get my footprint" button from My travel tab
                     Button("Save this travel"){
                         footprintResult.saveTravel(in: managedObjectContext)
                     }
-                    .font(.system(size: 40).bold())
+                    .font(.system(size: 30).bold())
                     .buttonStyle(.borderedProminent)
                     .tint(Color.init(white: 0.5, opacity: 0.5))
                     .foregroundColor(.white)
@@ -77,6 +77,7 @@ struct Co2ResultView: View {
                     .padding()
                 }
                 else {
+                    // Display the button if the view was shown from My footprint tab sheet
                     Button("X") {
                         presentationMode.wrappedValue.dismiss()
                     }

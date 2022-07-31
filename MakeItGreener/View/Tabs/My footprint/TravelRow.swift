@@ -34,7 +34,7 @@ struct TravelRow: View {
         .background(.linearGradient(colors: [.green, .blue], startPoint: .leading, endPoint: .bottomTrailing))
         .cornerRadius(15)
         .sheet(isPresented: $showDetail) {
-//            Co2ResultView(footprintResult: footprintResult, isFromDatabase: true)
+            Co2ResultView(footprintResult: footprintResult, isFromDatabase: true)
         }
         .onTapGesture {
             showDetail.toggle()
