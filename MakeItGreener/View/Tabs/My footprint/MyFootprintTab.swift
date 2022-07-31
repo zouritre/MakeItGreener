@@ -28,12 +28,6 @@ struct MyFootprintTab: View {
     }
     
     private var totalCo2: Double {
-        
-        let formatter = NumberFormatter()
-        formatter.locale = Locale.current
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
-        
         var total: Double = 0
         
         items.forEach { travelData in

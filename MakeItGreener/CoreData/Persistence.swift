@@ -17,7 +17,15 @@ struct PersistenceController {
         for _ in 0..<10 {
             let aTravel = Travel(context: viewContext)
             
-            let data = TravelData(arrivalTitle: "Paris", arrivalSubtitle: "10ème arrondissement", departureTitle: "Lyon", departureSubtitle: "9ème arrondissement", distance: 500, transportationType: "Small petrol car", footprint: 123, timestamp: .now, imageName: "car")
+            aTravel.arrivalTitle = "Paris"
+            aTravel.arrivalSubtitle = "10ème arrondissement"
+            aTravel.departureTitle = "Lyon"
+            aTravel.departureSubtitle = "9ème arrondissement"
+            aTravel.distance = 500
+            aTravel.transportationType = "Small petrol car"
+            aTravel.footprint = 123
+            aTravel.timestamp = .now
+            aTravel.imageName = "car"
         }
         do {
             try viewContext.save()
