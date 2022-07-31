@@ -17,8 +17,8 @@ struct TravelForm: View {
         NavigationView {
                 Form {
                     Section(content: {
-                        TravelLocationView(travelSide: .Start)
-                        TravelLocationView(travelSide: .Arrival)
+                        TravelSideView(travelSide: .Start)
+                        TravelSideView(travelSide: .Arrival)
                     }, header: {
                         Text("Distance")
                     }, footer: {

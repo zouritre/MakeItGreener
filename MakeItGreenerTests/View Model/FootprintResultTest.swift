@@ -1,44 +1,64 @@
-////
-////  FootprintResultTest.swift
-////  MakeItGreenerTests
-////
-////  Created by Bertrand Dalleau on 27/07/2022.
-////
 //
-//import XCTest
-//@testable import MakeItGreener
-//import MapKit
+//  FootprintResultTest.swift
+//  MakeItGreenerTests
 //
-//class FootprintResultTest: XCTestCase {
-//    var footprintResult: FootprintResultViewModel!
-//    
-//    override func setUpWithError() throws {
-//        // Put setup code here. This method is called before the invocation of each test method in the class.
-//        let travelData = TravelData(arrival: MKLocalSearchCompletion(), departure: MKLocalSearchCompletion(), distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 50)
-//        
-//        footprintResult = FootprintResultViewModel(with: travelData)
-//    }
+//  Created by Bertrand Dalleau on 27/07/2022.
 //
-//    override func tearDownWithError() throws {
-//        // Put teardown code here. This method is called after the invocation of each test method in the class.
-//    }
-//
-//    func testPublishersShouldHaveTravelDataValue() {
+
+import XCTest
+@testable import MakeItGreener
+import SwiftUI
+
+class FootprintResultTest: XCTestCase {
+    var footprintResult: FootprintResultObservableObject!
+    
+    override func setUpWithError() throws {
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDownWithError() throws {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+
+    func testSaveTravelShouldSucceedWithTravelDataObjectAsInit() {
+        // Given
+        let travelData = TravelData(arrivalTitle: "a",
+                              arrivalSubtitle: "a",
+                              departureTitle: "a",
+                              departureSubtitle: "a",
+                              distance: 0,
+                              transportationType: "a",
+                              footprint: 0,
+                              timestamp: .now,
+                              imageName: "a")
+        
+        // When
+        footprintResult = FootprintResultObservableObject(with: travelData)
+        
+        let viewContext = PersistenceController(inMemory: true).container.viewContext
+        
+        footprintResult.saveTravel(in: viewContext)
+        
+        // Then
+        XCTAssertFalse(footprintResult.viewContextHasError)
+    }
+    
+//    Can't simulate a FetchedResults<Travel>.Element instance
+//    func testSaveTravelShouldSucceedWithFetchResultObjectAsInit() {
 //        // Given
-//        let travelData = TravelData(arrival: MKLocalSearchCompletion(), departure: MKLocalSearchCompletion(), distance: 492, transportationType: .SmallPetrolCar, transportationMode: .Vehicule, footprint: 50)
-//        
-//        // When
-//        footprintResult = FootprintResultViewModel(with: travelData)
-//        
-//        // Then
-//        XCTAssertNotNil(footprintResult.arrival)
-//        XCTAssertNotNil(footprintResult.departure)
-//        XCTAssertEqual(footprintResult.distance, "492")
-//        XCTAssertEqual(footprintResult.transportationType, .SmallPetrolCar)
-//        XCTAssertEqual(footprintResult.transportationMode, .Vehicule)
-//        XCTAssertEqual(footprintResult.footprint, "50")
-//    }
+//        let dataModelElement = FetchedResults<Travel>.Element()
 //
+//        // When
+//        footprintResult = FootprintResultObservableObject(with: dataModelElement)
+//
+//        let viewContext = PersistenceController(inMemory: true).container.viewContext
+//
+//        footprintResult.saveTravel(in: viewContext)
+//
+//        // Then
+//        XCTAssertFalse(footprintResult.viewContextHasError)
+//    }
+    
 //    func testFootprintSeverityShouldBeLow() {
 //        // Given
 //        let footprint = 99.2
@@ -71,4 +91,4 @@
 //        // Then
 //        XCTAssertEqual(footprintResult.footprintSeverityIndicator, footprintResult.footprintSeverityHigh)
 //    }
-//}
+}

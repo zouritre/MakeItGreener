@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import CoreData
 
-class FootprintResultViewModel {
+class FootprintResultObservableObject: ObservableObject {
     
     init() {
         self.arrivalTitle = "Paris"
@@ -78,6 +78,9 @@ class FootprintResultViewModel {
         return formatter
     }
     
+    @Published var viewContextHasError = false
+    
+    var errorDescription = ""
     var isFromDatabase = false
     var dataModel: FetchedResults<Travel>.Element?
     var travelData: TravelData?
@@ -146,11 +149,9 @@ class FootprintResultViewModel {
             do {
                 try viewContext.save()
             } catch {
-                print("Save failed")
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                errorDescription = error.localizedDescription
+                // Display an alert on the subcriber view
+                viewContextHasError.toggle()
             }
         }
     }

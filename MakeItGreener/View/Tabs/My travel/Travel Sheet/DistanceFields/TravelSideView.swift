@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct TravelLocationView: View {
+struct TravelSideView: View {
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
     // Completion object to be used for displaying travel location informations
@@ -33,9 +33,9 @@ struct TravelLocationView: View {
     }
 }
 
-struct TravelLocationView_Previews: PreviewProvider {
+struct TravelSideView_Previews: PreviewProvider {
     static var previews: some View {
-        TravelLocationView(travelSide: .Start)
+        TravelSideView(travelSide: .Start)
             .environmentObject(travelSearchObservableObject())
     }
 }

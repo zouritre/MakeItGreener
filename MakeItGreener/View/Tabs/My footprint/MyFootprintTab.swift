@@ -71,7 +71,7 @@ struct MyFootprintTab: View {
                 ScrollView {
                     LazyVStack {
                         ForEach(items) { item in
-                            TravelRow(footprintResult: FootprintResultViewModel(with: item))
+                            TravelRow(footprintResult: FootprintResultObservableObject(with: item))
                                 .shadow(color: .white, radius: 5)
                                 .padding(3)
                         }

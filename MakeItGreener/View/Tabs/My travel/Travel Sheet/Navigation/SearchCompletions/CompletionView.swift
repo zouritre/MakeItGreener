@@ -25,7 +25,7 @@ struct CompletionView: View {
         }
         .foregroundColor(.black)
         .onTapGesture {
-            // Set the search bar title
+            // Set the search bar text to the selected completion title
             travelSearchOO.searchTerm = self.completionObject.title
             // Store the selected completion
             if travelSearchOO.travelSide == .Start {

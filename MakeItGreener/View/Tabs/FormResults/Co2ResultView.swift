@@ -11,7 +11,7 @@ import MapKit
 struct Co2ResultView: View {
     @Environment(\.presentationMode) private var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
-    var footprintResult: FootprintResultViewModel
+    @ObservedObject var footprintResult: FootprintResultObservableObject
     
     var isFromDatabase: Bool = false
     
@@ -93,13 +93,15 @@ struct Co2ResultView: View {
             }
         }
         .background(.radialGradient(.init(colors: footprintResult.footprintSeverityIndicator), center: UnitPoint.init(x: 0.5, y: 0.55), startRadius: footprintResult.gradientStartRadius, endRadius: footprintResult.gradientEndRadius))
+        // Show an alert when saving to Core Data failed
+        .alert(footprintResult.errorDescription, isPresented: $footprintResult.viewContextHasError, actions: {})
     }
 }
 
 struct co2Result_Previews: PreviewProvider {
     
     static var previews: some View {
-        Co2ResultView(footprintResult: FootprintResultViewModel())
+        Co2ResultView(footprintResult: FootprintResultObservableObject())
         
     }
 }

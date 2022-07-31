@@ -11,7 +11,7 @@ import MapKit
 struct TravelRow: View {
     @State private var showDetail = false
     
-    let footprintResult: FootprintResultViewModel
+    let footprintResult: FootprintResultObservableObject
     
     var body: some View {
         HStack {
@@ -44,6 +44,6 @@ struct TravelRow: View {
 
 struct TravelRow_Previews: PreviewProvider {
     static var previews: some View {
-        TravelRow(footprintResult: FootprintResultViewModel())
+        TravelRow(footprintResult: FootprintResultObservableObject())
     }
 }
