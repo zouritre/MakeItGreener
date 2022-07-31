@@ -18,40 +18,7 @@ struct Co2ResultView: View {
     var body: some View {
         Group{
             VStack() {
-                HStack {
-                    VStack(alignment: .center) {
-                        Text(footprintResult.transportationType)
-                        Image(footprintResult.imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 50)
-                        Text("\(footprintResult.distance) km")
-                    }
-                    .padding()
-                    Spacer()
-                    VStack(alignment: .center) {
-                        Text(footprintResult.departureTitle)
-                        Text(footprintResult.departureSubtitle)
-                            .font(.subheadline)
-                        Image("arrow")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 30)
-                        Text(footprintResult.arrivalTitle)
-                        Text(footprintResult.arrivalSubtitle)
-                            .font(.subheadline)
-                    }
-                    .padding()
-                }
-                .font(.headline.weight(.heavy))
-                .multilineTextAlignment(.center)
-                .minimumScaleFactor(0.6)
-                .background(Color.init(white: 0.5, opacity: 0.5))
-                .foregroundColor(.white)
-                .cornerRadius(20)
-                .shadow(radius: 0)
-                .frame(height: 150)
-                .padding()
+                ResultDetailPanel(footprintResult: footprintResult)
                 Spacer()
                 VStack(alignment: .center) {
                     Spacer()
@@ -68,9 +35,9 @@ struct Co2ResultView: View {
                     Button("Save this travel"){
                         footprintResult.saveTravel(in: managedObjectContext)
                     }
-                    .font(.system(size: 30).bold())
+                    .font(.system(size: 20).bold())
                     .buttonStyle(.borderedProminent)
-                    .tint(Color.init(white: 0.5, opacity: 0.5))
+                    .tint(Color.init(white: 0.2, opacity: 0.8))
                     .foregroundColor(.white)
                     .cornerRadius(15)
                     .shadow(radius: 0)
@@ -81,18 +48,18 @@ struct Co2ResultView: View {
                     Button("X") {
                         presentationMode.wrappedValue.dismiss()
                     }
-                    .font(.system(size: 40).bold())
+                    .font(.system(size: 20).bold())
                     .buttonStyle(.plain)
                     .foregroundColor(.white)
                     .padding()
                     .background(Circle()
-                        .foregroundColor(Color.init(white: 0.5, opacity: 0.5))
+                        .foregroundColor(Color.init(white: 0.2, opacity: 0.8))
                         .shadow(radius: 0))
                 }
                 Spacer()
             }
         }
-        .background(.radialGradient(.init(colors: footprintResult.footprintSeverityIndicator), center: UnitPoint.init(x: 0.5, y: 0.55), startRadius: footprintResult.gradientStartRadius, endRadius: footprintResult.gradientEndRadius))
+        .background(.linearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom))
         // Show an alert when saving to Core Data failed
         .alert(footprintResult.errorDescription, isPresented: $footprintResult.viewContextHasError, actions: {})
     }
