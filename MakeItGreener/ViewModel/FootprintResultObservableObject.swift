@@ -59,6 +59,7 @@ class FootprintResultObservableObject: ObservableObject {
     
     @Published var viewContextHasError = false
     @Published var saveButtonIcon = "square.and.arrow.down.fill"
+    @Published var saveButtonIsEnable = true
     
     var errorDescription = ""
     var travelData: TravelData?
@@ -91,6 +92,9 @@ class FootprintResultObservableObject: ObservableObject {
             try viewContext.save()
             
             saveButtonIcon = "checkmark.circle.fill"
+            
+            // Prevent saving the same item multiple times
+            saveButtonIsEnable = false
         } catch {
             errorDescription = error.localizedDescription
             
