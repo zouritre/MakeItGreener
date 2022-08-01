@@ -13,32 +13,16 @@ struct TravelForm: View {
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     
-    /// Travel distance formatted to the user local
-    var formattedDistance: String {
-        let unit = travelSearchOO.travelDistance >= 1000 ? "km" : "m"
-        
-        // Format any number to max 2 decimals in user local
-        let formatter = NumberFormatter()
-        formatter.locale = Locale.current
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
-        
-        let distance = unit == "m" ? travelSearchOO.travelDistance : (travelSearchOO.travelDistance/1000)
-        
-        let formattedString = formatter.string(from: distance as NSNumber)
-        
-        return "\(formattedString ?? "0") \(unit)"
-    }
     var body: some View {
         NavigationView {
                 Form {
                     Section(content: {
-                        TravelLocationView(travelSide: .Start)
-                        TravelLocationView(travelSide: .Arrival)
+                        TravelSideView(travelSide: .Start)
+                        TravelSideView(travelSide: .Arrival)
                     }, header: {
                         Text("Distance")
                     }, footer: {
-                        Text("\(formattedDistance)")
+                        Text("\(carbonFootprintOO.formattedTravelDistance)")
                     })
                     Section(content: {
                         TransportationModeView()

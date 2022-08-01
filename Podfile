@@ -13,6 +13,7 @@ target 'MakeItGreener' do
   # Pods for Reciplease
   pod 'Alamofire'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'Mixpanel-swift'
 
 end
 

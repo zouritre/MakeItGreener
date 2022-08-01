@@ -1,20 +1,26 @@
 PODS:
   - Alamofire (5.6.1)
+  - Mixpanel-swift (3.5.1):
+    - Mixpanel-swift/Complete (= 3.5.1)
+  - Mixpanel-swift/Complete (3.5.1)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Mixpanel-swift
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Mixpanel-swift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Mixpanel-swift: 89d88f4d3dd1b4b3b69bd05060756eb1248b76f0
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: dc284dbcfa71b65956e312f1f371b5ea2f64719a
+PODFILE CHECKSUM: afa86f1b7497cd6f4c5e824bcc8a73f316b9e13f
 
 COCOAPODS: 1.11.3

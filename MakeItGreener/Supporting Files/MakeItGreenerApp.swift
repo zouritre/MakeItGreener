@@ -9,17 +9,19 @@ import SwiftUI
 
 @main
 struct MakeItGreenerApp: App {
-//    let persistenceController = PersistenceController.shared
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     @StateObject var carbonFootprintOO = CarbonFootprintObservableObject()
     @StateObject var travelSearchOO = travelSearchObservableObject()
+    
+    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environmentObject(carbonFootprintOO)
                 .environmentObject(travelSearchOO)
-//            ContentView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
