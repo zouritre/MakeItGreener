@@ -9,14 +9,16 @@ import SwiftUI
 
 struct MyFootprintTab: View {
     var body: some View {
-        VStack(alignment: .center) {
-            Co2TotalPanel()
-            Spacer()
-            TravelListPanel()
-            Spacer()
+        ZStack {
+            Image("nature")
+                .resizable()
+                .ignoresSafeArea()
+            VStack(alignment: .center) {
+                Co2TotalPanel()
+                Spacer()
+                TravelListPanel()
+            }
         }
-        .background(Image("nature")
-            .resizable())
         .statusBar(hidden: true)
     }
 }
