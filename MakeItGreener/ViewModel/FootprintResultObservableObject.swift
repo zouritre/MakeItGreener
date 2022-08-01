@@ -43,24 +43,6 @@ class FootprintResultObservableObject: ObservableObject {
         
     }
     
-    convenience init(with dataModel: FetchedResults<Travel>.Element) {
-        self.init()
-        
-        self.isFromDatabase = true
-        self.dataModel = dataModel
-        self.arrivalTitle = dataModel.arrivalTitle ?? "Error"
-        self.arrivalSubtitle = dataModel.arrivalSubtitle ?? "Error"
-        self.departureTitle = dataModel.departureTitle ?? "Error"
-        self.departureSubtitle = dataModel.departureSubtitle ?? "Error"
-        self.distance = numberFormatter.string(from: dataModel.distance as NSNumber) ?? "Error"
-        self.transportationType = dataModel.transportationType ?? "Error"
-        self.footprint = numberFormatter.string(from: dataModel.footprint as NSNumber) ?? "Error"
-        self.timestamp = dateFormatter.string(from: dataModel.timestamp ?? .now)
-        self.imageName = dataModel.imageName ?? ""
-        
-        updateGradient(with: dataModel.footprint)
-    }
-    
     var numberFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.locale = Locale.current
@@ -117,57 +99,40 @@ class FootprintResultObservableObject: ObservableObject {
     }
     
     func saveTravel(in viewContext: NSManagedObjectContext) {
-        withAnimation {
-            let newTravel = Travel(context: viewContext)
+        let newTravel = Travel(context: viewContext)
+        
+        guard let travelData = travelData else { return }
+        
+        newTravel.arrivalTitle = travelData.arrivalTitle
+        newTravel.arrivalSubtitle = travelData.arrivalSubtitle
+        newTravel.departureTitle = travelData.departureTitle
+        newTravel.departureSubtitle = travelData.departureSubtitle
+        newTravel.distance = travelData.distance
+        newTravel.transportationType = travelData.transportationType
+        newTravel.footprint = travelData.footprint
+        newTravel.timestamp = travelData.timestamp
+        newTravel.imageName = travelData.imageName
+        
+        do {
+            try viewContext.save()
+        } catch {
+            errorDescription = error.localizedDescription
             
-            if isFromDatabase {
-                guard let dataModel = dataModel else { return }
-                
-                newTravel.arrivalTitle = dataModel.arrivalTitle ?? "Error"
-                newTravel.arrivalSubtitle = dataModel.arrivalSubtitle ?? "Error"
-                newTravel.departureTitle = dataModel.departureTitle ?? "Error"
-                newTravel.departureSubtitle = dataModel.departureSubtitle ?? "Error"
-                newTravel.distance = dataModel.distance
-                newTravel.transportationType = dataModel.transportationType ?? "Error"
-                newTravel.footprint = dataModel.footprint
-                newTravel.timestamp = dataModel.timestamp
-                newTravel.imageName = dataModel.imageName ?? ""
-            }
-            else {
-                guard let travelData = travelData else { return }
-
-                newTravel.arrivalTitle = travelData.arrivalTitle
-                newTravel.arrivalSubtitle = travelData.arrivalSubtitle
-                newTravel.departureTitle = travelData.departureTitle
-                newTravel.departureSubtitle = travelData.departureSubtitle
-                newTravel.distance = travelData.distance
-                newTravel.transportationType = travelData.transportationType
-                newTravel.footprint = travelData.footprint
-                newTravel.timestamp = travelData.timestamp
-                newTravel.imageName = travelData.imageName
-            }
+            // Display an alert on the subcriber view
+            viewContextHasError.toggle()
             
-            do {
-                try viewContext.save()
-            } catch {
-                errorDescription = error.localizedDescription
-                
-                // Display an alert on the subcriber view
-                viewContextHasError.toggle()
-                
-                // Send the travel locations for analitycs
-                Mixpanel.mainInstance().track(event: "Core data error", properties: [
-                    "arrivalTitle": "\(newTravel.arrivalTitle ?? "Error")",
-                    "arrivalSubtitle": "\(newTravel.arrivalSubtitle ?? "Error")",
-                    "departureTitle": "\(newTravel.departureTitle ?? "Error")",
-                    "departureSubtitle": "\(newTravel.departureSubtitle ?? "Error")",
-                    "distance": "\(newTravel.distance)",
-                    "transportationType": "\(newTravel.transportationType ?? "Error")",
-                    "footprint": "\(newTravel.footprint)",
-                    "timestamp": "\(newTravel.timestamp ?? .init(timeIntervalSince1970: 0))",
-                    "imageName": "\(newTravel.imageName ?? "Error")",
-                    ])
-            }
+            // Send the travel locations for analitycs
+            Mixpanel.mainInstance().track(event: "Core data error", properties: [
+                "arrivalTitle": "\(newTravel.arrivalTitle ?? "Error")",
+                "arrivalSubtitle": "\(newTravel.arrivalSubtitle ?? "Error")",
+                "departureTitle": "\(newTravel.departureTitle ?? "Error")",
+                "departureSubtitle": "\(newTravel.departureSubtitle ?? "Error")",
+                "distance": "\(newTravel.distance)",
+                "transportationType": "\(newTravel.transportationType ?? "Error")",
+                "footprint": "\(newTravel.footprint)",
+                "timestamp": "\(newTravel.timestamp ?? .init(timeIntervalSince1970: 0))",
+                "imageName": "\(newTravel.imageName ?? "Error")",
+            ])
         }
     }
 }
