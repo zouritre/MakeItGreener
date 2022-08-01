@@ -13,9 +13,11 @@ struct SaveTravelView: View {
     @ObservedObject var footprintResult: FootprintResultObservableObject
     
     var body: some View {
-        Button("Save this travel"){
+        Button(action: {
             footprintResult.saveTravel(in: managedObjectContext)
-        }
+        }, label: {
+            Label("Save this travel", systemImage: footprintResult.saveButtonIcon)
+        })
         .font(.system(size: 20).bold())
         .buttonStyle(.borderedProminent)
         .tint(Color.init(white: 0.2, opacity: 0.8))

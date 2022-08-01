@@ -58,6 +58,7 @@ class FootprintResultObservableObject: ObservableObject {
     }
     
     @Published var viewContextHasError = false
+    @Published var saveButtonIcon = ""
     
     var errorDescription = ""
     var travelData: TravelData?
@@ -88,11 +89,15 @@ class FootprintResultObservableObject: ObservableObject {
         
         do {
             try viewContext.save()
+            
+            saveButtonIcon = "checkmark.circle.fill"
         } catch {
             errorDescription = error.localizedDescription
             
             // Display an alert on the subcriber view
             viewContextHasError.toggle()
+            
+            saveButtonIcon = "xmark.octagon.fill"
             
             // Send the travel locations for analitycs
             Mixpanel.mainInstance().track(event: "Core data error", properties: [
