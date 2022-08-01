@@ -13,43 +13,6 @@ import Mixpanel
 
 class CarbonFootprintObservableObject: NSObject, ObservableObject {
     
-    override init() {
-        super.init()
-        
-        let name = Notification.Name(rawValue: "travel data")
-        
-        // Set up a listener to get the travel distance as soon as it changes in TravelSearchObservableObject
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(listenTravelDistanceChanges(_:)),
-            name: name, object: nil)
-    }
-    
-    /// Travel distance from departure point to arrival
-    @Published var formattedTravelDistance = "0 m"
-    /// Set to true if the travel carbon footprint has been retrieved successfully from the API
-    @Published var hasFootprintResult = false {
-        didSet {
-            // Send the travel locations for analitycs
-            Mixpanel.mainInstance().track(event: "Get my footprint request", properties: [
-                "Distance": "\(travelDistance)",
-                "Transportation": "\(chosenTransportationType.userString())",
-                "Footprint": "\(footprintResult ?? 0)"
-                ])
-        }
-    }
-    /// Transportation type chosen by the user for his travel
-    @Published var chosenTransportationType: TransportationType = .SmallPetrolCar
-    /// Set to true if an error ocurred when processing the request to API
-    @Published var requestError: Bool = false
-    /// Transportation mode chosen by the user for his travel
-    @Published var chosenTransportationMode: TransportationMode = .Vehicule {
-        didSet {
-            // Set a default value to chosenTransportationType each time it changes
-            // to prevent sending an empty value to the API if user don't chose any
-            chosenTransportationType = transportationTypes[0]
-        }
-    }
-    
     /// Set to true if an API request is pending
     var isLoading = false
     /// Description of the error encountered from the API request
@@ -104,6 +67,44 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
             formattedTravelDistance = "\(formattedString ?? "0") \(unit)"
         }
     }
+    
+    /// Travel distance from departure point to arrival
+    @Published var formattedTravelDistance = "0 m"
+    /// Set to true if the travel carbon footprint has been retrieved successfully from the API
+    @Published var hasFootprintResult = false {
+        didSet {
+            // Send the travel locations for analitycs
+            Mixpanel.mainInstance().track(event: "Get my footprint request", properties: [
+                "Distance": "\(travelDistance)",
+                "Transportation": "\(chosenTransportationType.userString())",
+                "Footprint": "\(footprintResult ?? 0)"
+                ])
+        }
+    }
+    /// Transportation type chosen by the user for his travel
+    @Published var chosenTransportationType: TransportationType = .SmallPetrolCar
+    /// Set to true if an error ocurred when processing the request to API
+    @Published var requestError: Bool = false
+    /// Transportation mode chosen by the user for his travel
+    @Published var chosenTransportationMode: TransportationMode = .Vehicule {
+        didSet {
+            // Set a default value to chosenTransportationType each time it changes
+            // to prevent sending an empty value to the API if user don't chose any
+            chosenTransportationType = transportationTypes[0]
+        }
+    }
+    
+    override init() {
+        super.init()
+        
+        let name = Notification.Name(rawValue: "travel data")
+        
+        // Set up a listener to get the travel distance as soon as it changes in TravelSearchObservableObject
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(listenTravelDistanceChanges(_:)),
+            name: name, object: nil)
+    }
+    
     /// Set properties from the received notification
     /// - Parameter notification: The notifcation wich emitted the data
     @objc func listenTravelDistanceChanges(_ notification: Notification) {
