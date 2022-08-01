@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MyTravelTabHome: View {
+struct MyTravelTab: View {
     var body: some View {
         NavigationView {
             MapView()
@@ -18,9 +18,10 @@ struct MyTravelTabHome: View {
     }
 }
 
-struct MyTravelTabHome_Previews: PreviewProvider {
+struct MyTravelTab_Previews: PreviewProvider {
     static var previews: some View {
-        MyTravelTabHome()
+        MyTravelTab()
             .environmentObject(travelSearchObservableObject())
+            .environmentObject(CarbonFootprintObservableObject())
     }
 }

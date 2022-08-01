@@ -12,7 +12,7 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            MyTravelTabHome()
+            MyTravelTab()
                 .tabItem {
                     Label("My travel", systemImage: "map.fill")
                 }

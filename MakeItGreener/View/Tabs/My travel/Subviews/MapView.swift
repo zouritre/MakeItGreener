@@ -40,8 +40,8 @@ struct MapView: View {
             .offset(x: -10, y: 30)
         }
         .overlay(alignment: .bottom) {
-                SubmitTravelFormOverlay()
-                    .offset(x: 0, y: -60)
+            GetMyFootprintOverlay()
+                .offset(x: 0, y: -60)
         }
     }
 }

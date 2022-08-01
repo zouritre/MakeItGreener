@@ -59,7 +59,6 @@ struct TravelForm: View {
                 }
             }
         }
-        // Search button is pressed in search bar
         .onSubmit(of: .search, {
             travelSearchOO.search(usingCompletion: false)
         })

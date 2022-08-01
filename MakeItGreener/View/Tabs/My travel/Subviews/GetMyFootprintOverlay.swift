@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SubmitTravelFormOverlay: View {
+struct GetMyFootprintOverlay: View {
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     
@@ -16,7 +16,7 @@ struct SubmitTravelFormOverlay: View {
     var body: some View {
         VStack {
             NavigationLink(destination:
-                            Co2ResultView(footprintResult: FootprintResultObservableObject(with: carbonFootprintOO.getCompleteTravelData())),
+                            FootprintResultView(footprintResult: FootprintResultObservableObject(with: carbonFootprintOO.getCompleteTravelData())),
                            isActive: $carbonFootprintOO.hasFootprintResult) {}
             Button(action: {
                 // Display alert if departure or arrival location is not set
@@ -51,9 +51,9 @@ struct SubmitTravelFormOverlay: View {
     }
 }
 
-struct SubmitTravelFormOverlay_Previews: PreviewProvider {
+struct GetMyFootprintOverlay_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitTravelFormOverlay()
+        GetMyFootprintOverlay()
             .environmentObject(CarbonFootprintObservableObject())
     }
 }

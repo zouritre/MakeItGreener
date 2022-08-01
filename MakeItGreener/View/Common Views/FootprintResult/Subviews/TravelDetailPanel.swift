@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ResultDetailPanel: View {
+struct TravelDetailPanel: View {
     @ObservedObject var footprintResult: FootprintResultObservableObject
     
     var body: some View {
@@ -48,8 +48,8 @@ struct ResultDetailPanel: View {
     }
 }
 
-struct ResultDetailPanel_Previews: PreviewProvider {
+struct TravelDetailPanel_Previews: PreviewProvider {
     static var previews: some View {
-        ResultDetailPanel(footprintResult: FootprintResultObservableObject())
+        TravelDetailPanel(footprintResult: FootprintResultObservableObject())
     }
 }
