@@ -39,6 +39,8 @@
 		E961ECB9287B14C500D92C64 /* FakeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB7287B14C500D92C64 /* FakeResponse.swift */; };
 		E961ECBA287B14C500D92C64 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */; };
 		E961ECBD287B19D500D92C64 /* CarbonFootprintObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961ECBC287B19D500D92C64 /* CarbonFootprintObservableObject.swift */; };
+		E968AC592898163300F341F4 /* Co2TotalPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968AC582898163300F341F4 /* Co2TotalPanel.swift */; };
+		E968AC5B2898261800F341F4 /* TravelListPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968AC5A2898261800F341F4 /* TravelListPanel.swift */; };
 		E98AB99A2896D5FB00175548 /* ResultDetailPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98AB9992896D5FB00175548 /* ResultDetailPanel.swift */; };
 		E9AE2E99288084D200607895 /* TravelSearchObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AE2E98288084D200607895 /* TravelSearchObservableObject.swift */; };
 		E9AE2E9B2880B69000607895 /* TransportationModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AE2E9A2880B68F00607895 /* TransportationModeView.swift */; };
@@ -104,6 +106,8 @@
 		E961ECB7287B14C500D92C64 /* FakeResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeResponse.swift; sourceTree = "<group>"; };
 		E961ECB8287B14C500D92C64 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		E961ECBC287B19D500D92C64 /* CarbonFootprintObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintObservableObject.swift; sourceTree = "<group>"; };
+		E968AC582898163300F341F4 /* Co2TotalPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Co2TotalPanel.swift; sourceTree = "<group>"; };
+		E968AC5A2898261800F341F4 /* TravelListPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelListPanel.swift; sourceTree = "<group>"; };
 		E98AB9992896D5FB00175548 /* ResultDetailPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailPanel.swift; sourceTree = "<group>"; };
 		E9AE2E98288084D200607895 /* TravelSearchObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelSearchObservableObject.swift; sourceTree = "<group>"; };
 		E9AE2E9A2880B68F00607895 /* TransportationModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationModeView.swift; sourceTree = "<group>"; };
@@ -312,7 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				E9CEFCBD287D90390024198C /* MyFootprintTab.swift */,
-				E95694BA28955A2F00EA305A /* TravelRow.swift */,
+				E968AC5D289826F900F341F4 /* Subviews */,
 			);
 			path = "My footprint";
 			sourceTree = "<group>";
@@ -384,6 +388,24 @@
 			path = MakeItGreenerTests;
 			sourceTree = "<group>";
 		};
+		E968AC5D289826F900F341F4 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				E95694BA28955A2F00EA305A /* TravelRow.swift */,
+				E968AC582898163300F341F4 /* Co2TotalPanel.swift */,
+				E968AC5A2898261800F341F4 /* TravelListPanel.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		E968AC5E2898274000F341F4 /* Common Views */ = {
+			isa = PBXGroup;
+			children = (
+				E93B16D528835F0C00DBFE21 /* FormResults */,
+			);
+			path = "Common Views";
+			sourceTree = "<group>";
+		};
 		E9AE2E9C2880B69C00607895 /* TransportationFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,7 +428,6 @@
 			children = (
 				E9B4A8BC287A08FB000AFE72 /* MainView.swift */,
 				E95F20002885F06300F27852 /* My footprint */,
-				E93B16D528835F0C00DBFE21 /* FormResults */,
 				E95F1FFF2885F04F00F27852 /* My travel */,
 			);
 			path = Tabs;
@@ -453,6 +474,7 @@
 		E9B4A8CA287A36CE000AFE72 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E968AC5E2898274000F341F4 /* Common Views */,
 				E9AE2E9E2880DCE800607895 /* Tabs */,
 			);
 			path = View;
@@ -644,6 +666,7 @@
 				E98AB99A2896D5FB00175548 /* ResultDetailPanel.swift in Sources */,
 				E961ECBD287B19D500D92C64 /* CarbonFootprintObservableObject.swift in Sources */,
 				E95E34A92879DE3B0098404F /* MakeItGreener.xcdatamodeld in Sources */,
+				E968AC592898163300F341F4 /* Co2TotalPanel.swift in Sources */,
 				E95F20072886229900F27852 /* SettingsOverlay.swift in Sources */,
 				E95F200928862BBD00F27852 /* SubmitTravelFormOverlay.swift in Sources */,
 				E9B4A8C2287A0E8E000AFE72 /* CarbonFootprintApi.swift in Sources */,
@@ -666,6 +689,7 @@
 				E9CEFCBE287D90390024198C /* MyFootprintTab.swift in Sources */,
 				E961ECA5287B125F00D92C64 /* NetworkService.swift in Sources */,
 				E9AE2E99288084D200607895 /* TravelSearchObservableObject.swift in Sources */,
+				E968AC5B2898261800F341F4 /* TravelListPanel.swift in Sources */,
 				E95E349D2879DE3A0098404F /* MakeItGreenerApp.swift in Sources */,
 				E95FFC08287F10B400B934B3 /* MapLocation.swift in Sources */,
 				E92810BB2881D76E0089A77D /* CompletionView.swift in Sources */,
@@ -824,7 +848,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MakeItGreener/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -859,7 +882,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MakeItGreener/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -31,7 +31,6 @@ struct Co2ResultView: View {
                 .foregroundColor(.white)
                 Spacer()
                 if !isFromDatabase {
-                    // Display the button if the view was shown after pressing "Get my footprint" button from My travel tab
                     Button("Save this travel"){
                         footprintResult.saveTravel(in: managedObjectContext)
                     }
@@ -44,7 +43,6 @@ struct Co2ResultView: View {
                     .padding()
                 }
                 else {
-                    // Display the button if the view was shown from My footprint tab sheet
                     Button("X") {
                         presentationMode.wrappedValue.dismiss()
                     }
