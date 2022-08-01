@@ -9,6 +9,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 import MapKit
+import Mixpanel
 
 class CarbonFootprintObservableObject: NSObject, ObservableObject {
     
@@ -26,7 +27,16 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
     /// Travel distance from departure point to arrival
     @Published var formattedTravelDistance = "0 m"
     /// Set to true if the travel carbon footprint has been retrieved successfully from the API
-    @Published var hasFootprintResult = false
+    @Published var hasFootprintResult = false {
+        didSet {
+            // Send the travel locations for analitycs
+            Mixpanel.mainInstance().track(event: "Get my footprint request", properties: [
+                "Distance": "\(travelDistance)",
+                "Transportation": "\(chosenTransportationType.userString())",
+                "Footprint": "\(footprintResult ?? 0)"
+                ])
+        }
+    }
     /// Transportation type chosen by the user for his travel
     @Published var chosenTransportationType: TransportationType = .SmallPetrolCar
     /// Set to true if an error ocurred when processing the request to API
@@ -192,7 +202,8 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
             self.footprintResult = json["carbonEquivalent"].doubleValue
             // Stop the loading indicator
             self.isLoading = false
-            // Start a navigation to Co2ResultView
+            
+            // Start navigation to Co2ResultView
             self.hasFootprintResult = true
             
             completionHandler?(false, nil, json["carbonEquivalent"].floatValue)

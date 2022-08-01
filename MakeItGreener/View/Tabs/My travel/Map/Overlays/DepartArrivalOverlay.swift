@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Mixpanel
 
 struct DepartArrivalOverlay: View {
     @EnvironmentObject var travelSearchOO: travelSearchObservableObject
@@ -19,6 +20,7 @@ struct DepartArrivalOverlay: View {
                     .padding()
                     .onTapGesture {
                         travelSearchOO.travelSide = .Start
+                        sendUsageData(side: .Start)
                     }
                 Image(systemName: "airplane.arrival")
                     .resizable()
@@ -26,6 +28,7 @@ struct DepartArrivalOverlay: View {
                     .padding()
                     .onTapGesture {
                         travelSearchOO.travelSide = .Arrival
+                        sendUsageData(side: .Arrival)
                     }
             }
             .background(.gray)
@@ -41,6 +44,7 @@ struct DepartArrivalOverlay: View {
                     .frame(width: 50, height: 50, alignment: .center)
                     .onTapGesture {
                         travelSearchOO.travelSide = .Start
+                        sendUsageData(side: .Start)
                     }
                 Image("arrival-64")
                     .resizable()
@@ -49,6 +53,7 @@ struct DepartArrivalOverlay: View {
                     .frame(width: 50, height: 50, alignment: .center)
                     .onTapGesture {
                         travelSearchOO.travelSide = .Arrival
+                        sendUsageData(side: .Arrival)
                     }
             }
             .background(.white)
@@ -56,6 +61,14 @@ struct DepartArrivalOverlay: View {
             .cornerRadius(10)
         }
     }
+}
+
+/// Send the travel locations for analitycs
+/// - Parameter side: Departure or arrival
+private func sendUsageData(side: LocationLabel) {
+    Mixpanel.mainInstance().track(event: "Dep/Arr Overlay Tapped", properties: [
+        "Travel Side": "\(side.rawValue)"
+        ])
 }
 
 struct DepartArrivalOverlay_Previews: PreviewProvider {

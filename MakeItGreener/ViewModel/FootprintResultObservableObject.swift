@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import CoreData
+import Mixpanel
 
 class FootprintResultObservableObject: ObservableObject {
     
@@ -150,8 +151,22 @@ class FootprintResultObservableObject: ObservableObject {
                 try viewContext.save()
             } catch {
                 errorDescription = error.localizedDescription
+                
                 // Display an alert on the subcriber view
                 viewContextHasError.toggle()
+                
+                // Send the travel locations for analitycs
+                Mixpanel.mainInstance().track(event: "Core data error", properties: [
+                    "arrivalTitle": "\(newTravel.arrivalTitle ?? "Error")",
+                    "arrivalSubtitle": "\(newTravel.arrivalSubtitle ?? "Error")",
+                    "departureTitle": "\(newTravel.departureTitle ?? "Error")",
+                    "departureSubtitle": "\(newTravel.departureSubtitle ?? "Error")",
+                    "distance": "\(newTravel.distance)",
+                    "transportationType": "\(newTravel.transportationType ?? "Error")",
+                    "footprint": "\(newTravel.footprint)",
+                    "timestamp": "\(newTravel.timestamp ?? .init(timeIntervalSince1970: 0))",
+                    "imageName": "\(newTravel.imageName ?? "Error")",
+                    ])
             }
         }
     }

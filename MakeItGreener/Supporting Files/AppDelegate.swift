@@ -14,8 +14,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // Initializing a default opt-out state of true
         // will prevent data from being collected by default
-        let mixpanel = Mixpanel.initialize(token: "ca1e25e8be53aa40c06ca3b983479944", optOutTrackingByDefault: false)
-        mixpanel.serverURL = "https://api-eu.mixpanel.com"
+        Mixpanel.initialize(token: "ca1e25e8be53aa40c06ca3b983479944", optOutTrackingByDefault: false)
+            .serverURL = "https://api-eu.mixpanel.com"
+        
+        // Send the travel locations for analitycs
+        Mixpanel.mainInstance().track(event: "App started")
         
         return true
     }
