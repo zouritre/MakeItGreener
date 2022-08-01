@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TravelLocationItem: View {
-    @EnvironmentObject var travelSearchOO: travelSearchObservableObject
+    @EnvironmentObject var travelSearchOO: TravelSearchObservableObject
 
     let travelSide: LocationLabel
     
@@ -25,6 +25,6 @@ struct TravelLocationItem: View {
 struct TravelLocationItem_Previews: PreviewProvider {
     static var previews: some View {
         TravelLocationItem(travelSide: .Start)
-            .environmentObject(travelSearchObservableObject())
+            .environmentObject(TravelSearchObservableObject())
     }
 }

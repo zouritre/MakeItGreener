@@ -12,7 +12,7 @@ struct MakeItGreenerApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     @StateObject var carbonFootprintOO = CarbonFootprintObservableObject()
-    @StateObject var travelSearchOO = travelSearchObservableObject()
+    @StateObject var travelSearchOO = TravelSearchObservableObject()
     
     let persistenceController = PersistenceController.shared
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GetMyFootprintOverlay: View {
-    @EnvironmentObject var travelSearchOO: travelSearchObservableObject
+    @EnvironmentObject var travelSearchOO: TravelSearchObservableObject
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
     
     @State var missingTravelData = false

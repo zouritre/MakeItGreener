@@ -40,6 +40,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(CarbonFootprintObservableObject())
-            .environmentObject(travelSearchObservableObject())
+            .environmentObject(TravelSearchObservableObject())
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct TravelSideView: View {
-    @EnvironmentObject var travelSearchOO: travelSearchObservableObject
+    @EnvironmentObject var travelSearchOO: TravelSearchObservableObject
     
     // Completion object to be used for displaying travel location informations
     var locationData: MKLocalSearchCompletion? {
@@ -37,6 +37,6 @@ struct TravelSideView_Previews: PreviewProvider {
     static var previews: some View {
         TravelSideView(travelSide: .Start)
             .preferredColorScheme(.dark)
-            .environmentObject(travelSearchObservableObject())
+            .environmentObject(TravelSearchObservableObject())
     }
 }

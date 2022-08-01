@@ -9,7 +9,7 @@ import SwiftUI
 import Mixpanel
 
 struct DepartArrivalOverlay: View {
-    @EnvironmentObject var travelSearchOO: travelSearchObservableObject
+    @EnvironmentObject var travelSearchOO: TravelSearchObservableObject
     
     var body: some View {
         if #available(iOS 15.0.0, *) {

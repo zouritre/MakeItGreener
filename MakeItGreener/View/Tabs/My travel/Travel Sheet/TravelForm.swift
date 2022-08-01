@@ -11,7 +11,7 @@ struct TravelForm: View {
     @Environment(\.presentationMode) private var presentationMode
     
     @EnvironmentObject var carbonFootprintOO: CarbonFootprintObservableObject
-    @EnvironmentObject var travelSearchOO: travelSearchObservableObject
+    @EnvironmentObject var travelSearchOO: TravelSearchObservableObject
     
     var body: some View {
         NavigationView {
@@ -69,6 +69,6 @@ struct TravelForm_Previews: PreviewProvider {
     static var previews: some View {
         TravelForm()
             .environmentObject(CarbonFootprintObservableObject())
-            .environmentObject(travelSearchObservableObject())
+            .environmentObject(TravelSearchObservableObject())
     }
 }

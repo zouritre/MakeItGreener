@@ -21,7 +21,7 @@ struct MyTravelTab: View {
 struct MyTravelTab_Previews: PreviewProvider {
     static var previews: some View {
         MyTravelTab()
-            .environmentObject(travelSearchObservableObject())
+            .environmentObject(TravelSearchObservableObject())
             .environmentObject(CarbonFootprintObservableObject())
     }
 }

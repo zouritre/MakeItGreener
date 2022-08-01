@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @EnvironmentObject var travelSearchOO: travelSearchObservableObject
+    @EnvironmentObject var travelSearchOO: TravelSearchObservableObject
     
     @State var tracking: MapUserTrackingMode = .none
     @State var showSheet = false
@@ -49,7 +49,7 @@ struct MapView: View {
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
-            .environmentObject(travelSearchObservableObject())
+            .environmentObject(TravelSearchObservableObject())
             .environmentObject(CarbonFootprintObservableObject())
     }
 }

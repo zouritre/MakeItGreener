@@ -11,7 +11,7 @@ import MapKit
 struct CompletionView: View {
     @Environment(\.dismissSearch) private var dismissSearch
     
-    @EnvironmentObject var travelSearchOO: travelSearchObservableObject
+    @EnvironmentObject var travelSearchOO: TravelSearchObservableObject
     
     /// Map locationt completion object
     let completionObject: MKLocalSearchCompletion

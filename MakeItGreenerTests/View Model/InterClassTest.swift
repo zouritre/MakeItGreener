@@ -11,12 +11,12 @@ import MapKit
 
 class InterClassTest: XCTestCase {
     var carbonFootprint: CarbonFootprintObservableObject!
-    var travelSearch: travelSearchObservableObject!
+    var travelSearch: TravelSearchObservableObject!
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         carbonFootprint = CarbonFootprintObservableObject()
-        travelSearch = travelSearchObservableObject()
+        travelSearch = TravelSearchObservableObject()
     }
 
     override func tearDownWithError() throws {

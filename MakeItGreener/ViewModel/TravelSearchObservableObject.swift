@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-class travelSearchObservableObject: NSObject, ObservableObject {
+class TravelSearchObservableObject: NSObject, ObservableObject {
     override init() {
         super.init()
         
@@ -178,7 +178,7 @@ class travelSearchObservableObject: NSObject, ObservableObject {
     }
 }
 
-extension travelSearchObservableObject: MKLocalSearchCompleterDelegate {
+extension TravelSearchObservableObject: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         // As the user types, new completion suggestions are continuously returned to this method.
         self.completerHasError = false
