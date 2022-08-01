@@ -20,7 +20,7 @@ class FootprintResultTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testSaveTravelShouldSucceedWithTravelDataObjectAsInit() {
+    func testSaveTravelShouldSucceed() {
         // Given
         let travelData = TravelData(arrivalTitle: "",
                               arrivalSubtitle: "",
@@ -32,63 +32,14 @@ class FootprintResultTest: XCTestCase {
                               timestamp: .now,
                               imageName: "")
         
-        // When
         footprintResult = FootprintResultObservableObject(with: travelData)
         
         let viewContext = PersistenceController(inMemory: true).container.viewContext
         
+        // When
         footprintResult.saveTravel(in: viewContext)
         
         // Then
         XCTAssertFalse(footprintResult.viewContextHasError)
     }
-    
-//    Can't simulate a FetchedResults<Travel>.Element instance
-//    func testSaveTravelShouldSucceedWithFetchResultObjectAsInit() {
-//        // Given
-//        let dataModelElement = FetchedResults<Travel>.Element()
-//
-//        // When
-//        footprintResult = FootprintResultObservableObject(with: dataModelElement)
-//
-//        let viewContext = PersistenceController(inMemory: true).container.viewContext
-//
-//        footprintResult.saveTravel(in: viewContext)
-//
-//        // Then
-//        XCTAssertFalse(footprintResult.viewContextHasError)
-//    }
-    
-//    func testFootprintSeverityShouldBeLow() {
-//        // Given
-//        let footprint = 99.2
-//        
-//        // When
-//        footprintResult.updateGradient(with: footprint)
-//        
-//        // Then
-//        XCTAssertEqual(footprintResult.footprintSeverityIndicator, footprintResult.footprintSeverityLow)
-//    }
-//    
-//    func testFootprintSeverityShouldBeMedium() {
-//        // Given
-//        let footprint = 299.2
-//        
-//        // When
-//        footprintResult.updateGradient(with: footprint)
-//        
-//        // Then
-//        XCTAssertEqual(footprintResult.footprintSeverityIndicator, footprintResult.footprintSeverityMedium)
-//    }
-//    
-//    func testFootprintSeverityShouldBeHigh() {
-//        // Given
-//        let footprint = 300.2
-//        
-//        // When
-//        footprintResult.updateGradient(with: footprint)
-//        
-//        // Then
-//        XCTAssertEqual(footprintResult.footprintSeverityIndicator, footprintResult.footprintSeverityHigh)
-//    }
 }
