@@ -9,12 +9,12 @@ import Foundation
 import MapKit
 
 class TravelSearchObservableObject: NSObject, ObservableObject {
-    override init() {
-        super.init()
-        
-        completer.delegate = self
-    }
     
+    var travelDistance: Double?
+    /// Provide text completion for the search bar
+    var completer = MKLocalSearchCompleter()
+    /// Departure and arrival locations chosen by the user
+    var chosenLocations = [LocationLabel:MKCoordinateRegion]()
     
     /// Search completion results
     @Published var completerResults = [MKLocalSearchCompletion]()
@@ -50,11 +50,11 @@ class TravelSearchObservableObject: NSObject, ObservableObject {
     @Published var departureLocation: MKLocalSearchCompletion?
     @Published var arrivalLocation: MKLocalSearchCompletion?
 
-    var travelDistance: Double?
-    /// Provide text completion for the search bar
-    var completer = MKLocalSearchCompleter()
-    /// Departure and arrival locations chosen by the user
-    var chosenLocations = [LocationLabel:MKCoordinateRegion]()
+    override init() {
+        super.init()
+        
+        completer.delegate = self
+    }
     
     /// Get the coordinates of the location chosen  from the search completion
     func search(usingCompletion: Bool) {
