@@ -19,7 +19,6 @@ class FootprintResultObservableObject: ObservableObject {
         self.departureSubtitle = "9ème arrondissement"
         self.distance = "400"
         self.transportationType = "Small petrol car"
-        self.transportationMode = "Vehicle"
         self.footprint = "123"
         self.timestamp = "20/07/2022"
         self.imageName = "car"
@@ -38,9 +37,6 @@ class FootprintResultObservableObject: ObservableObject {
         self.footprint = numberFormatter.string(from: travelData.footprint as NSNumber) ?? "Error"
         self.timestamp = dateFormatter.string(from: travelData.timestamp)
         self.imageName = travelData.imageName
-        
-        updateGradient(with: travelData.footprint)
-        
     }
     
     var numberFormatter: NumberFormatter {
@@ -64,39 +60,16 @@ class FootprintResultObservableObject: ObservableObject {
     @Published var viewContextHasError = false
     
     var errorDescription = ""
-    var isFromDatabase = false
-    var dataModel: FetchedResults<Travel>.Element?
     var travelData: TravelData?
-    var footprintSeverityHigh: [Color] = [.red, .yellow, .green]
-    var footprintSeverityMedium: [Color] = [.yellow, .red, .green]
-    var footprintSeverityLow: [Color] = [.green, .yellow, .red]
     var arrivalTitle: String
     var arrivalSubtitle: String
     var departureTitle: String
     var departureSubtitle: String
     var distance: String
     var transportationType: String
-    var transportationMode: String
     var footprint: String
     var timestamp: String
     var imageName: String
-    var footprintSeverityIndicator: [Color] = [.red, .yellow, .green]
-    var gradientStartRadius: CGFloat = 0
-    var gradientEndRadius: CGFloat = 500
-    
-    func updateGradient(with footprint: Double) {
-        switch footprint {
-        case 0..<100:
-            footprintSeverityIndicator = footprintSeverityLow
-        case 100..<300:
-            footprintSeverityIndicator = footprintSeverityMedium
-            gradientEndRadius = 300
-            gradientStartRadius = 150
-        case 300...:
-            footprintSeverityIndicator = footprintSeverityHigh
-        default: return
-        }
-    }
     
     func saveTravel(in viewContext: NSManagedObjectContext) {
         let newTravel = Travel(context: viewContext)
