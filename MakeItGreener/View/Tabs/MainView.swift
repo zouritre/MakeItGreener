@@ -41,6 +41,5 @@ struct MainView_Previews: PreviewProvider {
         MainView()
             .environmentObject(CarbonFootprintObservableObject())
             .environmentObject(travelSearchObservableObject())
-            .previewInterfaceOrientation(.portrait)
     }
 }

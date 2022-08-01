@@ -23,7 +23,7 @@ struct MyFootprintTab: View {
     
     private var unit: String {
         let unit = totalCo2 >= 1000 ? "TCO2e" : "KgCO2e"
-    
+        
         return unit
     }
     
@@ -45,55 +45,51 @@ struct MyFootprintTab: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack(alignment: .center) {
-                VStack(alignment: .center, spacing: 20) {
-                    Text("My annual carbon footprint")
-                        .multilineTextAlignment(.center)
-                        .padding()
-                    VStack(alignment: .center) {
-                        Text(formattedTotal)
-                        Text(unit)
-                            .font(.system(size: 30).bold())
-                    }
-                    .font(.system(size: 100, weight: .heavy, design: .rounded))
+        VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 20) {
+                Text("My annual carbon footprint")
+                    .multilineTextAlignment(.center)
                     .padding()
+                VStack(alignment: .center) {
+                    Text(formattedTotal)
+                    Text(unit)
+                        .font(.system(size: 30).bold())
                 }
-                .padding([.leading, .trailing], 20)
-                .font(.system(size: 30).weight(.heavy))
-                .minimumScaleFactor(0.5)
-                .foregroundColor(.white)
-                .background(Rectangle()
-                    .foregroundColor(Color.init(white: 0.3, opacity: 0.7))
-                    .cornerRadius(20)
-                    .shadow(radius: 0))
-                .padding()
-                ScrollView {
-                    LazyVStack {
-                        ForEach(items) { item in
-                            TravelRow(footprintResult: FootprintResultObservableObject(with: item))
-                                .shadow(color: .white, radius: 5)
-                                .padding(3)
-                        }
-                    }
-                }
-                .frame(height: 400, alignment: .center)
-                .cornerRadius(20)
+                .font(.system(size: 100, weight: .heavy, design: .rounded))
                 .padding()
             }
-//            .ignoresSafeArea()
-            .background(Image("greenland"))
+            .padding([.leading, .trailing], 20)
+            .font(.system(size: 30).weight(.heavy))
+            .minimumScaleFactor(0.5)
+            .foregroundColor(.white)
+            .background(Rectangle()
+                .foregroundColor(Color.init(white: 0.3, opacity: 0.7))
+                .cornerRadius(20)
+                .shadow(radius: 0))
+            .padding()
+            Spacer()
+            ScrollView {
+                LazyVStack {
+                    ForEach(items) { item in
+                        TravelRow(footprintResult: FootprintResultObservableObject(with: item))
+                            .shadow(color: .white, radius: 5)
+                            .padding(3)
+                    }
+                }
+            }
+            .cornerRadius(20)
+            .padding()
+            Spacer()
         }
-        .navigationViewStyle(.stack)
-        .navigationTitle("")
-        .navigationBarHidden(true)
-        
+        .background(Image("nature")
+            .resizable())
     }
 }
 
 struct Favorites_Previews: PreviewProvider {
     static var previews: some View {
         MyFootprintTab()
+            .preferredColorScheme(.dark)
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
