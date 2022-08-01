@@ -58,7 +58,7 @@ class FootprintResultObservableObject: ObservableObject {
     }
     
     @Published var viewContextHasError = false
-    @Published var saveButtonIcon = ""
+    @Published var saveButtonIcon = "square.and.arrow.down.fill"
     
     var errorDescription = ""
     var travelData: TravelData?
