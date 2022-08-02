@@ -13,8 +13,6 @@ import Mixpanel
 
 class CarbonFootprintObservableObject: NSObject, ObservableObject {
     
-    /// Set to true if an API request is pending
-    var isLoading = false
     /// Description of the error encountered from the API request
     var errorDescription: String?
     /// Departure location name
@@ -68,6 +66,8 @@ class CarbonFootprintObservableObject: NSObject, ObservableObject {
         }
     }
     
+    /// Set to true if an API request is pending
+    @Published var isLoading = false
     /// Travel distance from departure point to arrival
     @Published var formattedTravelDistance = "0 m"
     /// Set to true if the travel carbon footprint has been retrieved successfully from the API
