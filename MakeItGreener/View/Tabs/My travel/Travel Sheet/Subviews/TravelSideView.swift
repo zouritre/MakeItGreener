@@ -19,6 +19,10 @@ struct TravelSideView: View {
     /// Represent the arrival or departure location
     let travelSide: LocationLabel
     
+    private var accessLabel: String {
+        travelSide == .Start ? "You start at" : "You arrive at"
+    }
+    
     var body: some View {
         HStack {
             Image(systemName: self.travelSide == .Start ? "figure.walk" : "flag.fill")
@@ -28,6 +32,7 @@ struct TravelSideView: View {
                 Text(self.locationData?.title ?? "")
                 Text(self.locationData?.subtitle ?? "")
             }
+            .accessibilityHidden(true)
             Spacer()
         }
     }

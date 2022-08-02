@@ -14,6 +14,7 @@ struct TransportationModeView: View {
         Picker("How do you go?", selection: $carbonFootprintOO.chosenTransportationMode.animation()) {
             ForEach(carbonFootprintOO.transportationModes, id: \.self) {
                 Text($0.userString())
+                    .accessibilityLabel($0.userString())
             }
         }
         .pickerStyle(.segmented)

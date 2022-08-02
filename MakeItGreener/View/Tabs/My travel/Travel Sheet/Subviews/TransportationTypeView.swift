@@ -18,6 +18,7 @@ struct TransportationTypeView: View {
         Picker(transportationTypeTitle, selection: $carbonFootprintOO.chosenTransportationType) {
             ForEach(carbonFootprintOO.transportationTypes, id: \.self) {
                 Text($0.userString())
+                    .accessibilityLabel($0.userString())
             }
         }
     }

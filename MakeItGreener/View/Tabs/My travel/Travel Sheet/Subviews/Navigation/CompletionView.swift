@@ -20,8 +20,10 @@ struct CompletionView: View {
         VStack(alignment: .leading) {
             Button(self.completionObject.title) {}
                 .font(.title.weight(.bold))
+                .accessibilityValue(completionObject.subtitle)
             Button(self.completionObject.subtitle) {}
                 .font(.body.weight(.light))
+                .accessibilityHidden(true)
         }
         .foregroundColor(.primary)
         .onTapGesture {
