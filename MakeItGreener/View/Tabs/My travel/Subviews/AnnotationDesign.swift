@@ -13,6 +13,7 @@ struct AnnotationDesign: View {
             .foregroundColor(.red)
             .font(.system(size: 60))
             .offset(x: 0, y: -45)
+            .accessibilityHidden(true)
     }
 }
 

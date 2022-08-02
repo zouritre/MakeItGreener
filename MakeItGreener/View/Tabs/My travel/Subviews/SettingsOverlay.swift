@@ -18,6 +18,8 @@ struct SettingsOverlay: View {
                     .foregroundColor(.white)
             }
             .shadow(radius: 10)
+            .accessibilityLabel("Settings")
+            .accessibilityHint("Configure your travel")
     }
 }
 
