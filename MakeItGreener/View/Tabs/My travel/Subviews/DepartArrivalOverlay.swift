@@ -11,55 +11,46 @@ import Mixpanel
 struct DepartArrivalOverlay: View {
     @EnvironmentObject var travelSearchOO: TravelSearchObservableObject
     
-    var body: some View {
+    var departureImage: Image {
         if #available(iOS 15.0.0, *) {
-            VStack {
-                Image(systemName: "airplane.departure")
-                    .resizable()
-                    .frame(width: 30, height: 30, alignment: .center)
-                    .padding()
-                    .onTapGesture {
-                        travelSearchOO.travelSide = .Start
-                        sendUsageData(side: .Start)
-                    }
-                Image(systemName: "airplane.arrival")
-                    .resizable()
-                    .frame(width: 30, height: 30, alignment: .center)
-                    .padding()
-                    .onTapGesture {
-                        travelSearchOO.travelSide = .Arrival
-                        sendUsageData(side: .Arrival)
-                    }
-            }
-            .background(.gray)
-            .foregroundColor(.white)
-            .cornerRadius(10)
-            .shadow(radius: 10)
-        } else {
-            VStack {
-                Image("departure-64")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.white)
-                    .frame(width: 50, height: 50, alignment: .center)
-                    .onTapGesture {
-                        travelSearchOO.travelSide = .Start
-                        sendUsageData(side: .Start)
-                    }
-                Image("arrival-64")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.white)
-                    .frame(width: 50, height: 50, alignment: .center)
-                    .onTapGesture {
-                        travelSearchOO.travelSide = .Arrival
-                        sendUsageData(side: .Arrival)
-                    }
-            }
-            .background(.white)
-            .foregroundColor(.white)
-            .cornerRadius(10)
+            return Image(systemName: "airplane.departure")
         }
+        else {
+            return Image("departure")
+        }
+    }
+    
+    var arrivalImage: Image {
+        if #available(iOS 15.0.0, *) {
+            return Image(systemName: "airplane.arrival")
+        }
+        else {
+            return Image("arrival")
+        }
+    }
+    var body: some View {
+        VStack {
+            arrivalImage
+                .resizable()
+                .frame(width: 30, height: 30, alignment: .center)
+                .padding()
+                .onTapGesture {
+                    travelSearchOO.travelSide = .Arrival
+                    sendUsageData(side: .Arrival)
+                }
+            departureImage
+                .resizable()
+                .frame(width: 30, height: 30, alignment: .center)
+                .padding()
+                .onTapGesture {
+                    travelSearchOO.travelSide = .Start
+                    sendUsageData(side: .Start)
+                }
+        }
+        .background(.gray)
+        .foregroundColor(.white)
+        .cornerRadius(10)
+        .shadow(radius: 10)
     }
 }
 
@@ -68,12 +59,12 @@ struct DepartArrivalOverlay: View {
 private func sendUsageData(side: LocationLabel) {
     Mixpanel.mainInstance().track(event: "Dep/Arr Overlay Tapped", properties: [
         "Travel Side": "\(side.rawValue)"
-        ])
+    ])
 }
 
 struct DepartArrivalOverlay_Previews: PreviewProvider {
     static var previews: some View {
         DepartArrivalOverlay()
-            
+        
     }
 }
