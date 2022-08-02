@@ -10,9 +10,16 @@ import SwiftUI
 struct MyFootprintTab: View {
     var body: some View {
         ZStack {
-            Image("nature")
-                .resizable()
-                .ignoresSafeArea()
+            if #available(iOS 14.0, *) {
+                Image("nature")
+                    .resizable()
+                    .ignoresSafeArea()
+            } else {
+                // Fallback on earlier versions
+                Image("nature")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
+            }
             VStack(alignment: .center) {
                 Co2TotalPanel()
                 Spacer()

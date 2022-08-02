@@ -47,7 +47,7 @@ struct DepartArrivalOverlay: View {
                     sendUsageData(side: .Start)
                 }
         }
-        .background(.gray)
+        .background(Color.gray)
         .foregroundColor(.white)
         .cornerRadius(10)
         .shadow(radius: 10)
