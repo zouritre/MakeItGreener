@@ -97,25 +97,29 @@ class FootprintResultObservableObject: ObservableObject {
             // Prevent saving the same item multiple times
             saveButtonIsEnable = false
         } catch {
-            errorDescription = error.localizedDescription
-            
-            // Display an alert on the subcriber view
-            viewContextHasError.toggle()
-            
-            saveButtonIcon = "xmark.octagon.fill"
-            
-            // Send the travel locations for analitycs
-            Mixpanel.mainInstance().track(event: "Core data error", properties: [
-                "arrivalTitle": "\(newTravel.arrivalTitle ?? "Error")",
-                "arrivalSubtitle": "\(newTravel.arrivalSubtitle ?? "Error")",
-                "departureTitle": "\(newTravel.departureTitle ?? "Error")",
-                "departureSubtitle": "\(newTravel.departureSubtitle ?? "Error")",
-                "distance": "\(newTravel.distance)",
-                "transportationType": "\(newTravel.transportationType ?? "Error")",
-                "footprint": "\(newTravel.footprint)",
-                "timestamp": "\(newTravel.timestamp ?? .init(timeIntervalSince1970: 0))",
-                "imageName": "\(newTravel.imageName ?? "Error")",
-            ])
+            manageCoreDataError(for: newTravel, with: error)
         }
+    }
+    
+    func manageCoreDataError(for entity: Travel, with error: Error) {
+        errorDescription = error.localizedDescription
+        
+        // Display an alert on the subcriber view
+        viewContextHasError.toggle()
+        
+        saveButtonIcon = "xmark.octagon.fill"
+        
+        // Send the travel locations for analitycs
+        Mixpanel.mainInstance().track(event: "Core data error", properties: [
+            "arrivalTitle": "\(entity.arrivalTitle ?? "Error")",
+            "arrivalSubtitle": "\(entity.arrivalSubtitle ?? "Error")",
+            "departureTitle": "\(entity.departureTitle ?? "Error")",
+            "departureSubtitle": "\(entity.departureSubtitle ?? "Error")",
+            "distance": "\(entity.distance)",
+            "transportationType": "\(entity.transportationType ?? "Error")",
+            "footprint": "\(entity.footprint)",
+            "timestamp": "\(entity.timestamp ?? .init(timeIntervalSince1970: 0))",
+            "imageName": "\(entity.imageName ?? "Error")",
+        ])
     }
 }

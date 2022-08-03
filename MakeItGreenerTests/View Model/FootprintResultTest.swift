@@ -42,4 +42,25 @@ class FootprintResultTest: XCTestCase {
         // Then
         XCTAssertFalse(footprintResult.viewContextHasError)
     }
+    
+    func testDataModelShouldBeSenttoAnalyticsOnError() {
+        footprintResult = FootprintResultObservableObject()
+        
+        class SomeError: Error {}
+        
+        let error = SomeError()
+        
+        let newTravel = Travel(context: PersistenceController.init(inMemory: true).container.viewContext)
+        newTravel.arrivalTitle = "Test"
+        newTravel.arrivalSubtitle = "Test"
+        newTravel.departureTitle = "Test"
+        newTravel.departureSubtitle = "Test"
+        newTravel.distance = 0
+        newTravel.transportationType = "Test"
+        newTravel.footprint = 0
+        newTravel.timestamp = .now
+        newTravel.imageName = "Test"
+        
+        footprintResult.manageCoreDataError(for: newTravel, with: error)
+    }
 }
