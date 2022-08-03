@@ -122,4 +122,8 @@ class FootprintResultObservableObject: ObservableObject {
             "imageName": "\(entity.imageName ?? "Error")",
         ])
     }
+    
+    func removeTravel(with context: NSManagedObjectContext, travel: NSManagedObject) {
+        context.delete(travel)
+    }
 }

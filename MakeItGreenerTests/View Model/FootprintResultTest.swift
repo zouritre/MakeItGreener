@@ -8,12 +8,14 @@
 import XCTest
 @testable import MakeItGreener
 import SwiftUI
+import CoreData
 
 class FootprintResultTest: XCTestCase {
     var footprintResult: FootprintResultObservableObject!
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        footprintResult = FootprintResultObservableObject()
     }
 
     override func tearDownWithError() throws {
@@ -43,9 +45,9 @@ class FootprintResultTest: XCTestCase {
         XCTAssertFalse(footprintResult.viewContextHasError)
     }
     
-    func testDataModelShouldBeSenttoAnalyticsOnError() {
+    func testViewContextErrorShouldBeHandled() {
         footprintResult = FootprintResultObservableObject()
-        
+        // Given
         class SomeError: Error {}
         
         let error = SomeError()
@@ -61,6 +63,35 @@ class FootprintResultTest: XCTestCase {
         newTravel.timestamp = .now
         newTravel.imageName = "Test"
         
+        // Then
         footprintResult.manageCoreDataError(for: newTravel, with: error)
+    }
+    
+    func testTravelShouldBeRemovedFromDataModel() {
+        // Given
+        let result = PersistenceController(inMemory: true)
+        let viewContext = result.container.viewContext
+        let aTravel = Travel(context: viewContext)
+        aTravel.imageName = "test"
+        
+        guard ((try? viewContext.save()) != nil) else {
+            // Save to datastore failed
+            XCTAssertTrue(false)
+            return
+        }
+        
+        // When
+        footprintResult.removeTravel(with: viewContext, travel: aTravel)
+        
+        // Then
+        let fetchRequest = Travel.fetchRequest()
+        
+        guard let savedTravels = try? viewContext.fetch(fetchRequest) else {
+            // Fetch from datastore failed
+            XCTAssertTrue(false)
+            return
+        }
+        
+        XCTAssertEqual(savedTravels.count, 0)
     }
 }
