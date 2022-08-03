@@ -39,6 +39,13 @@ struct TravelRow: View {
         .onTapGesture {
             showDetail.toggle()
         }
+        .accessibilityChildren {
+            Text("Saved travel")
+                .accessibilityAddTraits(.isHeader)
+            Rectangle()
+                .accessibilityLabel("\(footprintResult.timestamp), using \(footprintResult.imageName) for \(footprintResult.distance) km and \(footprintResult.footprint) kg of CO2 emitted")
+                .accessibilityHint("Tap to see details")
+        }
     }
 }
 
