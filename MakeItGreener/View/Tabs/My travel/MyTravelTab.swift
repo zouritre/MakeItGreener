@@ -14,7 +14,6 @@ struct MyTravelTab: View {
                 .navigationViewStyle(.stack)
                 .navigationBarTitleDisplayMode(.inline)
                 .statusBar(hidden: true)
-                .accessibilityRemoveTraits(.isImage)
         }
     }
 }

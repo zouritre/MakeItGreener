@@ -45,8 +45,8 @@ struct GetMyFootprintOverlay: View {
             .buttonStyle(.bordered)
             .cornerRadius(15)
             .shadow(radius: 10)
-            .accessibilityLabel("Get my footprint")
-            .accessibilityHint("Calculate your footprint")
+            .accessibilityLabel("Calculate footprint")
+            .accessibilityHint("Tap to get carbon footprint for this travel")
             .alert("You must select a departure and arrival location", isPresented: $missingTravelData, actions: {})
             .alert(carbonFootprintOO.errorDescription ?? "Unknown error", isPresented: $carbonFootprintOO.requestError, actions: {})
         }

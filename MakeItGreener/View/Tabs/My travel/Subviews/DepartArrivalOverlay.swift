@@ -38,9 +38,6 @@ struct DepartArrivalOverlay: View {
                     travelSearchOO.travelSide = .Arrival
                     sendUsageData(side: .Arrival)
                 }
-                .accessibilityLabel("You arrive at")
-                .accessibilityValue(travelSearchOO.arrivalLocation?.title ?? "Undefined")
-                .accessibilityHint("Arrival location")
             departureImage
                 .resizable()
                 .frame(width: 30, height: 30, alignment: .center)
@@ -49,9 +46,6 @@ struct DepartArrivalOverlay: View {
                     travelSearchOO.travelSide = .Start
                     sendUsageData(side: .Start)
                 }
-                .accessibilityLabel("You start at")
-                .accessibilityValue(travelSearchOO.departureLocation?.title ?? "Undefined")
-                .accessibilityHint("Departure location")
         }
         .background(Color.gray)
         .foregroundColor(.white)
@@ -71,6 +65,7 @@ private func sendUsageData(side: LocationLabel) {
 struct DepartArrivalOverlay_Previews: PreviewProvider {
     static var previews: some View {
         DepartArrivalOverlay()
+            .environmentObject(TravelSearchObservableObject())
         
     }
 }

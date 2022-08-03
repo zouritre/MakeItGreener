@@ -18,8 +18,12 @@ struct SettingsOverlay: View {
                     .foregroundColor(.white)
             }
             .shadow(radius: 10)
-            .accessibilityLabel("Settings")
-            .accessibilityHint("Configure your travel")
+            .accessibilityAddTraits(.isButton)
+            .accessibilityChildren {
+                Circle()
+                .accessibilityLabel("Settings")
+                .accessibilityHint("Tap to configure your travel")
+            }
     }
 }
 

@@ -32,6 +32,7 @@ struct MapView: View {
         .overlay(alignment: .topTrailing) {
             VStack(alignment: .center) {
                 DepartArrivalOverlay()
+                    .accessibilityHidden(true)
                 SettingsOverlay()
                     .onTapGesture {
                         showSheet.toggle()
