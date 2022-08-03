@@ -13,6 +13,7 @@ import Mixpanel
 class FootprintResultObservableObject: ObservableObject {
     
     init() {
+        // Used only for previewing
         self.arrivalTitle = "Paris"
         self.arrivalSubtitle = "10ème arrondissement"
         self.departureTitle = "Lyon"
@@ -24,9 +25,13 @@ class FootprintResultObservableObject: ObservableObject {
         self.imageName = "car"
     }
     
-    convenience init(with travelData: TravelData) {
+    convenience init(with travelData: TravelData?) {
         self.init()
         
+        guard let travelData = travelData else {
+            return
+        }
+
         self.travelData = travelData
         self.arrivalTitle = travelData.arrivalTitle
         self.arrivalSubtitle = travelData.arrivalSubtitle

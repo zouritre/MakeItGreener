@@ -16,7 +16,7 @@ struct TravelListPanel: View {
         ScrollView {
             LazyVStack {
                 ForEach(items) { item in
-                    TravelRow(footprintResult: FootprintResultObservableObject(with: makeTravelData(from: item)))
+                    makeTravelData(from: item)
                         .shadow(color: .white, radius: 5)
                         .padding(3)
                 }
@@ -27,18 +27,21 @@ struct TravelListPanel: View {
         Spacer()
     }
     
-    private func makeTravelData(from item: FetchedResults<Travel>.Element) -> TravelData {
-        let travelData = TravelData(arrivalTitle: item.arrivalTitle ?? "Error",
-                                    arrivalSubtitle: item.arrivalSubtitle ?? "Error",
-                                    departureTitle: item.departureTitle ?? "Error",
-                                    departureSubtitle: item.departureSubtitle ?? "Error",
-                                    distance: item.distance,
-                                    transportationType: item.transportationType ?? "Error",
-                                    footprint: item.footprint,
-                                    timestamp: item.timestamp ?? .init(timeIntervalSince1970: 111111),
-                                    imageName: item.imageName ?? "")
+    private func makeTravelData(from item: FetchedResults<Travel>.Element) -> TravelRow? {
         
-        return travelData
+        guard let arrivalTitle = item.arrivalTitle,
+              let arrivalSubtitle = item.arrivalSubtitle,
+              let departureTitle = item.departureTitle,
+              let departureSubtitle = item.departureSubtitle,
+              let transportationType = item.transportationType,
+              let timestamp = item.timestamp,
+              let imageName = item.imageName else {
+            return nil
+        }
+        
+        let travelData = TravelData(arrivalTitle: arrivalTitle, arrivalSubtitle: arrivalSubtitle, departureTitle: departureTitle, departureSubtitle: departureSubtitle, distance: item.distance, transportationType: transportationType, footprint: item.footprint, timestamp: timestamp, imageName: imageName)
+        
+        return TravelRow(footprintResult: .init(with: travelData))
     }
 }
 
