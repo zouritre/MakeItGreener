@@ -50,14 +50,10 @@ struct Co2TotalPanel: View {
             Text("My annual carbon footprint")
                 .multilineTextAlignment(.center)
                 .padding()
-                .accessibilityHidden(true)
             VStack(alignment: .center) {
                 Text(formattedTotal)
-                    .accessibilityLabel("My annual carbon footprint is")
-                    .accessibilityValue("\(formattedTotal) \(unit)")
                 Text(unit)
                     .font(.system(size: 30).bold())
-                    .accessibilityHidden(true)
             }
             .font(.system(size: 100, weight: .heavy, design: .rounded))
             .padding()
@@ -71,6 +67,11 @@ struct Co2TotalPanel: View {
             .cornerRadius(20)
             .shadow(radius: 0))
         .padding()
+        .accessibilityChildren {
+            Rectangle()
+                .accessibilityLabel("My annual carbon footprint is")
+                .accessibilityValue("\(formattedTotal) \(unit)")
+        }
     }
 }
 
