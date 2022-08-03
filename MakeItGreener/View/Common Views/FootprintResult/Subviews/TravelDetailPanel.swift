@@ -14,25 +14,37 @@ struct TravelDetailPanel: View {
         HStack {
             VStack(alignment: .center) {
                 Text(footprintResult.transportationType)
+                    .accessibilityLabel("Transportation type is")
+                    .accessibilityValue("\(footprintResult.transportationType)")
                 Image(footprintResult.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 50)
+                    .accessibilityHidden(true)
                 Text("\(footprintResult.distance) km")
+                    .accessibilityLabel("Travel distance is")
+                    .accessibilityValue("\(footprintResult.distance) km")
             }
             .padding()
             Spacer()
             VStack(alignment: .center) {
                 Text(footprintResult.departureTitle)
+                    .accessibilityLabel("Departure location is")
+                    .accessibilityValue("\(footprintResult.departureTitle), \(footprintResult.departureSubtitle)")
                 Text(footprintResult.departureSubtitle)
                     .font(.subheadline)
+                    .accessibilityHidden(true)
                 Image("arrow")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 30)
+                    .accessibilityHidden(true)
                 Text(footprintResult.arrivalTitle)
+                    .accessibilityLabel("Arrival location is")
+                    .accessibilityValue("\(footprintResult.arrivalTitle), \(footprintResult.arrivalSubtitle)")
                 Text(footprintResult.arrivalSubtitle)
                     .font(.subheadline)
+                    .accessibilityHidden(true)
             }
             .padding()
         }

@@ -14,6 +14,8 @@ struct DismissButtonView: View {
         Button("X") {
             presentationMode.wrappedValue.dismiss()
         }
+        .accessibilityLabel("Close")
+        .accessibilityHint("Tap to go back")
         .font(.system(size: 20).bold())
         .buttonStyle(.plain)
         .foregroundColor(.white)

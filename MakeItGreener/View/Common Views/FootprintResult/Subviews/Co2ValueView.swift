@@ -14,7 +14,10 @@ struct Co2ValueView: View {
         VStack(alignment: .center) {
             Spacer()
             Text("\(footprintResult.footprint)")
+                .accessibilityLabel("This travel emits")
+                .accessibilityValue("\(footprintResult.footprint) KgCO2e")
             Text("KgCO2e")
+                .accessibilityHidden(true)
                 .font(.headline)
             Spacer()
         }

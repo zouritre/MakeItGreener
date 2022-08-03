@@ -17,6 +17,7 @@ struct SaveTravelView: View {
                 footprintResult.saveTravel(in: managedObjectContext)
             }, label: {
                 Label("Save this travel", systemImage: footprintResult.saveButtonIcon)
+                    .accessibilityHint("Tap to save")
             })
             .font(.system(size: 20).bold())
             .buttonStyle(.borderedProminent)
